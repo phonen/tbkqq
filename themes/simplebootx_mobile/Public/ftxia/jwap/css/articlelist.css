@@ -1,0 +1,160 @@
+/* old-inc.css */
+.center{
+	margin:0px auto;
+}
+.a1200{
+	width:1210px;	
+}
+.mt1{
+	margin-top:8px;
+}
+.clear{
+	overflow:hidden;
+}
+.pleft2 {
+width: 100%;
+float: left;
+overflow: hidden;
+}
+.index .latestnews {
+width: 100%;
+margin-top: 8px;
+float: left;
+}
+dl.light {
+background: none;
+margin-bottom: 10px;
+}
+dl.tbox2 {
+float: left;
+width: 99.5%
+}
+.tbox {
+border: 1px solid #E0E0E0;
+overflow: hidden;
+}
+.light dt {
+height: 32px;
+line-height: 32px;
+border-bottom: 1px solid #E0E0E0;
+background: #7D7D7D;
+overflow: hidden;
+clear: both;
+}
+.latestnews dt.light strong {
+font-size: 12px;
+padding-left: 12px;
+padding-right: 8px;
+display: block;
+float: left;
+background: #FF2D5E;
+color: #ffffff;
+letter-spacing: 1px;
+border-right: 1px solid #FF2D5E;
+}
+.latestnews dt.light em.dot {
+width: 5px;
+height: 5px;
+border-radius: 5px;
+background: #fff;
+margin: 0px 3px;
+display: inline-block;
+position: relative;
+top: -1px;
+left:-5px
+}
+.latestnews dt.light i.sj-icon {
+width: 6px;
+height: 9px;
+display: inline-block;
+background: url(../images/sj-icon.gif) no-repeat;
+margin-top: 11px;
+}
+.latestnews dt.light .more{
+float: right;
+margin-right:10px;
+color:#fff;
+}
+.latestnews dt.light .more a{color:#fff;}
+.listmain dl dd.l {
+width: 100%;
+float: left;
+background:#fff;
+}
+.listmain .imglist{width:100%;height:100px}
+
+.light dd {
+overflow: hidden;
+}
+.listmain dl dd .item-top {
+padding:2%;
+width:97.5%;
+float: left;
+}
+.listmain dl dd .onem{
+width:100%;
+float: left;
+height:auto;
+border-bottom: 1px solid #e3e2d5;
+}
+.listmain dl dd .item-top img {
+float: left;
+width: 100px;
+height: auto;
+margin-right: 10px;
+padding: 2px;
+border: 1px solid #e3e2d5;
+}
+.listmain dl dd .item-top strong {
+display: block;
+height: 30px;
+line-height: 30px;
+overflow: hidden;
+width: 150px;
+}
+.listmain dl dd .item-top p {
+text-indent: 2em;
+padding-right: 8px;
+color: #666666;
+line-height: 18px;
+overflow: hidden;
+}
+.listmain dl dd ul {
+clear: both;
+}
+.d1 {
+padding: 4px 0px;
+}
+.listmain ul li{
+color: #555;
+}
+.listmain ul li .listtxt{
+width:230px;
+display: block;
+overflow: hidden;
+float:left;
+}
+
+.listmain ul li a{
+width:230px;
+
+}
+.d1 li {
+height: 27px;
+line-height: 27px;
+overflow: hidden;
+width:48%
+}
+.listmain ul li a.f60 {
+color: #C33E00;
+}
+.d1 li span {
+color: #ABA9A2;
+margin-right: 5px;
+float: left;
+}
+.d1 li span {
+color: #999;
+padding-right: 8px;
+float: right;
+}

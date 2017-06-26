@@ -1,0 +1,63 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminTaoke/detail')}">订单列表</a></li>
+    </ul>
+    <form class="well form-search" method="post" action="{:U('AdminTaoke/detail')}">
+        订单编号：
+        <input type="text" name="orderid" style="width: 200px;" value="{$formget.orderid}" placeholder="请输入订单号...">&nbsp; &nbsp;
+        日期：
+        <input type="text" name="startdate" class="js-date" value="{$formget.startdate|default=''}" style="width: 80px;" autocomplete="off">-
+        <input type="text" class="js-date" name="enddate" value="{$formget.enddate}" style="width: 80px;" autocomplete="off"> &nbsp; &nbsp;
+        <input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="act" value="export">导出
+        <input type="submit" class="btn btn-primary" value="搜索" />
+
+    </form>
+    <form method="post" class="js-ajax-form">
+        <div class="table-actions">
+            <input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="act" value="clean">清空
+            <input type="file" name="detail_file" /><button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminTaoke/detail_upload')}">上传明细</button>
+        </div>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="100">创建时间</th>
+                <th width="260">商品信息</th>
+                <th width="100">订单状态</th>
+
+                <th width="50">成交平台</th>
+
+                <th width="100">付款金额</th>
+                <th width="80">效果预估</th>
+                <th width="80">预估收入</th>
+                <th width="100">订单编号</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="details" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+                    <td>{$vo.ctime}</td>
+                    <td><a href="http://item.taobao.com/item.htm?id={$vo.gid}" target="_blank">{$vo.goods}</a></td>
+                    <td>{$vo.ostatus}</td>
+                    <td>{$vo.pingtai}</td>
+
+                    <td>{$vo.fukuan}</td>
+                    <td>{$vo.effect}</td>
+                    <td>{$vo.pre_amount}</td>
+                    <td>{$vo.orderid}</td>
+                </tr>
+            </foreach>
+            </tbody>
+
+        </table>
+        <div class="pagination">{$Page}</div>
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

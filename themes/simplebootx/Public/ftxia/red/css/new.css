@@ -1,0 +1,403 @@
+﻿body {
+background-color:#eee;
+}
+
+.main {
+background-color:#F7F7F7;
+margin-bottom:50px;
+}
+
+.left-wrapper {
+float:left;
+width:700px;
+min-height:600px;
+background-color:#fff;
+overflow:hidden;
+}
+
+.crumb {
+line-height:37px;
+color:#999;
+border-bottom:1px solid #F7F7F7;
+margin:0 10px;
+padding:0 25px;
+}
+
+.crumb em {
+font-family:SimSun,arial,sans-serif;
+margin:0 5px;
+}
+
+#content .nav {
+position:relative;
+line-height:18px;
+border:1px solid #E6E6E6;
+background-color:#FFF;
+margin:0 0 5px;
+padding:11px 5px;
+}
+
+#content .nav li {
+float:left;
+border-left:1px solid #E6E6E6;
+padding:0 18px;
+}
+
+#content .nav li.first {
+border-left-width:0;
+}
+
+#content .nav li a {
+color:#666;
+font-size:14px;
+}
+
+#content .nav li a.current {
+font-weight:700;
+}
+
+#content .nav li.version-btn {
+position:absolute;
+bottom:11px;
+right:0;
+border:0;
+}
+
+.sidebar {
+float:left;
+width:240px;
+overflow:hidden;
+padding:0 25px;
+}
+
+.sidebar img {
+vertical-align:middle;
+}
+
+.sidebar h2 {
+color:#444;
+font:700 14px/45px 'Microsoft YaHei';
+}
+
+.sidebar a:hover {
+color:#f40;
+text-decoration:none;
+}
+
+.sidebar .ellipse .l,.sidebar .ellipse .r,.sidebar .rank-red,.sidebar .rank {
+background:url(http://gtms01.alicdn.com/tps/i1/T1IhroFplbXXbmeOrg-45-45.png) no-repeat 0 0;
+}
+
+.sidebar .ellipse {
+position:relative;
+height:19px;
+line-height:19px;
+border:1px solid #e7e7e7;
+border-left:0;
+border-right:0;
+background-color:#fff;
+margin:0 14px 7px 10px;
+}
+
+.sidebar .ellipse .l,.sidebar .ellipse .r {
+position:absolute;
+top:-1px;
+width:10px;
+height:21px;
+}
+
+.sidebar .ellipse .l {
+left:-10px;
+background-position:0 -22px;
+}
+
+.sidebar .ellipse .r {
+right:-10px;
+background-position:-12px -22px;
+}
+
+.sidebar .re-channel {
+padding:10px 0 20px;
+}
+
+.sidebar .hot-tag {
+padding-bottom:15px;
+}
+
+.sidebar .hot-tag li {
+float:left;
+}
+
+.sidebar .re-top10 li {
+margin-bottom:13px;
+width:240px;
+height:20px;
+line-height:20px;
+white-space:nowrap;
+text-overflow:ellipsis;
+overflow:hidden;
+}
+
+.sidebar .rank-red,.sidebar .rank {
+display:inline-block;
+width:20px;
+height:20px;
+line-height:20px;
+color:#fff;
+font-weight:700;
+font-size:12px;
+text-align:center;
+background-position:-22px 0;
+}
+
+.sidebar .rank-red {
+background-position:0 0;
+}
+
+.sidebar .re-topic li {
+padding-bottom:20px;
+}
+
+.sidebar .hot-list a {
+white-space:nowrap;
+}
+
+.cjms-box {
+overflow:hidden;
+margin:0 35px;
+}
+
+.cjms-box .title {
+position:relative;
+font:400 18px/24px 'Microsoft YaHei';
+padding:36px 60px 36px 0;
+}
+
+.cjms-box .title,.cjms-box .title a {
+color:#444;
+}
+
+.cjms-box .title strong {
+color:#f40;
+}
+
+.non-normal .title,.non-normal .title a,.non-normal .title strong {
+color:#AFAFAF;
+}
+
+.non-normal .title .status {
+position:absolute;
+right:-2px;
+padding-left:2px;
+width:60px;
+height:22px;
+font:700 12px/22px SimSun,arial;
+color:#fff;
+text-align:center;
+background:url(http://img04.taobaocdn.com/tps/i4/T1T_VUFcXbXXavV6Tj-60-45.png) no-repeat 0 -21px;
+}
+
+.cjms-box .pic {
+position:relative;
+margin-left:43px;
+float:right;
+}
+
+.cjms-box .pic img {
+vertical-align:top;
+}
+
+.cjms-box .pic .dlink-mask,.cjms-box .pic .dlink {
+position:absolute;
+left:0;
+bottom:0;
+width:180px;
+height:30px;
+line-height:30px;
+font-family:SimSun;
+color:#fff;
+text-align:center;
+}
+
+.cjms-box .pic .dlink-mask {
+background-color:#333;
+opacity:.6;
+filter:alpha(opacity=60);
+}
+
+.cjms-box .info {
+min-height:auto;
+font-size:14px;
+line-height:26px;
+color:#666;
+}
+
+.cjms-box .info a {
+color:#06D;
+}
+
+.cjms-box .info p,.cjms-box .info div {
+margin-bottom:23px;
+}
+
+.cjms-box .info img {
+_margin:0!important;
+}
+
+.zdm-operate-area .zdm-share-icon,.zdm-operate-area .comment-icon,.zdm-zhi-btn .tbc-dig-button {
+background-image:url(http://gtms02.alicdn.com/tps/i2/T1ZbrnFAhaXXcZTi_e-160-50.png)!important;
+}
+
+.zdm-zhi-btn .tbc-dig-count,.zdm-zhi-btn .tbc-dig-count span,.zdm-zhi-btn .tbc-dig-button .tbc-dig-icon s {
+background-image:none!important;
+}
+
+.zdm-zhi-btn {
+display:inline-block;
+line-height:20px;
+vertical-align:middle\9;
+}
+
+.zdm-zhi-btn .tbc-dig-count {
+padding-left:2px!important;
+width:35px!important;
+color:#999!important;
+}
+
+.zdm-zhi-btn .tbc-tb-dig-tip {
+height:21px!important;
+top:-30px!important;
+width:90px!important;
+}
+
+.zdm-zhi .tbc-dig-button {
+width:28px!important;
+background-position:0 -27px!important;
+}
+
+.zdm-zhi .tbc-dig-button:hover {
+background-position:0 0!important;
+}
+
+.zdm-buzhi .tbc-dig-button {
+width:28px!important;
+background-position:-49px -27px!important;
+}
+
+.zdm-buzhi .tbc-dig-button:hover {
+background-position:-49px 0!important;
+}
+
+.zdm-operate-area {
+margin-top:5px;
+height:35px;
+border-bottom:1px dashed #d2d2d2;
+}
+
+.zdm-operate-area .p-time {
+float:right;
+line-height:35px;
+color:#a7a7a7;
+}
+
+.zdm-operate-area .comment-count {
+display:inline-block;
+width:150px;
+line-height:35px;
+color:#999;
+}
+
+.zdm-operate-area .go-comment-link,.zdm-operate-area .go-comment-link:hover {
+line-height:35px;
+color:#666!important;
+}
+
+.zdm-operate-area .comment-icon {
+margin-right:5px;
+display:inline-block;
+width:16px;
+height:14px;
+background-position:-115px -29px;
+vertical-align:middle;
+}
+
+.zdm-operate-area .go-comment-link:hover .comment-icon {
+background-position:-115px -3px;
+}
+
+.zdm-operate-area .zdm-share-icon {
+display:inline-block;
+width:10px;
+height:14px;
+vertical-align:middle;
+background-position:-146px -30px;
+margin:0 5px;
+}
+
+.zdm-operate-area .zdm-share {
+color:#666;
+cursor:pointer;
+}
+
+.zdm-operate-area .zdm-share:hover {
+text-decoration:underline;
+}
+
+.zdm-operate-area .zdm-share:hover .zdm-share-icon {
+background-position:-146px -4px;
+}
+
+#content {
+margin-top:15px;
+}
+
+.item-list .last {
+padding-bottom:30px;
+}
+
+.item-list .last .zdm-operate-area {
+border-bottom:0;
+}
+
+.cjms-box .limit-info {
+position:relative;
+height:180px;
+_width:404px;
+overflow:hidden;
+}
+
+.cjms-box .btn-topic-operate {
+display:inline-block;
+width:67px;
+color:#06D;
+margin:5px 0 0 340px;
+}
+
+.cjms-box .btn-topic-operate s {
+display:inline-block;
+width:18px;
+height:18px;
+background:url(http://img04.taobaocdn.com/tps/i4/T1T_VUFcXbXXavV6Tj-60-45.png) no-repeat 0 0;
+vertical-align:middle;
+}
+
+.cjms-box .btn-topic-operate-up s {
+background-position:-19px 0;
+}
+
+.not-loaded .info {
+color:#fff;
+background:url(http://img01.taobaocdn.com/tps/i1/T1cKm3XkRpXXXXXXXX-48-48.gif) no-repeat center center;
+}
+
+.crumb a,.sidebar a {
+color:#666;
+}
+
+.sidebar .re-top10,.sidebar .re-topic {
+padding-bottom:10px;
+}
+
+.zdm-zhi-btn .tbc-dig-count .c,.zdm-zhi-btn .tbc-dig-button .tbc-dig-button-title,.not-loaded .btn-topic-operate {
+display:none;
+}

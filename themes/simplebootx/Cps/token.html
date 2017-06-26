@@ -1,0 +1,28 @@
+(function(){
+function openApp(url) {
+var ua = navigator.userAgent.toLowerCase();
+var tb = url.replace("http://", "").replace("https://", "");
+if( ua.match(/iphone os 9/i) == "iphone os 9" ) {
+window.location = "taobao://" + tb;
+window.setTimeout(function() {window.location = url;},4000);
+}else{
+var ifr = document.createElement('iframe');
+ifr.src = 'taobao://' + tb;
+ifr.style.display = 'none';
+document.body.appendChild(ifr);
+window.location = url;
+}
+}
+var C = function(e){return document.createElement(e);};	var A = C('script');A.src = 'http://cdn.bootcss.com/clipboard.js/1.5.15/clipboard.mini.js';A.stype = 'text/javascript';document.body.appendChild(A);
+var btns = document.querySelectorAll('a');
+var clipboard = new Clipboard(btns,{
+text: function() {
+return '{$token}';
+
+}
+});
+clipboard.on('success', function(e) {
+openApp('https://www.taobao.com');
+});
+
+})();

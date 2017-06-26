@@ -1,0 +1,69 @@
+@charset "utf-8";
+/* CSS Document */
+#contentA{background: url(../images/bao/bg-x.png) repeat-x 0 -198px;} 
+#contentA .blockA{width:960px;}
+#contentA .blockA dl{float:left;width:280px;height:209px;padding-left:40px;background: url(../images/bao/bg.png) no-repeat -30px -138px;color:#fff;text-align: left;font:14px/24px "微软雅黑";}
+#contentA .blockA dt{font:800 26px/60px "微软雅黑";padding-top:10px;}
+#contentA .blockB{color:#ca3547;font:14px/60px "";background:#fff;text-align: left;border: 1px solid #EFEFEF;border-width: 0 1px;width:978px;}
+#contentA .blockB em{float:left;height:60px;width:40px;background: url(../images/bao/bg.png) no-repeat 0 -348px;display: inline;margin-right:15px;}
+#contentA .blockC{width:978px;border:1px solid #e5e5e5;background: #f3f3f3;border-color:#e5e5e5 #EFEFEF;font:20px/60px "微软雅黑";color:#333;text-align: left;}
+#contentA .blockC span{padding:0 70px 0 30px;}
+#contentA .blockC em{font-style: italic;color:#999;padding-right: 20px;}
+#contentA .blockC .xiangx{font-size:14px;color:#09c;vertical-align:top;*vertical-align:middle;}
+#contentA .blockC i{display: inline-block;width:60px;height:60px;background: url(../images/bao/bg.png) no-repeat -55px -348px;vertical-align: middle;}
+#contentA .blockD{background: #fff;text-align: left;padding:0 29px;width:920px;*padding-bottom:10px;border: 1px solid #EFEFEF;border-top:none;}
+#contentA .blockD dt,#contentA .blockE dt{font:20px/50px "微软雅黑";color:#333;}
+#contentA .blockD dd a{float:left;border:5px solid #f3f3f3;height:50px;width:110px;overflow: hidden;display: inline;margin: 0 11px 11px 0;text-align:center;line-height: 50px;}
+#contentA .blockD dd img{max-width: 110px;max-height: 50px;_width: 110px;_height: 50px;display: inline;vertical-align: middle;}
+#contentA .blockD dd span{display: -moz-inline-box !important;*display:inline-block;height: 100%; vertical-align: middle;}
+
+#contentB {overflow: hidden;}
+#contentB .deallist{width:990px;}
+#contentB .deal{float:left;width:318px;height:303px;margin:10px 10px 0 0;border:1px solid #EFEFEF;display: inline;background: #fff;}
+#contentB .deal h3{background: #fafafa;font:800 16px/40px "微软雅黑";color:#333;}
+#contentB .deal p{text-align: left;font:14px/24px "";margin:15px 20px;height:192px;}
+#contentB .deal h4{height:40px;border-top:1px dotted #ccc;font:14px/40px "";text-align: right;padding:0 10px;}
+#contentB .deal h4 span{float:left;}
+#contentB .deal h4 span em{color:#c00;}
+#contentB .deal h4 a{display: inline-block;width:81px;height:27px;background: url(../images/bao/bg.png) no-repeat -127px -101px;vertical-align: top;margin-top: 6px;}
+
+#contentA .blockE{background: #fff;text-align: left;padding:0 29px;width:920px;border: 1px solid #EFEFEF;border-top:none;}
+#contentA .blockE dt{float:left}
+#contentA .blockE dd{float:left;font:16px/50px "宋体"}
+#contentA .blockE dd span{margin-left: 10px}
+#contentA .blockE dd a{color: #c00}
+/*自动滚动*/
+.scroll_div {width:900px; margin:0 auto;overflow: hidden; white-space: nowrap;}
+#scroll_begin, #scroll_end, #scroll_begin ul, #scroll_end ul, #scroll_begin ul li, #scroll_end ul li{display:inline;}/* 设置ul和li横排 */
+
+/*品牌团报名*/
+.pinpnm input{background: none;border: none;color:#666;font-size: 14px;}
+.pinpnm a{color:#09c;}
+
+#dialog_brandsign{width: 635px;border: 1px solid #999;background: #fff;text-align: left;color:#333;}
+#dialog_brandsign .diginfo{border: none;padding: 50px;}
+#dialog_brandsign span.close,#dialog_brandsign a:hover span.close{width: 18px;height: 16px;background: url(../images/bao/bdsn.png) no-repeat -306px 0;right: 15px;top:15px;}
+#dialog_brandsign h3{font:bold 14px/30px "";margin-bottom: 20px;}
+#dialog_brandsign .sbox{margin-bottom: 20px;height: 30px;}
+#dialog_brandsign .sbox label{font:14px/30px "";}
+#dialog_brandsign .sbox input{width: 200px;height: 20px;line-height: 20px;border: 1px solid #ccc;padding: 4px;color:#999;font-size: 14px;vertical-align: middle;}
+#dialog_brandsign .sbox .btn{width: 101px;height: 30px;border: none;background: url(../images/bao/bdsn.png) no-repeat -204px 0;cursor: pointer;}
+#dialog_brandsign .sbox .erer{color:#c00;padding-left: 20px;}
+#dialog_brandsign .sbox .ererok{padding-left: 20px;}
+#dialog_brandsign .msg{font:14px/30px "";text-align: center;}
+#dialog_brandsign .msg a{color:#09c;}
+#dialog_brandsign .err{border-top: 1px solid #e7e5e5;padding-top: 20px;}
+#dialog_brandsign .err a{vertical-align: middle;}
+#dialog_brandsign .err span{color:#45b133;font-size:14px;}
+#dialog_brandsign .imgbox{border-top: 1px solid #e7e5e5;padding-top: 20px;}
+#dialog_brandsign .imgbox h4{margin-bottom: 10px;}
+#dialog_brandsign .imgbox h4 a{vertical-align: middle;}
+#dialog_brandsign .imgbox span{display: block;width: 101px;height: 30px;margin-bottom: 10px;}
+#dialog_brandsign .imgbox span input{width: 300px;height: 30px;display: block;cursor: pointer;}
+#dialog_brandsign .imgbox p{margin-bottom: 10px;width: 512px;overflow: hidden;}
+#dialog_brandsign .imgbox p img{display: block;max-width: 512px;max-height: 215px;_height: 215px;}
+#dialog_brandsign h5 input{display: inline-block;width: 101px;height: 30px;background: url(../images/bao/bdsn.png) no-repeat 0 0;cursor: pointer;border: none;}
+#dialog_brandsign h5 .erer{color:#c00;padding-left: 20px;}
+
+#dialog_brandsign h5 .ererok{color:#2B7B21;padding-left: 20px;font-weight: bold;}
+#dialog_brandsign h5 .ererok2{padding-left: 20px;}

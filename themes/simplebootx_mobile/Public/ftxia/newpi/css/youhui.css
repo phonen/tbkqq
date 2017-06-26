@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*-------------内容-------------*/
+.promo_bj { background: #f8e5dc; background: -moz-linear-gradient(top, #f8e5dc 0, #F3F3F3 100%); background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f8e5dc), color-stop(100%, #F3F3F3)); background: -webkit-linear-gradient(top, #f8e5dc 0, #fafafa 100%); background: -o-linear-gradient(top, #f8e5dc 0, #F3F3F3 100%); background: -ms-linear-gradient(top, #f8e5dc 0, #F3F3F3 100%); background: linear-gradient(to bottom, #f8e5dc 0, #F3F3F3 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f8e5dc', endColorstr='#fafafa', GradientType=0);
+}
+.promo_main { margin-top: 20px; }
+/*---商品列表---*/
+#item_list { width: 1040px; overflow: visible; display: table; }
+.tl_goods { width: 940px; position: relative; margin: 0 17px 17px 0; float: left; display: block; background: #FFFFFF; border: 1px solid #d3d3d3; border-color: rgba(0,0,0,.15);}
+.tl_goods:hover { border-color: #00A2E8; outline: #00A2E8 solid 1px; -webkit-box-shadow: 0 0 5px #00A2E8; -moz-box-shadow: 0 0 5px #00A2E8; box-shadow: 0 0 5px #00A2E8; }
+.tl_goods a { text-decoration: none; color: #ae764b; }
+.tl_goods a em { color: #00A2E8; }
+.tl_goods img { width: 460px; height: 307px; display: block; }
+.tl_goods .status { position: absolute; height: 307px; overflow: hidden; top: 0; left: 480px; right: 20px; }
+.tl_goods .status h3 { height: 27px; line-height: 27px; padding: 21px 28px 21px 0; font-weight: 400; color: #333; font-size: 18px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; border-bottom: 1px dotted #DDD; }
+.tl_goods .status ul.intro { height: 120px; margin: 10px 0 5px; color: #9b9b9b; font-size: 14px; overflow: hidden; line-height: 20px; }
+.tl_goods .status ul.intro li { position: relative; float: none; height: 20px; overflow: hidden; list-style: disc inside; white-space: nowrap; text-overflow: ellipsis; }
+.tl_goods .status .desc { position: absolute; width: 440px; left: 0; bottom: 20px; }
+.tl_goods .status .desc .lead { font-size: 14px;color: #00A2E8;float: left;}
+.tl_goods .status .desc .action { position: absolute; width: 120px; height: 40px; line-height: 40px; right: 0; bottom: 0px; color: #fff; font-size: 16px; text-align: center; -webkit-border-radius: 3px; -webkit-background-clip: padding-box; -moz-border-radius: 3px; -moz-background-clip: padding; border-radius: 3px; background-clip: padding-box; background: #00A2E8; }
+/*横向导航*/
+.transverse_nav { min-width: 1200px; height: 50px; background: #FFFFFF; }
+.transverse_nav .subNav { position: relative; width: 1150px; height: 50px; margin: 0 auto; }
+.transverse_nav .subNav ul li { display: block; float: left; margin-right: 10px; display: inline; margin-top: 15px; }
+.transverse_nav .subNav ul li a { position: relative; height: 22px; line-height: 20px; color: #666; padding: 0 10px; text-align: center; display: inline-block; border-radius: 2px; }
+.transverse_nav .subNav ul li a:hover { text-decoration: underline; color: #666; }
+.transverse_nav .subNav ul li a.on { color: #e63b53; background: #e2e2e2; text-decoration: none; }

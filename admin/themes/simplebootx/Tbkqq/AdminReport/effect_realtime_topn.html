@@ -1,0 +1,37 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminReport/effect_realtime_topn')}">实时效果排名表</a></li>
+    </ul>
+
+    <form method="post" class="js-ajax-form">
+
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="100">代理名称</th>
+                <th width="100">效果预估</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="effects" item="vo" key="k">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+
+                    <td>{$k}</td>
+                    <td>{$vo}</td>
+                </tr>
+            </foreach>
+            </tbody>
+
+        </table>
+
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

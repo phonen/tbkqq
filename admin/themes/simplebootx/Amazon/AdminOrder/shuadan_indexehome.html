@@ -1,0 +1,68 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminOrder/shuadan_indexehome')}">刷单列表</a></li>
+    </ul>
+
+    <form method="post" class="js-ajax-form">
+
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="30">ID</th>
+                <th width="50">日期</th>
+                <th width="80">IP</th>
+                <th width="100">帐号</th>
+
+                <th width="80">卖家商品</th>
+
+                <th width="200">购物券</th>
+                <th width="80">账户余额</th>
+                <th width="80">刷单人</th>
+
+                <th width="180">备注</th>
+                <th width="50">状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="orders" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.odate}</td>
+                    <td>{$vo.lastip}</td>
+                    <td>{$vo.a_id}</td>
+
+                    <td>{$product[$vo[p_id]]}</td>
+
+                    <td>{$vo.cardno}</td>
+                    <td>{$vo.amount}</td>
+                    <td>{$vo.userid}</td>
+                    <td><font color="red" >{$vo.memo}</font></td>
+
+                    <php>$type=array("b"=>"刷单","c"=>"add cart","w"=>"add wishlist");</php>
+                    <td>{$type[$vo['type']]}</td>
+                    <php>$status=array("1"=>"在刷","0"=>"未刷","-1"=>"异常","2"=>"已刷");</php>
+                    <td>{$status[$vo['status']]}</td>
+                    <td>
+                        <php>if($vo['status'] == '0' || ($vo['status'] == '1' && $vo['userid'] == $_SESSION['name'])){
+                            </php>
+                        <a href="{:U('AdminOrder/shuadan',array('id'=>$vo['id']))}">刷单</a> |
+                        <php>
+                            }</php>
+                    </td>
+                </tr>
+            </foreach>
+            </tbody>
+
+        </table>
+        <div class="pagination">{$Page}</div>
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

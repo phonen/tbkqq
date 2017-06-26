@@ -1,0 +1,226 @@
+.r_con{float:right;color:#9a0c0a;font-size:0;_width:320px;position: relative;*z-index: 999;height:35px;}
+.r_con a,.r_con {color:#fff;padding:0 15px 0 0;_border-right: none;_zoom:1;}
+.r_con{position:relative;padding-right: 0px;background-color:#A9120E}
+.r_con .open{_height:26px;}
+.r_con .yg_wrap{float:left;position: relative;display: inline-block;_float: left;overflow: hidden;height: 34px;width: 88px;}
+.r_con .yg i{color: #dd0001;border-right: 1px solid #dd0001;position: absolute;height: 17px;right: 0;top: 50%;margin-top: -8px;_line-height: 0;}
+.r_con .yg{padding-right: 15px;padding-right:5px\9;padding-left: 10px;*height: 35px;*line-height: 36px;overflow: hidden;}
+.r_con a:hover{text-decoration: none;color: white;}
+.r_con .zhe_intro,.sign_panel{float: left;}
+.r_con .zhe_intro,.r_con .sign_panel{_height: 25px;_padding-top: 9px;}
+.r_con .zhe_intro .line_left{_line-height:0;position: absolute;left: 0px;top: 50%;height: 17px;_height: 17px;border-left: solid 1px #bb120f;margin-top: -8px;}
+.r_con .zhe_intro .trigger{padding-left: 25px;position: relative;}
+.r_con .zhe_intro {padding-left: 0px}
+.r_con a.on{display: inline-block;*display: inline;*zoom:1;height: 35px;}
+
+.r_con .tooltip{right: 0;top: -65px}
+.r_con .tooltip a{padding: 0;color:#09c;border: none;position: static;}
+.r_con .tooltip .tooltip-arrow{left: auto;right: 30px}
+.r_con{font-size:14px}
+.r_con .signin{border-right:0;padding:0 15px 0 15px}
+.r_con .signin i.icon-mini{background-position: -30px 0 !important;width: 11px;height: 11px;right: 10px;margin: 0;_top:5px;}
+.r_con a.signin:hover i{background-position:0px -20px;}
+.r_con .signin_on .signin i,.r_con .signin_on a.signin:hover i{background-position:-20px -20px;}
+.r_con .zhe_notice{display:inline-block;*display:inline;*zoom:1;}
+.r_con .zhe_notice.active{color:#e02f2f;font-weight:bold;background:#fff;}
+.r_con .zhe_intro .trigger{text-decoration: none;_border-right: none;}
+.r_con .zhe_intro .open .trigger{color:#FFF;border-color:transparent;}
+.r_con .zhe_intro .icon-arrow{display:inline-block;*display:inline;*zoom:1;height:0;line-height: 0;width:0;vertical-align:middle;border-width:3px;border-style:solid;margin-left:3px;border-color:#eca6a4 #cf201c #cf201c #cf201c;_overflow:hidden;}
+.r_con .open .icon-arrow{display:inline-block;*display:inline;*zoom:1;height:0;line-height: 0;width:0;vertical-align:middle;border-width:3px;border-style:solid;margin-left:3px;border-color:#eca6a4 #bb120f #bb120f #bb120f;_overflow:hidden;}
+.r_con .open{color:#FFF;background:#ec1611;border-bottom:none;*z-index:999;}
+.r_con .dropdown .arrow-down{-webkit-transition:-webkit-transform ease .3s;-moz-transition:-moz-transform ease .3s;-webkit-transform-origin:3px 1.5px;-moz-transform-origin:3px 1.5px;}
+.r_con .dropdown{border-top:none;border-bottom: none;}
+
+.r_con .dropdown-menu li a{color:#333;padding:0 0 0 25px;border-right:none;font-size:12px;}
+
+.r_con .dropdown-menu a{border-right:none;}
+.r_con .dropdown-menu a:hover{_color: #333;}
+/*修改签到样式，已签状态下父级样式名sign_panel替换为sign_board*/
+.dropdown.sign_panel,.dropdown.sign_board{border:none;background:none;*z-index:999;}
+.sign_panel .dropdown-menu{font:12px/20px "";color:#666;width:190px;left:auto;right:0;}
+.sign_panel .dropdown-menu b{color:#e02f2f}
+.sign_panel .dropdown-menu .gotuan{margin-top:10px;padding-top:10px;border-top: 1px dotted #999999; }
+.r_con .sign_panel{height:35px;width: 135px;}
+.r_con .sign_panel a.signin{width: 120px;height: 50px;display: block;background: url(../images/qd_icon.png) no-repeat 103px 2px;}
+.r_con .sign_panel a.signin:hover {
+background-position: 103px 2px;
+}
+.r_con:hover {
+color: #FFF;
+background: #ec1611;
+border-bottom: none;
+}
+.r_con a.signin.qdicon pre b{display:inline-block;}
+.r_con a.signin.qdicon:hover pre b{-webkit-transform: rotateY(360deg);-o-transform:rotateY(360deg); -moz-transform:rotateY(360deg);transform: rotateY(360deg);-webkit-transition: all 1000ms ease-out 0.2s;transition: all 1000ms ease-out 0.2s;-o-transition: all 1000ms ease-out 0.2s;-moz-transition: all 1000ms ease-out 0.2s;}
+.r_con .signin.qdicon{position: absolute;left: -16px;top: -11px;}
+.r_con .signin.yqdicon{position: absolute;left: -16px;top: -11px;}
+.r_con .sign_panel a.signin:hover{background-position: 103px 2px;}
+.r_con .sign_board a.signin:hover{background-position: 105px 7px;}
+.r_con .sign_board{height: 35px;width: 135px;}
+.r_con .sign_board a.signin.qdicon{width: 151px;height: 50px;display: block;padding:1px;background: url(../images/qd_icon.png) no-repeat 103px 0;}
+.r_con .sign_panel dl a{color:#1b80a9;font-size:12px;padding:0}
+.r_con .sign_panel dl a:hover{color:#ff6000;}
+.sign_panel dl dt,.sign_panel dl dd{padding:10px 0;}
+.sign_panel dl dd{background:#f0f0f0;padding:10px;color:#cccccc}
+.sign_panel dl dt{text-align:center;}
+.sign_panel dl dd span{color:#666;}
+.sign_panel dl dd .addQQ{color:#666;margin-top: 6px;}
+.sign_panel dl dd .addQQ span{color:#e02f2f;font-weight: bold;}
+.sign_panel.open .signin:hover{_color: #fff;}
+.r_con .signin{white-space: nowrap;}
+
+/*.versiontip{*right:auto;*display: block;}*/
+.r_con a pre {
+line-height: 35px;
+left: 35px;
+position: absolute;
+top: 12px;
+}
+pre, xmp, plaintext, listing {
+display: block;
+font-family: monospace;
+white-space: pre;
+margin: 1em 0px;
+}
+.r_con a pre b {
+color: #000;
+font: 20px/25px "Myriad Pro";
+margin-left: 22px;
+}
+.r_con a.signin.qdicon pre b {
+display: inline-block;
+}
+.check-main{
+	display:none;
+	font: 12px/25px "ו";
+}
+.check-main{
+	display:none;
+	font: 12px/25px "ו";
+}
+
+.r_con:hover .check-main{
+	display:block;	
+}
+.checkBar-part{
+	width:194px;
+	height:207px;
+	position:absolute;
+	top:35px;
+	right:-28px;
+	border:2px solid #DA2634;
+	border-top:none;
+	z-index:99;
+	color: #000;
+}
+.checkBar-part-top{
+	background:#FFF;
+	height:110px;
+}
+.checkBar-part-top a:hover{
+	color: #D40F30;
+}
+.checkBar-part-bottom{
+	background:#F4F1F1;
+	height:97px;
+}
+.checkBar-part-top h1{
+	width:157px;
+	text-align:center;
+	font-weight:normal;
+	margin:0 auto;
+	height:34px;
+	color:#DA2634;
+	line-height:34px;
+	border-bottom:1px dashed #0D0D0D;
+}
+.checkBar-part-top p{
+	height:20px;
+	line-height:30px;
+	width:150px;
+	margin:0 auto;
+	text-align:center;
+	color: #000;
+}
+.checkBar-part-top p span{
+	color:#DA2634;
+}
+.checkBar-part-top p span b{
+	margin-right:5px;
+	font-weight:bold;
+}
+.checkBar-part-top p a{
+	color:#048BD8;
+	text-decoration:underline;
+	margin-right:10px;
+}
+.checkBar-part-bottom p{
+	height:30px;
+	line-height:30px;
+	width:150px;
+	margin:0 auto;
+	text-align:center;
+}
+
+.checkBar-part-bottom p a{
+	color:#048BD8;
+	margin:0 2px;
+}
+
+.checkBar-part-bottom p a:hover{
+	color:#D40F30;
+}
+
+.checkBar-part-bottom p b{
+	margin:0 5px;
+	font-weight:bold;
+	color:#DA2634;
+}
+
+.checkBar-part-checked {
+	width: 450px;
+	height: 320px;
+	padding:10px 20px 20px 20px;
+	position: absolute;
+	top: 40px;
+	right: 0px;
+	border: 2px solid #DA2634;
+	border-top: none;
+	z-index: 99;
+	background:#FFF;
+}
+
+.checkBar-part-checked .checked-top{
+	width:100%;
+	height:50px;
+}
+
+.checked-top img{
+	width:50px;
+	height:50px;
+	float:left;
+}
+
+.checked-top p{
+	float:left;
+	line-height:25px;
+}
+
+.checked-top p span{
+	padding-left: 20px;
+}
+
+.checkBar-part-checked em{
+	color:#d40f30;
+	font-weight:bold;
+}
+
+.checkBar-part-checked a{
+	color:#1b80a9;
+	padding-left:10px;
+}
+
+.checkBar-part-checked a:hover{
+	color:#d40f30;
+}
+

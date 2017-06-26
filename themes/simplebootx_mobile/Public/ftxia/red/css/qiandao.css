@@ -1,0 +1,57 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/* 全局CSS定义 */
+
+.area{zoom:1}
+.area{width:100%;margin:0 auto;}
+.area:after{content:".";display:block;visibility:hidden;height:0;clear:both;}
+
+.l{display:inline;float:left;}
+.r{float:right;}
+.area{width:980px;}/*页面属性 */
+
+#head_nav{width:100%; background:#cf201c; height:35px;line-height:34px;}
+/*#head_nav .area{height:35px;}*/
+.head_nav .l{position: relative;text-align:center}
+.head_nav .l a{width:88px;float:left;height:35px;overflow: hidden;position:relative;}
+.head_nav .l a i,i.line{position:absolute;height:17px;right:0;top:50%;margin-top:-8px;_line-height:0;}
+.head_nav .l a.first{border-left:1px solid #d7412c;}
+.head_nav .l a.on i{display:none}
+.head_nav .l a i{color: #bb120f;border-right: 1px solid #bb120f;}
+.on i.line,.open i.line{display: none;}
+.head_nav .l a.on,.head_nav .l a.on:hover,.head_nav .r_con a.on,.head_nav .r_con a.on:hover{background: #bb120f;color:#FFF;font-weight:bold;}
+.head_nav .l a:hover{background: #bb120f;}
+.head_nav .l a,.head_nav .r a{color:#fff;font:14px/35px "";}
+.head_nav .l a{ text-decoration:none;}
+
+
+/*解决逛页面样式冲突*/
+.sign_board .bd .article .tit,.sign_board .bd .side .tit{width: auto;margin-bottom: 0;border: none;}
+
+.sign_board .bd .side .tit{font: 14px/30px "宋体";color: #e20000;padding-left: 30px;background: url(../images/zhe800/icon_heart.png) no-repeat 10px 8px #fef096;_background-image: url(../images/zhe800/icon_heart.png);}
+.sign_board .bd .side .con{border: 1px solid #fef096; border-top: none;height: 160px;background:#fdfaec;padding: 30px 10px 0;position: relative;font: 12px/20px "宋体";}
+.sign_board .bd .side .con h3{color: #333;}
+.sign_board .bd .side .con p{color: #999;margin-top: 10px;}
+.sign_board .bd .side .con i.icon_ft{background: url(../images/zhe800/qd_ft.png);position: absolute;right: -1px;bottom: -1px;width: 27px;height: 28px;_bottom:-2px;_right:-2px;}
+.sign_board .ft{padding-top: 15px;font:12px/22px "宋体";}
+.sign_board .ft .article{white-space: nowrap;}
+.sign_board .ft .side{width:195px;}
+.sign_board .ft h3{font-weight: bold;}
+.sign_board .ft em{color: #e20000;font-family: arial;}
+.sign_board .ft b{font:bold 14px/22px Arial;}
+
+.head_nav .r_con a .icon-mini{top:4px;right:5px;top: 1px\9;right:2px\9;}
+.head_nav .r_con a.on .icon-mini{top: 5px;right: 6px;top: 1px\9;right:1px\9;}
+.head_nav .r_con a.on{*background: #bb120f;}
+
+.head_nav .r{text-align:left;padding-right:80px;position: relative;z-index: 10000;}
+.head_nav .r a.on{color:#ffd696}
+.head_nav .r a{margin:0 10px;display:inline-block;}
+.head_nav .r a.alink{margin-left:110px;}
+.head_nav .r em{width:2px;font:0/0 ""; height:40px; background:url(../images/zhe800/tao_20125.16bg2.png) -239px -63px no-repeat; display:inline-block; vertical-align:top}
+.head_nav .r i{width:14px; height:38px; background:url(../images/zhe800/tao_20125.16bg2.png) -241px -63px no-repeat; float:left;margin-right:10px}
+.head_nav .r i.i1{ background-position:-241px -63px}
+.head_nav .r i.i2{ background-position:-256px -63px}
+.head_nav .l .zhibg{width:36px;height:15px;display:inline-block;background:url(../images/zhe800/top_icon_2.png);_background:url(../images/zhe800/top_icon_2.png);position: absolute;top:0;left: 205px;}
+.head_nav .l span.n{display: none;width: 13px;height: 11px;position: absolute;left:276px;top:10px;background: url(../images/zhe800/icon.png) no-repeat -92px 0;overflow: hidden;}
+

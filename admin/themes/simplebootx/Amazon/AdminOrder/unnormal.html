@@ -1,0 +1,58 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminOrder/index')}">异常单列表</a></li>
+    </ul>
+
+    <form method="post" class="js-ajax-form">
+
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="50">ID</th>
+                <th width="80">日期</th>
+                <th width="80">IP</th>
+                <th width="100">帐号</th>
+
+                <th width="80">卖家商品</th>
+
+                <th width="100">购物券</th>
+                <th width="80">账户余额</th>
+                <th width="80">刷单人</th>
+                <th width="50">状态</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="orders" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.odate}</td>
+                    <td>{$vo.lastip}</td>
+                    <td>{$vo.username}</td>
+
+                    <td>{$vo.product}</td>
+
+                    <td>{$vo.cardno}</td>
+                    <td>{$vo.amount}</td>
+                    <td>{$vo.userid}</td>
+                    <php>$status=array("1"=>"在刷","0"=>"未刷","-1"=>"异常","2"=>"已刷");</php>
+                    <td>{$status[$vo['status']]}</td>
+                    <td>
+                        <a href="{:U('AdminOrder/changeusername',array('id'=>$vo['id']))}">更换帐号</a> |
+                        <a href="{:U('AdminOrder/edit',array('id'=>$vo['id']))}">修改</a>
+                    </td>
+                </tr>
+            </foreach>
+            </tbody>
+
+        </table>
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

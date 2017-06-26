@@ -1,0 +1,32 @@
+﻿@charset "utf-8";
+body,div,dl,dt,dd,ul,li,h3{margin:0;padding:0;}
+body{color:#333;font:12px/1.5 arial;}
+li{list-style:none;}
+a:link,a:visited,a:active{color:#333;text-decoration:none;}
+img{border:none;}
+/* box */
+#box{width:740px;margin:10px auto;}
+#container{position:relative;height:232px;background:#FCFCFC;}
+#container .item{position:absolute;top:0;left:0;width:492px;height:230px;overflow:hidden;background:#FAFAFA;border:1px solid #ddd;z-index:1;opacity:1;}
+#container .item .pic{float:left;width:210px;height:200px;display:inline;margin:15px;}
+#container .item .pic img{width:210px;height:200px;vertical-align:top;}
+#container .item .txt{float:left;width:250px;margin-top:12px;}
+#container .item .txt dt{font-size:14px;font-weight:700;}
+#container .item .txt .info{color:#999;}
+#container .item .txt dd{height:24px;line-height:24px;}
+#container .item .txt dd span{float:left;}
+#container .item .txt .star{position:relative;float:left;height:12px;width:69px;margin:6px 0 0 5px;}
+#container .item .txt .star .star_red{position:absolute;top:0;left:0;height:12px;width:69px;z-index:2;background:#fff}
+#container .item .txt .star .star_grey{background:#fff;height:12px;width:69px;}
+#container .item .txt .pink,#container .item .txt .blue,#container .item .txt .green{color:#FFF;font-weight:700;margin-right:2px;background:#F66B5B;padding:0 5px;}
+#container .item .txt .blue{background:#96BAE7;}
+#container .item .txt .green{background:#9CDBC3;}
+#container .item .txt .comment{width:232px;height:99px;margin-top:10px;background:#FFF;border:1px solid #EAEAEA;}
+#container .item .txt .comment h3{font-size:12px;font-weight:400;height:24px;line-height:24px;border-bottom:1px solid #E9E9E9;padding:0 10px;}
+#container .item .txt .comment .comment_list{width:220px;height:60px;overflow:hidden;margin:8px 0 0 10px;}
+#container .item .txt .comment .comment_list ul{width:220px;}
+#container .item .txt .comment .comment_list ul li{height:20px;line-height:20px;white-space:nowrap;}
+#container .item .txt .comment .comment_list ul li b{color:#999;font-weight:400;}
+#control{height:37px;text-align:center;background:#fff;}
+#control span{width:8px;height:8px;font-size:0;line-height:0;cursor:pointer;display:inline-block;background-color:#FEFEFE;border:1px solid #BCC1C5;margin:13px 2px 2px;}
+#control span.active{background-color:#848484;border:1px solid #6E6E6E;}

@@ -1,0 +1,81 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('AdminAccount/index')}">帐号列表</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form" action="{:U('AdminAccount/edit_post')}">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label">ID:</label>
+					<div class="controls">
+						{$account.id}
+					</div>
+				</div>
+				
+				<div class="control-group">
+					<label class="control-label">帐号:</label>
+					<div class="controls">
+						<input type="text" name="account[username]" value="{$account.username}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">密码:</label>
+					<div class="controls">
+						<input type="text" name="account[password]" value="{$account.password}">
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">地    址:</label>
+					<div class="controls">
+						<input type="text" name="account[address]" value="{$account.address}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">      州:</label>
+					<div class="controls">
+						<input type="text" name="account[province]" value="{$account.province}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">账户余额</label>
+					<div class="controls">
+						<input type="text" name="account[amount]" value="{$account.amount}"  required placeholder="请输入亚马逊帐号余额">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">最后登陆IP:</label>
+					<div class="controls">
+						<input type="text" name="account[lastip]" value="{$account.lastip}" required placeholder="请输入代理IP">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">备注:</label>
+					<div class="controls">
+						<input type="text" name="account[memo]" value="{$account.memo}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">状态：</label>
+					<div class="controls">
+						<select class="select_2" name="account[status]">
+							<option value='1' <php>if($formget['status'] == "1") echo "selected=true";</php> >正常</option>
+							<option value='-1' <php>if($formget['status'] == "-1") echo "selected=true";</php>  >帐号密码错误</option>
+							<option value='-2' <php>if($formget['status'] == "-2") echo "selected=true";</php> >帐号需要验证</option>
+						</select> &nbsp;&nbsp;
+					</div>
+				</div>
+			</fieldset>
+			<div class="form-actions">
+				<input type="hidden" name="account[id]" value="{$account.id}" />
+				<button type="submit" class="btn btn-primary js-ajax-submit" data-action="{:U('AdminAccount/edit_post')}"data-msg="你确定提交吗？">保存</button>
+				<a class="btn" href="{:U('AdminAccount/index')}">返回</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>仓八小二四班班服尺码统计表</title>
+		<meta name="keywords" content="{$post_keywords}" />
+		<meta name="description" content="{$post_excerpt}">
+		<tc_include file="Public:head" />
+		<style>
+			#article_content img{height:auto !important}
+		</style>
+	</head>
+<body class="">
+
+<div class="container tc-main">
+	<div class="row">
+		<div class="span9">
+			
+			<div class="tc-box first-box article-box">
+		    	<h2>仓八小二四班班服尺码统计表</h2>
+		    	<hr>
+		    	<div id="article_content">
+					<form method="post" class="js-ajax-form">
+						<div class="table-actions">
+							<a href="{:U('Page/add')}">添加信息</a>
+
+						</div>
+						<table class="table table-hover table-bordered table-list">
+							<thead>
+							<tr>
+								<th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+								<th width="50">座位号</th>
+								<th width="80">姓名</th>
+								<th width="50">性别</th>
+								<th width="50">身高(cm)</th>
+								<th width="50">体重(cm)</th>
+								<th width="50">肩宽(cm)</th>
+								<th width="50">胸围(cm)</th>
+								<th width="50">腰围(cm)</th>
+								<th width="50">臀围(cm)</th>
+								<th width="150">个人喜好（刚好，偏大）</th>
+							</tr>
+							</thead>
+							<tbody>
+							<foreach name="infos" item="vo">
+								<tr>
+									<td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+
+									<td>{$vo.no}</td>
+									<td>{$vo.name}</td>
+									<td>{$vo.sex}</td>
+									<td>{$vo.high}</td>
+									<td>{$vo.weight}</td>
+									<td>{$vo.width}</td>
+									<td>{$vo.width1}</td>
+									<td>{$vo.width2}</td>
+									<td>{$vo.width3}</td>
+									<td>{$vo.memo}</td>
+								</tr>
+							</foreach>
+							</tbody>
+
+						</table>
+
+					</form>
+		    	</div>
+		    </div>
+		    
+		</div>
+		<div class="span3">
+			<div class="tc-box">
+				<div class="headtitle">
+					<h2>赞助商技术支持<br>QQ:372822142</h2>
+				</div>
+				<div>
+
+					淘特惠--提供淘宝天猫各种优惠产品信息，网址：<a href="http://www.taotehui.co">http://www.taotehui.co</a> <br>
+					<a href="http://jq.qq.com/?_wv=1027&k=40RNZe3" >快来加入群【淘-特-惠VIP8813#】(群号545017173)，发现精彩内容。</a><br>
+					<a id="logo" class="cnzzCounter" data-cnzz-type="50" data-cnzz="0" href="http://www.taotehui.co/" style="background-image:url('http://taotehui.co/logo.jpg')" title="" _hover-ignore="1">
+						<img src="http://taotehui.co/logo.jpg">
+					</a>
+				</div>
+			</div>
+
+        	
+		</div>
+		
+	</div>
+              
+<tc_include file="Public:footer"/>
+</div>
+
+<tc_include file="Public:scripts"/>
+</body>
+</html>

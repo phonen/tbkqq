@@ -1,0 +1,69 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('AdminCard/index')}">券列表</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form" action="{:U('AdminCard/edit_post')}">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label">券ID:</label>
+					<div class="controls">
+						{$card.id}
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">记录人:</label>
+					<div class="controls">
+						{$card.cdate}
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">充值卡:</label>
+					<div class="controls">
+						<input type="text" name="card[cardno]" value="{$card.cardno}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">券面额</label>
+					<div class="controls">
+						{$card.amount}
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">使用日期:</label>
+					<div class="controls">
+						{$card.udate}
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">备注:</label>
+					<div class="controls">
+						<input type="text" name="card[memo]" value="{$card.memo}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">状态：</label>
+					<div class="controls">
+						<select class="select_2" name="card[status]">
+							<option value='0' <php>if($card['status'] == "0") echo "selected=true";</php> >未用</option>
+							<option value='-1' <php>if($card['status'] == "-1") echo "selected=true";</php> >异常</option>
+							<option value='1' <php>if($card['status'] == "1") echo "selected=true";</php>  >已用</option>
+						</select> &nbsp;&nbsp;
+					</div>
+				</div>
+			</fieldset>
+			<div class="form-actions">
+				<input type="hidden" name="card[id]" value="{$card.id}" />
+				<button type="submit" class="btn btn-primary js-ajax-submit" data-action="{:U('AdminCard/edit_post')}"data-msg="你确定提交吗？">保存</button>
+				<a class="btn" href="{:U('AdminCard/index')}">返回</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+
+</body>
+</html>

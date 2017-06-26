@@ -1,0 +1,55 @@
+﻿@charset "utf-8";
+.about { height:auto; overflow:hidden; background:#FFF url(../images/about/left_cur.png) repeat-y; }
+.about .about_menu { width:176px !important; overflow:hidden; padding:5px 15px 20px 20px; height:auto; }
+.about .about_menu ul li { width:169px; margin:22px 0; }
+.about .about_menu ul li a { display:block; height:35px; width:169px; line-height:35px; font-size:16px; font-family:"微软雅黑", "宋体"; color:#727272; text-align:center; }
+.about .about_menu ul li a:hover { background:url(../images/about/cur_hover.png) no-repeat; text-decoration:none; }
+.about .about_menu ul li .cur { color:#fff; background:url(../images/about/cur_bg.png) no-repeat; }
+.about .about_menu ul li .cur:hover { background:url(../images/about/cur_bg.png) no-repeat; }
+
+.about .about_contain { width:940px; height:auto; overflow:hidden; background:#fff; padding-top:30px; padding-right:40px; }
+.about .about_contain h2 { font-size:18px; color:#333; font-weight:normal; text-align:center; }
+.about .about_contain .about_tit { color:#CF201C; font-size:20px; font-family:"微软雅黑", "宋体"; }
+.about .about_contain .about_content { height:auto;  margin-top:15px; padding-bottom:20px; line-height:26px; color:#727272; font-size:14px; }
+.about .about_contain .about_content a { color:#0289cd }
+.about .about_contain .about_content p{ line-height:26px; color:#727272; font-size:14px;}
+.about .about_contain .about_content .about_notes li { position: relative; line-height: 30px; border-bottom: #eee dashed 1px; margin-bottom: 5px; height: 30px; }
+.about .about_contain .about_content .about_notes li em { color: #ccc; position: absolute; height: 2px; width: 2px; top: 3px; left: 0px; display: block; }
+.about .about_contain .about_content .about_notes li .title { margin-left: 10px; display: block; float: left; width: 680px; overflow: hidden; }
+.about .about_contain .about_content .about_notes li .title a { font-size: 14px; color: #727272; }
+.about .about_contain .about_content .about_notes li .title a:hover{color:#CF201C; }
+.about .about_contain .about_content .about_notes li .gary { color: #ccc; display: block; float: right; }
+.about .about_contain .about_content .about_notes li a.type { color: #ff892b; }
+
+.w980 .about .about_contain { width:700px; }
+.w980 .about .about_contain .about_notes li .title { width:580px; }
+
+.jp-size {
+margin:0 auto;
+width:400px;
+margin-top: 10px;
+height: 28px;
+overflow: hidden;
+}
+.jp-size dt {
+float: left;
+line-height: 24px;
+}
+.jp-size li {
+position: relative;
+display: inline;
+float: left;
+margin: 0 4px 8px 0;
+padding: 1px;
+line-height: 20px;
+vertical-align: middle;
+background: white;
+}
+.product-info .jp-size li a {
+padding: 3px 5px 4px 5px;
+border: 1px solid #E1E1E1;
+background-color: white;
+color: #C6C6C6;
+}
+.nextatc{margin-top:20px;width:700px;height:40px;border-left: #F19C9A solid 5px;}
+.nextatc .nec{float: left;width:700px;height:20px;line-height:20px;padding-left:10px;}

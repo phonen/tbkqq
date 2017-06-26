@@ -1,0 +1,127 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminUps/index')}">快递列表</a></li>
+    </ul>
+    <form class="well form-search" method="post" action="{:U('AdminUps/index')}">
+        快递单号：
+        <input type="text" name="ups" style="width: 100px" value="{$formget.ups}" placeholder="请输入快递单号...">&nbsp; &nbsp;
+        地址：
+        <input type="text" name="address" style="width: 200px;" value="{$formget.address}" placeholder="请输入地址...">&nbsp; &nbsp;
+        状态：
+        <select class="select_2" name="status" style="width: 80px">
+            <option value='all' <php>if($formget['status'] == "all") echo "selected=true";</php> >全部</option>
+            <option value='0' <php>if($formget['status'] == "0") echo "selected=true";</php> >未用</option>
+            <option value='1' <php>if($formget['status'] == "1") echo "selected=true";</php>  >已用</option>
+        </select> &nbsp;&nbsp;
+
+        <input type="submit" class="btn btn-primary" value="搜索" />
+    </form>
+    <form method="post" class="js-ajax-form">
+        <div class="table-actions">
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminUps/export')}" data-subcheck="true" data-msg="你确定导出吗？">导出</button>
+        </div>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="30">ID</th>
+                <th width="100">快递单号</th>
+
+                <th width="500">地址</th>
+
+                <th width="30">状态</th>
+                <th width="120">备注</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="upss" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.ups}</td>
+                    <td>{$vo.address}</td>
+                    <php>$status=array("1"=>"已用","0"=>"未用","-1"=>"异常");</php>
+                    <td>{$status[$vo['status']]}</td>
+                    <td>{$vo.memo}</td>
+                    <td>
+                        <a href="{:U('AdminUps/edit',array('id'=>$vo['id']))}">{:L('EDIT')}</a> |
+                        <a href="{:U('AdminUps/delete',array('id'=>$vo['id']))}" class="js-ajax-delete">{:L('DELETE')}</a>
+                    </td>
+
+                </tr>
+            </foreach>
+
+            </tbody>
+            <tfoot>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="30">ID</th>
+                <th width="100">快递单号</th>
+
+                <th width="500">地址</th>
+
+                <th width="30">状态</th>
+                <th width="120">备注</th>
+                <th>操作</th>
+            </tr>
+            </tfoot>
+        </table>
+        <div class="table-actions">
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminUps/export')}" data-subcheck="true" data-msg="你确定导出吗？">导出</button>
+        </div>
+        <div class="pagination">{$Page}</div>
+    </form>
+    <form action="{:U('AdminUps/import')}" method="post"  enctype="multipart/form-data">
+        <input type="file" name="csvfile" />	<input type="submit" name="submit" value="Submit" />
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+<script>
+    function refersh_window() {
+        var refersh_time = getCookie('refersh_time');
+        if (refersh_time == 1) {
+            window.location = "{:U('AdminUps/index',$formget)}";
+        }
+    }
+    setInterval(function() {
+        refersh_window();
+    }, 2000);
+    $(function() {
+        setCookie("refersh_time", 0);
+        Wind.use('ajaxForm', 'artDialog', 'iframeTools', function() {
+            //批量移动
+            $('.js-articles-move').click(function(e) {
+                var str = 0;
+                var id = tag = '';
+                $("input[name='ids[]']").each(function() {
+                    if ($(this).attr('checked')) {
+                        str = 1;
+                        id += tag + $(this).val();
+                        tag = ',';
+                    }
+                });
+                if (str == 0) {
+                    art.dialog.through({
+                        id : 'error',
+                        icon : 'error',
+                        content : '您没有勾选信息，无法进行操作！',
+                        cancelVal : '关闭',
+                        cancel : true
+                    });
+                    return false;
+                }
+                var $this = $(this);
+                art.dialog.open("__ROOT__/index.php?g=portal&m=AdminPost&a=move&ids="+ id, {
+                    title : "批量移动",
+                    width : "80%"
+                });
+            });
+        });
+    });
+</script>
+</body>
+</html>

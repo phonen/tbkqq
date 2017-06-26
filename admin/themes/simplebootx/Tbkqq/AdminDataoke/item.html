@@ -1,0 +1,74 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminDataoke/item')}">全部商品表</a></li>
+        <li><a href="{:U('AdminDataoke/item_add')}" target="_self">添加</a></li>
+    </ul>
+    <form class="well form-search" method="post" action="{:U('AdminDataoke/item')}">
+
+        类目：
+        <select class="select_2" name="cid">
+            <option value="" <php>if($formget['cid'] == '') echo "selected=true";</php>>无</option>
+            <foreach name="cids" item="class" key="cid">
+                <option value="{$cid}" <php>if($formget['cid'] == $cid) echo "selected=true";</php>>{$class}</option>
+            </foreach>
+
+        </select> &nbsp;&nbsp;
+
+        <input type="submit" class="btn btn-primary" value="搜索" />
+
+    </form>
+    <form method="post" class="js-ajax-form">
+        <div class="table-actions">
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminDataoke/item_tuiguang')}">加入推广</button>
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminDataoke/item_delete')}" data-subcheck="true" data-msg="你确定取消推广吗？">取消推广</button>
+        </div>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="50">图片</th>
+                <th width="70">计划</th>
+                <th width="160">商品名称</th>
+
+                <th width="70">类目</th>
+                <th width="100">佣金比例</th>
+                <th width="50">佣金类型</th>
+                <th width="80">单价</th>
+                <th width="80">券时间</th>
+                <th width="50">状态</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="items" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+                    <td><img src="{$vo.img}"></td>
+                    <td><a href="{$vo.jihua_link}" target="_blank">{$vo.iid}</a></td>
+                    <php>if($vo['istmall'] == '1') $itemurl = "https://detail.tmall.com/item.htm?id=".$vo['iid']; else $itemurl = "https://item.taobao.com/item.htm?id=".$vo['iid'];</php>
+                    <td><a href="{$itemurl}" target="_blank">{$vo.title}</a></td>
+
+                    <td><php> echo $cids[$vo['cid']]</php></td>
+                    <td>{$vo.commission}</td>
+                    <td>{$vo.type}</td>
+                    <td>原价：{$vo.org_price}<br>券后价：{$vo.price}<br>券：{$vo.quan_price}</td>
+
+                    <td>{$vo.quan_time}</td>
+
+                    <php>$status=array("1"=>"已加入","0"=>"未加入");</php>
+                    <td>{$status[$vo['status']]}</td>
+
+                </tr>
+            </foreach>
+            </tbody>
+
+        </table>
+        <div class="pagination">{$Page}</div>
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

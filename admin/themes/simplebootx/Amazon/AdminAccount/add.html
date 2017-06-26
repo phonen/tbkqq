@@ -1,0 +1,121 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('AdminAccount/address')}">地址列表</a></li>
+		</ul>
+
+		<form method="post" class="form-horizontal js-ajax-form" action="{:U('AdminAccount/add_post')}">
+			<table class="table table-hover table-bordered table-list">
+				<thead>
+				<tr>
+					<th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+					<th width="30">ID</th>
+					<th width="50">编号</th>
+					<th width="50">名</th>
+					<th width="50">姓</th>
+					<th width="100">地址1</th>
+					<th width="100">地址2</th>
+					<th width="50">城市</th>
+					<th width="40">州</th>
+					<th width="80">邮政编码</th>
+					<th width="100">电话</th>
+					<th width="100">帐号</th>
+					<th width="30">状态</th>
+					<th width="120">备注</th>
+				</tr>
+				</thead>
+				<tbody>
+				<tr>
+					<td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$account.id}"></td>
+					<td>{$account.id}</td>
+					<td>{$account.no}</td>
+					<td>{$account.firstname}</td>
+					<td>{$account.lastname}</td>
+					<td>{$account.address1}</td>
+					<td>{$account.address2}</td>
+					<td>{$account.city}</td>
+					<td>{$account.province}</td>
+					<td>{$account.code}</td>
+					<td>{$account.phone}</td>
+					<td>{$account.username}</td>
+					<php>$status=array("1"=>"在注册","-1"=>"异常","2"=>"已注册","0"=>"未注册");</php>
+					<td>{$status[$account['status']]}</td>
+					<td>{$account.memo}</td>
+				</tr>
+				</tbody>
+				</table>
+				<fieldset>
+				<div class="control-group">
+					<label class="control-label">ID:</label>
+					<div class="controls">
+						{$account.id}
+					</div>
+				</div>
+				
+				<div class="control-group">
+					<label class="control-label">帐号:</label>
+					<div class="controls">
+						<input type="text" name="account[username]" value="{$account.username}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">密码:</label>
+					<div class="controls">
+						<input type="text" name="account[password]" value="{$account.password}">
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">地    址:</label>
+					<div class="controls">
+						<input type="text" name="account[address]" value="{$account.address}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">      州:</label>
+					<div class="controls">
+						<input type="text" name="account[province]" value="{$account.province}">
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">账户余额</label>
+					<div class="controls">
+						<input type="text" name="account[amount]" value="{$account.amount}"  required placeholder="请输入亚马逊帐号余额">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">最后登陆IP:</label>
+					<div class="controls">
+						<input type="text" name="account[lastip]" value="{$account.lastip}" required placeholder="请输入代理IP">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">备注:</label>
+					<div class="controls">
+						<input type="text" name="account[memo]" value="{$account.memo}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">状态：</label>
+					<div class="controls">
+						<select class="select_2" name="account[status]">
+							<option value='1' <php>if($account['status'] == "1") echo "selected=true";</php>  >正常</option>
+							<option value='-1' <php>if($account['status'] == "-1") echo "selected=true";</php> >异常</option>
+						</select> &nbsp;&nbsp;
+					</div>
+				</div>
+			</fieldset>
+			<div class="form-actions">
+				<input type="hidden" name="addid" value="{$account.id}">
+				<button type="submit" class="btn btn-primary js-ajax-submit" data-action="{:U('AdminAccount/add_post')}"data-msg="你确定提交吗？">保存</button>
+				<a class="btn" href="{:U('AdminAccount/address')}">返回</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('AdminSearch/index')}">亚马逊搜索列表</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form" action="{:U('AdminSearch/edit_post')}">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label">ID:</label>
+					<div class="controls">
+						{$ups.id}
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">名称:</label>
+					<div class="controls">
+						<input type="text" name="ups[name]" value="{$ups.name}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">ASIN</label>
+					<div class="controls">
+						<input type="text" name="ups[asin]" value="{$ups.asin}">
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">keyword:</label>
+					<div class="controls">
+						<input type="text" name="ups[keyword]" value="{$ups.keyword}">
+					</div>
+				</div>
+
+			</fieldset>
+			<div class="form-actions">
+				<input type="hidden" name="ups[id]" value="{$ups.id}" />
+				<button type="submit" class="btn btn-primary js-ajax-submit" data-action="{:U('AdminSearch/edit_post')}"data-msg="你确定提交吗？">保存</button>
+				<a class="btn" href="{:U('AdminSearch/index')}">返回</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+
+</body>
+</html>

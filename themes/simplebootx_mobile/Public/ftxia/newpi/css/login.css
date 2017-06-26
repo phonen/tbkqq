@@ -1,0 +1,149 @@
+@charset "utf-8";
+.page { padding: 0 0 45px; padding-top: 30px;  *margin-top:50px;
+_margin-top: 50px; clear: both; overflow: hidden; text-align: center; }
+.page div { margin: 0 auto; }
+.page a, .page span, .page i { display: inline-block; background: none repeat scroll 0 0 #FFF; margin-left: 1px; padding: 10px 15px; overflow: hidden; color: #919191; font-size: 14px; font-weight: bold; border-right: none; -moz-box-shadow: 1px 1px 0px rgba(204, 204, 204, 0.7); -webkit-box-shadow: 1px 1px 0px rgba(204, 204, 204, 0.7); box-shadow: 1px 1px 0px rgba(204, 204, 204, 0.7); }
+.page a.pg-next { width: 60px; border-radius: 0 20px 20px 0; }
+.page a.pg-next:hover { cursor: pointer; }
+.page span.pg-prev { color: #bbb; font-weight: normal; background: #fff; width: 60px; border-radius: 20px 0 0 20px; }
+.page span.pg-next { width: 60px; border-radius: 0 20px 20px 0; box-shadow: 2px 2px 3px #D0D0CD; background: #fff; color: #bbb; font-weight: normal; }
+.page a.pg-prev { background: #FFFFFF; width: 60px; border-radius: 20px 0 0 20px; box-shadow: 2px 2px 3px #D0D0CD; }
+.page span { background: #ff3366; border: medium none; color: #fff; font-weight: bold; }
+.page a:hover { text-decoration: none; color: #fff; background: #ff3366; }
+.page i { color: #919191 }
+@charset "utf-8";
+body { background: #fcfcfc; }
+.login-main { width: 980px; margin: 20px auto 0; }
+.login-main .other { float: right; font-size: 14px; color: #999; }
+.login-main .other a { color: #0289cd; }
+.login-content { width: 978px; position: relative; background: #fff; overflow: hidden; border: 1px solid #e2e2e2; padding-bottom: 50px; }
+.login-content .title { width: 878px; padding: 20px 50px; border-bottom: #e2e2e2 solid 1px; overflow: hidden; }
+.login-content .title span.hd { color: #ff3366; font-size: 16px; font-family: "微软雅黑", "宋体"; margin-right: 10px; background: url(../images/hd-bg.gif) no-repeat center right; padding-right: 20px; float: left; }
+.login-content .title span.tips { color: #666; float: left; margin-top: 3px; }
+.login-l-img { margin: 20px 0 0 0; overflow: hidden; width: 368px!important; text-align: right; }
+.login-l-img .line { height: 1px; width: 290px; margin: 20px 0 15px; border-top: #e2e2e2 solid 1px; border-bottom: #e2e2e2 solid 1px; float: right; }
+.login-l-img .third-login .union-login { margin-left: 80px; }
+.login-center { padding: 30px 90px 0 100px; width: 788px; height: auto; overflow: hidden; }
+.login-center .content-landing { width: 390px; }
+.login-center .content-landing .load-txt { color: #666666; margin-left: 30px; padding: 0 0 20px; }
+.login-center .content-landing ul { clear: both; }
+.login-center .content-landing li { padding-bottom: 25px; overflow: visible; height: auto; position: relative; *height:40px;
+_height: 40px; clear: both; }
+.login-center .content-landing li:after { clear: both; content: "."; display: block; height: 0; visibility: hidden; }
+.login-center .content-landing li label.normal { width: 80px; text-align: right; float: left; display: inline; height: 20px; margin-top: 8px; font-size: 14px; }
+.login-center .content-landing li.active .normal-input { border: 1px solid #ff3366; }
+.login-center .content-landing li .msg_error { width: 330px; height: 16px; overflow: hidden; position: absolute; top: 42px; left: 90px; color: #ff3838; }
+.login-center .content-landing li .msg_error_gray { color: #666; }
+.login-center .content-landing li .error-box { margin-left: 10px; width: 16px; height: 16px; margin-top: 10px; color: #666; float: left; overflow: hidden; }
+.login-center .content-landing li .error-box .public { margin-top: 4px; *margin-top: 3px;
+width: 12px; height: 15px; background: url(../images/user.png) no-repeat 189px 289px; _background: url(../images/user.gif) no-repeat 100px 200px; float: left; }
+.login-center .content-landing li .error-box .anquan { background-position: -20px 0px; }
+.login-center .content-landing li .error-box .anquan-d { background-position: -36px 0px; }
+.login-center .content-landing li .error-box .danger { background-position: -49px 0px; }
+.login-center .content-landing li .error-box01 { padding-left: 120px; }
+.login-center .content-landing li strong { width: 16px; height: 16px; background: url(../images/login.gif) no-repeat; display: inline-block; margin-right: 3px; }
+.login-center .content-landing li .error { background-position: 0 -19px; }
+.login-center .content-landing li .warn { background-position: -20px -19px; }
+.login-center .content-landing li .ok { background-position: -40px -19px; }
+.login-center .content-landing li input { border: none; }
+.login-center .content-landing li .normal-input { color: #666; padding: 12px 0 12px 10px; border: 1px solid #c6c6c6; height: 14px; line-height: 14px; width: 250px; float: left; }
+.login-center .content-landing li .code-input { width: 130px; }
+.login-center .content-landing li .verification-code { width: 110px; float: left; margin-left: 10px; height: 40px; }
+.login-center .content-landing li .verify { width: 60px; height: 40px; cursor: pointer; }
+.login-center .content-landing li .phone-verify { display: block; background: url(../images/phone-verify.gif) no-repeat; width: 100px; height: 27px; margin-top: 8px; text-align: center; line-height: 26px; color: #535353; cursor: pointer; }
+.login-center .content-landing li.rank { padding-bottom: 0; height: 34px; }
+.login-center .content-landing li .grade { display: inline; float: left; clear: both; margin: 10px 0 0 80px; width: 280px; }
+.login-center .content-landing li .grade span { display: inline; float: left; background: #c6c6c6; width: 80px; height: 14px; line-height: 14px; color: #fff; text-align: center; margin-right: 10px; }
+.login-center .content-landing li .grade .cur { background: #ff3366; }
+.login-center .content-landing li .chex { width: 280px; float: left; }
+.login-center .content-landing li .chex span { color: #5e5e5e; float: left; }
+.login-center .content-landing .chex-d { padding-bottom: 8px; }
+.login-center .content-landing .chex-d .msg_error { top: 15px; }
+.login-center .content-landing .chex-d .error-box { margin: 3px 0 0 0; }
+.login-center .content-landing li .chex .ck { vertical-align: -2px; margin-right: 5px; }
+.login-center .content-landing li .chex .forget { float: right; color: #999; }
+.login-center .content-landing li .btn { float: left; width: 260px; }
+.login-center .content-landing li .btn .sub { width: 260px; height: 40px; cursor: pointer; font-size: 16px; background: url(../images/new-login.gif) no-repeat; }
+.login-center .content-landing li .btn .smt-o { background-position: 0 0; color: #fff; }
+.login-center .content-landing li .btn .smt-r { background: url(../images/new-login.gif) no-repeat; background-position: 0 0; color: #fff; text-shadow: 1px 1px 0 rgba(0,0,0,.2); }
+.login-center .content-landing li .btn .smt-o:hover { background-position: 0 -45px; }
+.login-center .content-landing li .btn .smt-d { background-position: 0 -89px; color: #ababab; cursor: default; }
+.login-center .content-landing li .btn .smt-d:hover { background-position: 0 -89px; }
+.login-center .content-landing li .btn .short { width: 120px; text-align: center; line-height: 40px; }
+.login-center .content-landing li .btn .short.smt-o { background-position: 0 -199px; text-shadow: none; }
+.login-center .content-landing li .btn .short.smt-o:hover { background-position: 0 -244px; }
+.login-center .content-landing li .btn .go-see { color: #0289cd; margin-left: 5px; display: inline!important; }
+.login-center .content-landing li .btn .go-see:hover { text-decoration: underline; }
+.login-center .third-login { text-align: left; }
+.login-center .third-login .union-login { float: left; width: 260px; }
+.login-center .third-login .union-login .union-title { height: 16px; line-height: 16px; position: relative; }
+.login-center .third-login .union-login .union-title span { color: #333; }
+.login-center .third-login .union-login .union-title .line { width: 140px; height: 1px; overflow: hidden; position: absolute; top: 10px; right: 0; background: #e2e2e2; }
+.login-center .third-login .third-box { margin-top: 10px; }
+.login-center .third-box a { display: block; float: left; width: 24px; height: 24px; background: url(../images/new-login.gif) no-repeat; margin-right: 10px; display: inline; }
+.login-center .third-box .weixin { background-position: -210px -194px; }
+.login-center .third-box .weixin:hover { background-position: -236px -194px; }
+.login-center .third-box .taobao { background-position: 0 -140px; }
+.login-center .third-box .sina { background-position: 0 -169px; }
+.login-center .third-box .qq { width: 72px; height: 24px; background-position: right -166px; }
+.login-center .third-box .taobao:hover { background-position: -27px -140px; }
+.login-center .third-box .sina:hover { background-position: -27px -169px; }
+.login-center .third-box .qq:hover { background-position: right -140px; }
+.login-center .third-box .more { color: #999; font-size: 12px; background: none; line-height: 24px; float: none; }
+.login-center .content-landing li .btn .logining-icon { background: url(../images/loading.gif) no-repeat; width: 17px; height: 17px; position: absolute; top: 12px; right: 30px; }
+.foot-tips { text-align: center; margin: 40px auto 40px; width: 900px; }
+.login-center .content-landing li .user span.emptyhint { color: #999; position: absolute; width: 100px; height: 38px; line-height: 38px; left: 85px; z-index: 2; background: none; }
+.foot { margin-top: 0; }
+.success-content .result { text-align: center; color: #333; font-weight: bold; font-size: 16px; }
+.success-content .result .user { color: #ff3366; background: url(../images/new-login.gif) no-repeat -222px -280px; padding-left: 25px; display: inline-block; }
+.success-content .tips { width: 280px; line-height: 24px; margin: 20px auto 0; background: url(../images/tips-bg.gif) repeat-x top center; padding: 20px 40px; }
+.success-content .tips a { color: #0289cd; }
+.success-content .tips .go { margin-top: 10px; font-size: 14px; }
+.go-test { width: 978px; height: auto; margin-top: 30px; border: #e2e2e2 solid 1px; position: relative; margin-top: 101px; }
+.earn-juandou { width: 978px; }
+.earn-juandou .earn-text { background: url(../images/go-test.gif) no-repeat; width: 980px; height: 71px; position: absolute; top: -71px; left: -1px; }
+.earn-juandou .earn-list { overflow: hidden; margin-top: 1px; }
+.earn-show { background: #ffffff; width: 415px; padding: 25px 36px 30px 37px; margin-right: 1px; float: left; position: relative; min-height: 138px; _height: 138px; display: inline; }
+.earn-show h3 { color: #666; font-size: 16px; margin-bottom: 8px; }
+.earn-show .earn-img { margin-right: 19px; float: left; }
+.earn-show .includep { display: block; min-height: 60px; _height: 60px; }
+.earn-show .includep p.special { margin-bottom: 10px; }
+.earn-show .includep p.special .strcolor { font-size: 16px; vertical-align: middle; }
+.includep p { color: #919191; }
+.earn-show .includep p { width: 340px; line-height: 20px; }
+.earn-show .behavior { position: relative; float: left; }
+.behavior-img .juandou-show { float: left; margin-top: 5px; font-size: 16px; }
+.behavior-img a { display: block; float: right; width: 90px; height: 30px; background: url(../images/earnjd.gif) repeat 0 -280px; font-size: 14px; color: #0289cd; text-align: center; line-height: 30px; text-decoration: none; }
+.behavior-img a:hover { background: url(../images/earnjd.gif) repeat 0 -330px; text-decoration: none; }
+.earn-list .error-box { float: right; height: 30px; font-size: 14px; color: #66b100; font-weight: bold; line-height: 30px; }
+.earn-list .error-box strong { background: url(../images/stroe-total.gif) no-repeat; display: inline-block; height: 20px; margin-right: 3px; vertical-align: -5px; width: 20px; }
+.earn-list .error-box strong.ok { background-position: right -192px; }
+.icon { display: block; width: 56px; height: 56px; background: url(../images/stroe-total.gif) no-repeat; }
+.icon-web { width: 73px; height: 74px; }
+.icon-client { background-position: 0 -89px; }
+.icon-user { background-position: 0 -147px; }
+.icon-zone { background-position: -84px -444px; }
+.icon-weixin { background-position: -84px -385px; }
+.icon-download { background-position: 0 -347px; }
+.icon-annount { background-position: 0 -263px; }
+.icon-iphone { background-position: 0 -205px; }
+.icon-iphone { background-position: 0 -205px; }
+.icon-visited { background-position: 0 -410px; }
+.icon-digger { background-position: -61px -31px; }
+.package-box { background: #fff; text-align: center; padding: 20px 0; position: relative; }
+.package-box .icon-gift { background: url(../images/stroe-total.gif) no-repeat -120px -28px; width: 64px; height: 64px; display: inline-block; vertical-align: -24px; }
+.package-box span { color: #666; font-weight: bold; font-size: 16px; margin: 0 5px 0 10px; }
+.package-box .btn { color: #ff3366; font-weight: bold; font-size: 14px; background: #fff9e9; border: #ffecb9 solid 1px; display: inline-block; border-radius: 3px; width: 90px; height: 30px; line-height: 30px; }
+.package-box .error-box { position: absolute; top: 38px; right: 220px; }
+.main-resiter .login-content { width: 980px; border: none; }
+.login-center .content-landing h3 { font-size: 18px; font-family: "微软雅黑"; font-weight: normal; color: #333; float: left; margin: 0 0 20px 30px; }
+.login-center .content-landing .fashin { font-size: 14px; color: #666; padding: 10px 0 20px 0; margin-left: 30px; }
+.login-center .content-landing .fashin em { color: #6db110; }
+.login-center .content-landing .user-login01 li .normal-input { background: #f6f6f6; }
+.login-center .content-landing .user-login01 li span.normal-input { color: #666; padding: 12px 0 12px 10px; border: none; height: 14px; line-height: 14px; width: 250px; float: left; }
+.login-center .content-landing .user-login01 li .btn { width: 300px; }
+.login-center .content-landing .user-login01 li .btn .sub { width: 120px; text-align: center; line-height: 40px; }
+.login-center .content-landing .user-login01 li .btn .smt-o { background-position: 0 -199px; text-shadow: none; }
+.login-center .content-landing .user-login01 li .btn .smt-o:hover { background-position: 0 -244px; }
+.login-center .content-landing .user-login01 li .btn .smt-d { background-position: 0 -89px; color: #ababab; cursor: default; text-shadow: 1px 0 0 rgb(241,241,241); border-radius: 3px; }
+.login-center .content-landing .user-login01 li .btn .smt-d:hover { background-position: 0 -89px; }

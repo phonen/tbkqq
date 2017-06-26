@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>淘宝网 - 淘！我喜欢</title>
+	<meta http-equiv="Expires" CONTENT="0">
+	<meta http-equiv="Cache-Control" CONTENT="no-cache">
+	<meta http-equiv="Pragma" CONTENT="no-cache">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<style type="text/css">
+		#qitkHost{
+			background-color: bisque;
+			position: absolute;
+			top: 65%;
+			left: 5%;
+			font-size: 14px;
+			width: 60px;
+			height: 30px;
+			height: 20px;
+			padding: 10px 10px;
+			background-color: #d4006f;
+			color: white;
+		}
+
+		#qitGOUrl{
+			background-color: bisque;
+			position: absolute;
+
+			top: 65%;
+			font-size: 14px;
+			left: 58%;
+		}
+		a{
+			text-decoration: none;
+		}
+
+	</style>
+	<script src="http://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+	<script>
+
+		$(function(){
+
+			//写cookies
+
+
+			function setCookie(name,value,time)
+			{
+
+				var exp = new Date();
+				exp.setTime(exp.getTime() +time*10*1000);
+				document.cookie = name + "="+ escape (value) + ";expires=" + exp.toGMTString()+";path=/";
+			}
+//读取cookies
+			function getCookie(name)
+			{
+				var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+
+				if(arr=document.cookie.match(reg))
+
+					return unescape(arr[2]);
+				else
+					return null;
+			}
+
+//删除cookies
+			function delCookie(name)
+			{
+				var exp = new Date();
+				exp.setTime(exp.getTime() - 1);
+				var cval=getCookie(name);
+				if(cval!=null)
+					document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+			}
+//无痕模式下的提示
+			function isLocalStorageSupported() {
+				var testKey = 'test',
+						storage = window.sessionStorage;
+				try {
+					storage.setItem(testKey, 'testValue');
+					storage.removeItem(testKey);
+
+					return true;
+				} catch (error) {
+
+
+
+
+					if(getCookie("footad")==null){
+						$('#denglu').text('点击去登录，在后退回来领券》');
+						$('#hidediv').show();
+
+					}else{
+
+						$('#hidediv').hide();
+						$('#denglu').text('登录后点[ 领用 ]，在点购买》')
+					}
+//开启无痕模式后进行操作
+					//$('#denglu').text('点击去登录，在后退回来领券》');
+					alert('当前浏览器为-[ 无痕模式 ]- \n1、》点浏览器底部菜单[ 最右边按钮 ]\n2、》点[ 无痕浏按 ]钮览\n3、》点[ 完成 ]退出无痕浏览！\n\n可根据提示关闭无痕模式，更快领券！')
+					//$('#img_id').show();
+					$('#denglu').attr('href','https://login.m.taobao.com/login.htm');
+					$('#denglu').attr('targe','_blank');
+					$('#denglu').attr('onclick',"$('#hidediv').fadeOut();$('#denglu').text('点[ 立刻领用 ]，在点去购买》');alert('登录淘宝后，按后退键[ 2次 ]\\n回当前页[ 刷新 ]和[ 领券下单 ]') ");
+					$('#qitkHost').click(function(){
+
+						if(getCookie("footad")==null){
+							setCookie("footad","1",18);
+						}else{
+
+						}
+
+					})
+					return false;
+
+				}
+			}
+//用户第一次登录后需要处理的事情
+
+			if(getCookie("isfrist")==null){
+				$('#hidediv').fadeIn();
+				$('#denglu').text('↓点左下角[登录]，再领券》');
+
+				//$('#denglu').attr('href','https://login.m.taobao.com/login.htm');
+				$('#denglu').attr('targe','_blank');
+				$('#denglu').attr('onclick',"$('#hidediv').fadeOut();$('#denglu').text('点[ 立刻领用 ]，在点去购买》');alert('首次使用请点左下角登录淘宝后，\\n在当前页面[ 领券 ]和[ 内部下单 ]') ");
+				$('#hidediv').delay(3000).fadeOut();
+				setCookie("isfrist","1",8640*4);
+
+
+
+			}
+
+
+			isLocalStorageSupported()
+			var tmpHeight=$(window).height();
+			var tmpWidth=$(window).width();
+			$("#mainFrame").height(tmpHeight);
+			var tmpH=tmpHeight/2+'px';
+			var tmpW=tmpWidth/2;
+			$("#qitGOUrl").css('top',tmpH);
+			$("#qitGOUrl").css("left",(tmpW+50)+'px');
+			$("#qitkHost").css('top',tmpH);
+			$("#qitkHost").css("left",(tmpW-150)+'px');
+			function hidediv1(){
+				$('#hidediv').fadeOut(600)
+			}
+		});
+
+	</script>
+</head>
+<body style="margin: 0;padding: 0">
+
+<style type="text/css">
+	body{
+		position: relative;
+		padding-top: 110px    }
+	.iphoneDiv{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		z-index: 1033;
+		left:0px;
+		top: 0px;
+		/* background-color: #0e509e; */
+		opacity: 0.34;
+		text-align: center;
+		color: red;
+		background: url(//gw.alicdn.com/mt/TB1ClUpKVXXXXXRXVXXXXXXXXXX-750-220.png) no-repeat #5A5959;
+		background-size: contain;
+		/* background-position: 50% 50%; */
+	}
+	.mobileTop{
+
+	}
+</style>
+
+<div id='hidediv' style='display:none; position: fixed;width: 100%;height: 100%;left:0px;top: 0px;opacity: 0.34;background:#000000;z-index:5'></div>
+<div id='qitkHost'style='width:196px;height:30px;line-height:30px;border-right: 2px solid #F3F0F0;    z-index: 999;' ><a style='color:#ffffff;'id='denglu'>点 [ 立刻领用 ]，在点去购买》</a></div>
+
+<iframe id="mainFrame" name="mainFrame" scrolling="no" src="{$url}" frameborder="0" style="padding: 0px; width: 100%; height: auto;overflow:auto"></iframe>
+</iframe>
+<div id="qitGOUrl"><a href="{$shorturl}" biz-itemid={$iid} isconvert=1 style="display: inline-block;padding: 10px;background-color: #d4006f;color: white;height:30px;line-height:30px;">去购买</a></div>
+</body>
+<script>
+
+	$(function(){
+
+
+
+
+		var tmpHeight=$(window).height();
+		var tmpWidth=$(window).width();
+		$("#mainFrame").height(tmpHeight);
+		var tmpH=tmpHeight/2+16+'px';
+		var tmpW=tmpWidth/2;
+		$("#qitGOUrl").css('top',tmpH);
+		$("#qitGOUrl").css("left",(tmpW+65)+'px');
+		$("#qitkHost").css('top',tmpH);
+		$("#qitkHost").css("left",(tmpW-150)+'px');
+		function hidediv1(){
+			$('#hidediv').fadeOut(600)
+		}
+	});
+</script>
+</html>
+<!-- 覆盖提示层打开
+<style> html { font-size:10px; } body,html { height:100% } img-ad-link,.img-top { position:relative; margin:0 auto; width:24rem } .img-ad-link img { display:block; position:absolute; z-index:9; top:.45rem; right:1.45rem; width:2.7rem; height:2.7rem; -webkit-transform:translateY(-7rem) } .img-ad-link img.has-helper { left:1.45rem } .img-ad { position:fixed; left:0; right:0; top:0; bottom:0; z-index:101; width:100%; height:100%; background-color:rgba(0,0,0,.85) } .img-top { height:4.8rem } .img-ad-close { position:absolute; z-index:3; top:.3rem; right:1.3rem; width:3rem; height:3rem; background:url(http://neibuq.oss-cn-shanghai.aliyuncs.com/guide/cl.png); background-size:100% auto } .img-ad.has-helper .img-ad-close { left:1.3rem } .img-ad .line { position:absolute; z-index:2; display:block; top:3rem; right:2.7rem; width:2px; height:1.8rem; background-color:#7e7e7f } .img-ad.has-helper .line { left:2.7rem } .img-ad .img-cnt { position:relative; margin:0 auto; width:24rem; height:37.5rem; border:7px solid #fff; border-radius:10px; } .img-ad .img-cnt .img,.img-ad .img-cnt .img img { width:100%; height:97%; padding-bottom: 30px; } .img-ad .img-cnt .img { position:absolute; top:0; left:0; display:block; } .has-notice .ad-cnt { position:relative; padding-top:3.1rem } .show-ad .line { -webkit-animation:show-line .4s linear } @-webkit-keyframes show-line { 0% { height:0 } 100% { height:1.8rem } }.show-ad .img-cnt .img { -webkit-animation:show-img .4s .4s ease-in forwards; -webkit-transform:translateY(-38.5rem) } @-webkit-keyframes show-img { 0% { -webkit-transform:translateY(-38.5rem) } 100% { -webkit-transform:translateY(0) } }.close-ad .line { -webkit-animation:hide-line .4s .4s linear forwards } @-webkit-keyframes hide-line { 0% { height:1.8rem } 100% { height:0 } }.close-ad .img-cnt .img { -webkit-animation:hide-img .4s ease-in forwards; -webkit-transform:translateY(0) } @-webkit-keyframes hide-img { 0% { -webkit-transform:translateY(0) } 100% { -webkit-transform:translateY(-38.5rem) } }.close-ad { -webkit-animation:hide-ad .1s .8s linear forwards } @-webkit-keyframes hide-ad { 100% { opacity:0 } }.img-ad-link img { -webkit-animation:show-link .2s .8s linear forwards } @-webkit-keyframes show-link { 0% { -webkit-transform:translateY(-7rem) } 100% { -webkit-transform:translateY(0) } }.img-cnt p { position:absolute; left:1.6rem; top:12.4rem; font-size:6rem; color:#fff } @media all and (max-height:440px) { .img-ad .img-cnt { width:24rem; height:33rem } .img-cnt p { top:11rem; font-size:5rem } }@media all and (min-width:370px) { .img-ad-link,.img-top { width:25rem; } .img-cnt p { top:15.4rem } .img-ad .img-cnt { width:24rem; height:37.5rem; } .show-ad .img-cnt .img { -webkit-animation:show-img .4s .4s ease-in forwards; -webkit-transform:translateY(-44.6rem) } @-webkit-keyframes show-img { 0% { -webkit-transform:translateY(-44.6rem) } 100% { -webkit-transform:translateY(0) } }@-webkit-keyframes hide-img { 0% { -webkit-transform:translateY(0) } 100% { -webkit-transform:translateY(-44.6rem) } }} .cent-d{ position: absolute; bottom: 15px; width: 100%;} .cent-btn{ background: #FECB48; width: 113px; padding: 10px; margin-bottom: -21px; border-radius: 25px; font-size: 16px; color: #7D5C06; font-weight: 700;}</style>
+<div class="img-ad js-index-window-wrap show-ad" id="img_id" style="display:none;  z-index: 99999999;">
+  <div class="ad-cnt">
+    <div class="img-top">
+      <a class="img-ad-close js-index-window-close" onclick="$('#img_id').fadeOut(600)">
+         </a>
+      <span class="line"></span>
+    </div>
+    <div class="img-cnt">
+      <div class="img js-tap-link js-index-window-imgwrap" data-local-link="">
+        <img src="http://neibuq.oss-cn-shanghai.aliyuncs.com/guide/wuhen.png" class="img" id='img_guide'>
+        <p>
+        </p>
+
+        <center class='cent-d'>
+          <div onclick="$('#img_id').fadeOut(600)" class='cent-btn'>我知道了</div></center>
+      </div>
+    </div>
+  </div>
+</div>
+<script>if (getCookie("imgadcookie") == null) {
+    $('#img_id').show();
+    setCookie("imgadcookie", "1", 6)
+  }</script>
+<!-- 覆盖提示层打开 -->

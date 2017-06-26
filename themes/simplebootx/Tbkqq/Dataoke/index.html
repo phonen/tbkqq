@@ -1,0 +1,430 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<tc_include file="Public:head" />
+
+	<!-- blueprint CSS framework //cdn.bootcss.com/jquery/1.12.1/jquery.js -->
+	<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/dtk/reset.css">
+	<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/dtk/footer.css">
+	<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/dtk/pager.css?v=54">
+	<link rel="stylesheet" type="text/css"
+		  href="__TMPL__Public/css/dtk/dtk.css?v=336">
+	<link rel="stylesheet" href="__TMPL__Public/css/dtk/iconfont.css?t=0616002">
+	<!--    <link rel="stylesheet" type="text/css" href="--><!--/css/dtk.css?v=-->
+	<!--">-->
+	<link rel="stylesheet" type="text/css" href="/assets/fdd075a4/pager.css" />
+	<title>{$site.sitename}-每天千款优惠券秒杀，一折限时疯抢！-{$site.sitename}</title>
+	<meta name="Keywords" content="{$site.sitename},优惠券折扣,9块9包邮,限时特卖,优品折扣,{$site.sitename}"/>
+	<meta name="Description" content="{$site.sitename}-优惠券折扣直播第一站！每天更新千款，纯人工筛选验货，限时限量特卖，全场1折包邮！"/>
+
+	<script src="//cdn.bootcss.com/jquery/1.12.1/jquery.js"></script>
+
+	<script src="__TMPL__Public/js/dtk/layer/layer.js"></script>
+	<script src="__TMPL__Public/js/dtk/dtk.js?v=0606002"></script>
+	<script src="__TMPL__Public/js/dtk/unslider.min.js??v=0606002"></script>
+
+
+
+</head>
+<body>
+<style>
+	#navTop {
+		width: 100%;
+		background-color:#FFF;
+		/*border-bottom: 1px solid #ccc;*/
+	}
+
+	.toTop {
+		font-family: iconfont;
+		position: fixed;
+		right: 70px;
+		bottom: 70px;
+		line-height: 50px;
+		text-align: center;
+		border: 1px solid #CCCCCC;
+		border-radius: 50px;
+		color: #858585;
+		width: 50px;
+		font-size: 36px;
+		cursor: pointer;
+		background-color: #fff;
+	}
+
+	.toTop:hover, .toTop:focus {
+		color: rgb(234, 42, 96);
+	}
+
+	body #headNav #header #showList dl {
+		margin: 5px 16px;
+	}
+
+	body #headNav #header #showList #search button {
+		height: 37px;
+		overflow: hidden;
+		padding: 7px 30px;
+	}
+</style>
+<div id="navTop">
+	<div id="top">
+		<div id="topleft" style="margin: 0;line-height: 25px;">亲爱的，来加粉丝专享优惠QQ群                            <a target="_blank" style="height: 22px;float: right;"
+																											 href="{$site.qqgrp}"><img
+				border="0"
+				src="https://img.alicdn.com/imgextra/i1/2508158775/TB2SfmWqFXXXXb4XpXXXXXXXXXX_!!2508158775.png"></a>
+
+		</div>
+		<ul id="topright" style="line-height: 25px;">
+			<li style=" margin-right: 8px;"><a
+					href="javascript:void(0)" onclick="SetHome(this,window.location)" style="color: #757575"
+					title="将本站设为首页">设为首页</a>
+			</li>
+			<li style="margin-right: 8px;"><a
+					href="javascript:void(0)" onclick="shoucang(document.title,window.location)" style="color: #757575"
+					title="加入收藏，方便下次打开">加入收藏</a>
+			</li>
+			<li><a target="_blank"
+				   href="http://wpa.qq.com/msgrd?v=3&uin={$site.qqnum}&site=qq&menu=yes"
+				   style="color: #8da7cb" title="联系我帮你解答">遇到购物问题? 联系我 ></a>
+			</li>
+		</ul>
+		<div class="clear"></div>
+	</div>
+</div>
+
+<div id="headNav">
+	<div id="header" style="padding-bottom: 10px;">
+		<a href="/index.php"
+		   style="width: 400px; height: 80px;display: inline-block;float: left;    background-size: inherit;    background: url('{$site.logo}')left top no-repeat;margin-top: -7px;" class="cnzzCounter" data-cnzz-type="50" data-cnzz="0" >
+		</a>
+		<div id="showList">
+			<div id="search">
+				<form action="/index.php"><input type="hidden" name="r" value="l">
+					<input type="text" value=""
+						   name="kw" placeholder="搜优惠券"/>
+					<button type="submit" class="cnzzCounter" data-cnzz-type="54" data-cnzz="1">搜索</button>
+				</form>
+
+			</div>
+
+			<dl>
+				<dt class="rg"></dt>
+
+			</dl>
+			<dl>
+				<dt class="zy"></dt>
+
+			</dl>
+			<dl>
+				<dt class="qc"></dt>
+
+			</dl>
+
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+
+
+<div id="baner">
+	<div id="nav" style="font-size: 15px;">
+		<a href="/index.php"
+		   class="cnzzCounter iconM active"
+		   style="padding:8px 27px;" data-cnzz-type="50" data-cnzz="0" ><i
+				class="iconfont">&#xe601;</i><span style="margin-right: 7px;" >优惠直播</span></a>
+
+		<a href="/index.php?a=dingzhi"
+		   class="cnzzCounter iconH "
+		   style="padding:8px 15px;" data-cnzz-type="52" data-cnzz="0">定制产品
+			<div
+					style="position:absolute; width:24px; height:32px; background:#FFCC00;margin-left: 107px; margin-top: -25px; background:url(http://a.vpimg3.com/upload/dop/2016/01/04/148/HOTT_qeu.gif)"></div>
+		</a>
+
+	</div>
+</div>
+
+
+<div id="dtk_mian">
+	<link rel="stylesheet" href="__TMPL__Public/css/dtk/index.css?v=810">
+	<style>
+		#dtk_mian {
+			background: url("https://img.alicdn.com/imgextra/i4/2508158775/TB2C6CrqFXXXXbfXpXXXXXXXXXX_!!2508158775.png") top center repeat-y;
+		}
+
+
+		body #content .discount .dis_product .pro_detail {
+			border: 1px solid #e0e0e0;
+		}
+
+		#banner .list ul li:hover {
+			background-color: #efdfe4;
+		}
+	</style>
+	<!--banner-->
+	<div id="banner">
+		<div class="banner_con clearfix">
+			<!--列表   -->
+			<div class="list fl">
+				<ul>
+					<li><i class="iconfont">&#xe603;</i><a class="cnzzCounter" data-cnzz-type="50" data-cnzz="1" href="/index.php?cid=1">{$class[1]} </a>
+					</li>
+					<li><i class="iconfont">&#xe607;</i><a class="cnzzCounter" data-cnzz-type="50" data-cnzz="2" href="/index.php?cid=2">{$class[2]}<em
+							style=" margin-left: 10px; margin-top: 10px;width:9px; height:14px; position: absolute;background:url(http://www.dataoke.com/img/x_hot.gif);/* background-color: red; */"> </em></a></li>
+					<li><i class="iconfont">&#xe602;</i><a class="cnzzCounter" data-cnzz-type="50" data-cnzz="3" href="/index.php?cid=3">{$class[3]}</a></li>
+					<li><i class="iconfont">&#xe609;</i><a class="cnzzCounter" data-cnzz-type="50" data-cnzz="4" href="/index.php?cid=4">{$class[4]}<em
+							style=" margin-left: 4px; margin-top: 10px;width:9px; height:14px; position: absolute;background:url(http://www.dataoke.com/img/x_hot.gif);/* background-color: red; */"> </em></a>
+					</li>
+					<li><i class="iconfont">&#xe605;</i><a class="cnzzCounter" data-cnzz-type="50" data-cnzz="5" href="/index.php?cid=5">{$class[5]}</a></li>
+					<li><i class="iconfont">&#xe604;</i><a class="cnzzCounter" data-cnzz-type="50" data-cnzz="6" href="/index.php?cid=6">{$class[6]}</a></li>
+					<li><i class="iconfont">&#xe608;</i><a class="cnzzCounter" data-cnzz-type="50" data-cnzz="7" href="/index.php?cid=7">{$class[7]}</a>
+					</li>
+					<li><i class="iconfont">&#xe606;</i><a class="cnzzCounter" data-cnzz-type="50" data-cnzz="8" href="/index.php?cid=8">{$class[8]}</a></li>
+				</ul>
+			</div>
+			<!-- 轮播-->
+			<div class="unslider fl">
+				<div class="banner" id="b04">
+					<ul style="width: 720px;height: 300px;overflow: hidden;">
+						<li>
+							<a href="/index.php?r=l/d&id=1488947&u=213941" target="_blank" class="cnzzCounter" data-cnzz-type="1" data-cnzz="1488947">
+								<img style="border: 0" src="https://img.alicdn.com/imgextra/i2/2508158775/TB2VyXHXhuI.eBjy0FdXXXgbVXa_!!2508158775.jpg" width="720" height="300">
+							</a>
+						</li>
+						<li>
+							<a href="/index.php?r=l/d&id=1416056&u=213941" target="_blank" class="cnzzCounter" data-cnzz-type="1" data-cnzz="1416056">
+								<img style="border: 0" src="https://img.alicdn.com/imgextra/i4/2508158775/TB2VfxsXiKO.eBjSZPhXXXqcpXa_!!2508158775.jpg" width="720" height="300">
+							</a>
+						</li>
+						<li>
+							<a href="/index.php?r=l/d&id=1485544&u=213941" target="_blank" class="cnzzCounter" data-cnzz-type="1" data-cnzz="1485544">
+								<img style="border: 0" src="https://img.alicdn.com/imgextra/i1/2508158775/TB2_FvBangc61BjSZFkXXcTkFXa_!!2508158775.jpg" width="720" height="300">
+							</a>
+						</li>
+						<li>
+							<a href="/index.php?r=l/d&id=1421655&u=213941" target="_blank" class="cnzzCounter" data-cnzz-type="1" data-cnzz="1421655">
+								<img style="border: 0" src="https://img.alicdn.com/imgextra/i1/2508158775/TB2RqNwanga61BjSspoXXX_8XXa_!!2508158775.jpg" width="720" height="300">
+							</a>
+						</li>
+					</ul>
+					<a href="javascript:void(0);" class="unslider-arrow04 prev"><img class="arrow" id="al"
+																					 src="__TMPL__Public/images/arrowl.png"
+																					 alt="prev"
+																					 width="25" height="50"></a>
+					<a href="javascript:void(0);" class="unslider-arrow04 next"><img class="arrow" id="ar"
+																					 src="__TMPL__Public/images/arrowr.png"
+																					 alt="next"
+																					 width="25" height="50"></a>
+				</div>
+			</div>
+			<!--右边大图 -->
+			<div class="rightPic fr" style="position: relative">
+				<div class="bdshare" style="position: absolute;top: 95px;left: 76px;">
+					<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#"
+																									  class="bds_tsina"
+																									  data-cmd="tsina"
+																									  title="分享到新浪微博"></a><a
+							href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_weixin"
+																							   data-cmd="weixin"
+																							   title="分享到微信"></a><a href="#"
+																													class="bds_sqq"
+																													data-cmd="sqq"
+																													title="分享到QQ好友"></a>
+					</div>
+					<script>window._bd_share_config = {
+						"common": {
+							"bdSnsKey": {},
+							"bdText": "最近发现了一个领内部优惠券的网站，都是限时限量抢购，一般人享受不到的！性价比超高哦，分享给大家，保证你会惊喜滴！",
+
+							"bdMini": "2",
+							"bdMiniList": false,
+							"bdPic": "",
+							"bdStyle": "0",
+							"bdSize": "24"
+						}, "share": {}
+					};
+					with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+				</div>
+				<a href="/index.php?r=p" target="_blank" style="    position: absolute;
+    display: block;
+    width: 100%;
+    height: 143px;
+    top: 156px;"></a>
+				<img src="https://img.alicdn.com/imgextra/i1/2508158775/TB2.RPGqFXXXXaBXXXXXXXXXXXX_!!2508158775.jpg" alt=""
+					 width="300" height="300">
+			</div>
+		</div>
+	</div>
+
+	<!--content-->
+	<div id="content" style="padding-bottom: 58px;">
+
+		<div class="divider"
+			 style="text-align: left;padding: 0 10px;width: 1178px;border: 1px solid #ffd6d6; color: #9c9c9c;background-color: #FDFCE7;">
+			{$site.memo} </div>
+
+
+		<!--领券优惠直播-->
+		<div class="live">
+			<!-- 领券优惠头部-->
+			<div class="discount_head clearfix" style="margin-bottom: 10px;">
+				<div class="dishead_left fl">
+					<h1 style="font-weight: normal;">领券优惠直播<span
+							class="tatal"
+							style="background-color: #5dcac5;color: #FFFFFF;padding: 3px 7px;border-radius: 15px; font-family: 'Arial'; margin-left: 10px;">{$lists.count}</span>
+					</h1>
+				</div>
+				<div class="dishead_right fr">
+					<a href="/index.php?r=l"><span style="color: #505050;font-size: 14px;" class="color_p">更多优惠 »</span></a>
+				</div>
+			</div>
+			<!-- 领券优惠商品-->
+			<div class="goods-list main-container">
+				<ul class="clearfix">
+					<volist name="lists['items']" id="vo" mod="4">
+					<li class="<eq name='mod' value='3'> no-right</eq>">
+						<a href="/index.php?id={$vo.id}" class="img cnzzCounter"
+						   rel="nofollow" target="_blank" data-cnzz-type="1" data-cnzz="{$vo.id}">
+							<span class="label"></span>
+							<img
+									src="{$vo.img}_290x290.jpg"
+									alt="">
+						</a>
+						<div class="padding">
+							<a target="_blank"
+							   href="/index.php?id={$vo.id}"
+							   class="title clearfix cnzzCounter" data-cnzz-type="1" data-cnzz="{$vo.id}">
+								<i class="<eq name='vo.istmall' value='1'> tmall </eq><eq name='vo.istmall' value='0'> taobao </eq>"></i>
+								<span>{$vo.title}</span>
+							</a>
+							<div class="coupon-wrap clearfix">
+								优惠券<span
+									class="price">{$vo.quan_price}</span>元，已有<span
+									class="num">{$vo.sales_num}</span>人购买
+							</div>
+						</div>
+						<div class="price-wrap clearfix">
+                            <span class="price">
+                                <span class="text">券后价&nbsp;￥<span
+										class="price">{$vo.price}</span></span>
+
+                                 <span class="text" style="margin-left: 15px; font-size: 12px;color: #ffe4ed;">正常售价&nbsp;￥{$vo.org_price}                                </span>
+                            </span>
+
+						</div>
+					</li>
+					</volist>
+
+				</ul>
+			</div>
+		</div>
+
+		<div class="pagination"><ul>{$lists['page']}</ul></div>
+
+	<script>
+		$(document).ready(function (e) {
+			var unslider04 = $('#b04').unslider({
+						dots: true
+					}),
+					data04 = unslider04.data('unslider');
+
+			$('.unslider-arrow04').click(function () {
+				var fn = this.className.split(' ')[1];
+				data04[fn]();
+			});
+		});
+	</script>
+</div>
+
+<div id="footer" style="background-color: #373737;height: 190px;width: 100%;border-top: 3px solid #ff3366;">
+	<div class="footer-wrapper " style="width: 1200px;margin: 0 auto;position: relative;text-align: center">
+		<img src="//cmsserver3.dataoke.com/images/bottom_text.png" alt="" style="border: 0;margin-top: 50px;">
+		<div class="author" style="    position: absolute;
+    top: 67px;
+    left: 990px;
+    color: #FFFFFF;
+    font-size: 18px;">by
+			&nbsp;&nbsp;{$site.sitename}</div>
+		<div class="text" style="color: #a2a2a2;
+    font-size: 16px;
+    margin-top: 33px;">&copy; CopyRight&nbsp;2016            &nbsp;<a href="/" target="_blank" rel="nofollow" style="color:#a2a2a2;" >{$site.sitename}</a>
+			&nbsp;&nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn/" target="_blank" rel="nofollow" style="color:#a2a2a2;"></a>
+			&nbsp;&nbsp;                <a target="_blank"
+										   href="http://wpa.qq.com/msgrd?v=3&uin={$site.qqnum}&site=qq&menu=yes"
+										   style="color: #8da7cb" title="联系我帮你解答">^_^亲遇到问题，联系我帮你处理哈</a>
+		</div>
+	</div>
+</div>
+<div class="toTop" style="display: none" onclick=" $('body,html').animate({scrollTop:0},1000);">
+	&#xe60c;</div>
+<script type="text/javascript">
+	// 设置为主页
+	function SetHome(obj, vrl) {
+		try {
+			obj.style.behavior = 'url(#default#homepage)';
+			obj.setHomePage(vrl);
+		}
+		catch (e) {
+			if (window.netscape) {
+				try {
+					netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+				}
+				catch (e) {
+					alert("此操作被浏览器拒绝！\n请在浏览器地址栏输入“about:config”并回车\n然后将 [signed.applets.codebase_principal_support]的值设置为'true',双击即可。");
+				}
+				var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+				prefs.setCharPref('browser.startup.homepage', vrl);
+			} else {
+				alert("您的浏览器不支持，请按照下面步骤操作：1.打开浏览器设置。2.点击设置网页。3.输入：" + vrl + "点击确定。");
+			}
+		}
+	}
+	// 加入收藏 兼容360和IE6
+	function shoucang(sTitle, sURL) {
+		try {
+			window.external.addFavorite(sURL, sTitle);
+		}
+		catch (e) {
+			try {
+				window.sidebar.addPanel(sTitle, sURL, "");
+			}
+			catch (e) {
+				alert("加入收藏失败，请使用Ctrl+D进行添加");
+			}
+		}
+	}
+
+	$(function () {
+
+		$(window).scroll(function () {
+			if ($(window).scrollTop() > 500) {
+				$(".toTop").fadeIn(1000);
+			}
+			else {
+				$(".toTop").fadeOut(1000);
+			}
+		});
+	});
+
+</script>
+<script type="text/javascript">
+	(function(win,doc){
+		var s = doc.createElement("script"), h = doc.getElementsByTagName("head")[0];
+		if (!win.alimamatk_show) {
+			s.charset = "gbk";
+			s.async = true;
+			s.src = "http://a.alimama.cn/tkapi.js";
+			h.insertBefore(s, h.firstChild);
+		};
+		var o = {
+			pid: "{$site.pid}",/*推广单元ID，用于区分不同的推广渠道*/
+			appkey: "",/*通过TOP平台申请的appkey，设置后引导成交会关联appkey*/
+			unid: "",/*自定义统计字段*/
+			type: "click" /* click 组件的入口标志 （使用click组件必设）*/
+		};
+		win.alimamatk_onload = win.alimamatk_onload || [];
+		win.alimamatk_onload.push(o);
+	})(window,document);
+</script>
+<script type="text/javascript" src="//cmsserver3.dataoke.com/js/scrollTop2.js?v=0331001"></script>
+	<script src="https://s11.cnzz.com/z_stat.php?id=1253674728&web_id=1253674728" language="JavaScript"></script>
+</body>
+</html>

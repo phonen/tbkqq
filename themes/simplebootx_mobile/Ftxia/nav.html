@@ -1,0 +1,9 @@
+<div class="nav_box">
+        <nav class="nav" id="nav">
+            <ul class="">            
+			<li><a <if condition='$nav_curr eq index'>class="active"</if> href="/" target="_self"><em class="icon icon-jz"></em><span>首页</span><em class="line"></em></a></li>
+			<li><a <if condition='$nav_curr eq jingxuan'>class="active"</if> href="{:U('jingxuan/index')}" target="_self"><em class="icon icon-bz"></em><span>淘宝精选</span><em class="line"></em></a></li>
+	        <li><a <if condition='$nav_curr eq dingzhi'>class="active"</if> href="{:U('dingzhi/index')}" target="_self"><em class="icon icon-jk"></em><span>产品定制</span><em class="line"></em></a></li>
+			<li class="_border"><a <if condition='$nav_curr eq user/login'>class="active"</if> href="{:U('user/center/index')}" target="_self"><em class="icon icon-yg"></em><span>个人中心</span><em class="line"></em></a></li></ul>
+        </nav>
+</div>

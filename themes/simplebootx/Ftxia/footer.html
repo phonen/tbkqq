@@ -1,0 +1,33 @@
+<div class="foot">
+    <div class="white_bg">
+    <div class="foot-con">
+
+<p class="ft-company">{$site.sitename}&nbsp;&nbsp;<a href="http://www.miibeian.gov.cn" target="_blank">{$ftx_site_icp}</a>&#12288;&#12288;Copyright &copy; 2010 - 2016 All Rights Reserved  {$ftx_statistics_code}</p>
+</div>
+</div>
+</div>
+<!--tc_include file="Ftxia:rnav" / -->
+<script type="text/javascript">
+var FTXIAER = {
+ root: "__ROOT__",
+ site: "/",
+ uid: "{$visitor['id']}",
+ loginurl:"{:U('user/login')}",
+ userurl:"{:U('user/index')}",
+ username:"{$visitor['username']}",
+ face:"{:avatar($visitor['id'], 64)}",
+ url:{}
+};
+var lang = {};
+<volist name=":L('js_lang')" id="val">lang.{$key} = "{$val}";</volist>
+</script>
+<ftxload type="js" href="__STATIC__/js/jquery/plugins/jquery.tools.min.js,__STATIC__/js/jquery/plugins/jquery.masonry.js,__STATIC__/js/jquery/plugins/formvalidator.js,__STATIC__/js/fileuploader.js,__STATIC__/js/ftxia.js,__STATIC__/js/front.js,__STATIC__/js/dialog.js,__STATIC__/js/item.js,__STATIC__/js/user.js,__STATIC__/red/js/comment.js,__STATIC__/red/js/comm.js" />
+<script src="__TMPL__Public/ftxia/newpi/js/lightbox.js" type="text/javascript"></script>
+<script src="__TMPL__Public/ftxia/newpi/js/goodlist.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$("img.lazy").lazyload({threshold:200,failure_limit:30});	
+</script>
+<script type="text/javascript" src="__TMPL__Public/ftxia/newpi/js/pg-index.js" ></script>
+{$ftx_weibo_code}
+{$ftx_tencent_code}
+{$ftx_taojindian_html}

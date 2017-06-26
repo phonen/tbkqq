@@ -1,0 +1,57 @@
+@charset "utf-8";
+/** CSS Document 
+* Dec: Base style 
+* Author: huamei127@vip.qq.com;
+* Date: 2015-05-12;
+**/
+/*public by huamei start*/
+.help-center{ font-family: "黑体-简";background: #ececec; width: 100%;line-height:1.6em}
+.help-center dt{ background: #fff;color: #db3b0f; padding: 3% 2%;border-bottom:1px #efefef solid}
+.help-center dd{padding: 3% 2%;background:#FFF;margin-bottom:2.6%}
+.help-center dd span,.help-center dt span{float: none; }
+.help-center p{ margin-left:10%;}
+.help-center a{color: #db3b0f}
+/*about us by huamei*/
+.about_us{font-family: "黑体-简"; }
+.about_us h1{ text-align: center; padding: 6.6% 0 0 0; background: rgb(255,255,255); }
+.about-box li{margin-bottom: 4.2%; background: rgb(255,255,255); overflow: hidden; width: 100%; height: 100%  }
+.about-box h3{ color: #6db110; font-size: 20px;  padding-top: 6.6%; padding-bottom: 6.6%; border-bottom: 1px solid #ebebeb;margin-left: 3.715%;}
+.about-box .con{ line-height: 1.5em; padding: 2% 5% 2% 5%}
+.about-box .con em{ color: #ff3838;}
+.about-box li .box-ab{ overflow: hidden;  padding-top: 6.25%;border-bottom: 1px dashed #b3b3b3;padding-bottom: 6.25%;}
+.about-box li img{ float: left; width: 32%;margin:0 5% 0 5%; display: inline;}
+.about-box li .introduce{ width: 55%; padding-right: 5%; float: left; padding: 10% 0; }
+.about-box li .introduce h2{ font-size: 20px; color: #6db110;}
+.about-box li .introduce em{ font-size: 12px;  color: #000; line-height: 1.5em; padding-top: 2%; display: inline-block;}
+.about-box li .last{ border: none;}
+.about-box li .over{ padding-bottom: 6.25%;}
+.about-box li .discount_box{ padding-top: 6.25%; border:none;}
+.about-box li .discount{  width:60%; padding: 5% 0 0 0;}
+.about-box li .discount p{ padding: 6% 0; width: 100%;  font-size: 12px; border-bottom: 1px dashed  #b3b3b3;}
+.mr0{  margin-right: 0!important;}
+.about-box li dl{ font-size: 14px;margin-left: 3.715%; }
+.about-box li dd{ padding: 4.16% 0; border-bottom:1px solid #ebebeb; line-height: 1.5em; }
+.about-box li dd a,.about-box li dd{ color: #000; display: block;}
+.about-box li dd img{ width: 20px; margin-left: 0;}
+.about-box li dd em{ background: url(../images/about/cur.png) no-repeat;  background-size: 6px 12px; width: 13px; height: 24px; float: right; display: inline-block; margin-right: 4.16%; margin-top: 2%;}
+.juan04_title{margin: 5% 0 0;font-size: 30px;text-align: center;display: block;color: #000;}
+.about-box_v04 li{margin-bottom: 4.2%; background: rgb(255,255,255); overflow: hidden; width: 100%; height: 100%  }
+.about-box_v04 h3{width: 90%;margin: 0 auto; color: #000; font-size: 20px;  padding-top: 6.6%; padding-bottom: 3%;}
+.about-box_v04 .con{ line-height: 1.5em; padding: 2% 5% 4% 5%}
+.about-box_v04 .con em{ color: #FF426B;}
+.about-box_v04 li .box-ab{ overflow: hidden;width: 90%; margin: 0 auto;}
+.about-box_v04 li img{width: 100%;display: block;margin: 0 auto;}
+.about-box_v04 li .introduce{ width: 66%; float: left; padding: 5% 0; }
+.about-box_v04 li .text_two .introduce{padding-right: 5%; float: left; padding: 2% 0; }
+.about-box_v04 li .last .introduce{padding-right: 5%; float: left; padding: 8% 0; }
+.about-box_v04 li .introduce h2{ font-size: 17px; color: #f8285c;}
+.about-box_v04 li .introduce em{ font-size: 12px;  color: #666; line-height: 1.5em; padding-top: 2%; display: inline-block;}
+.about-box_v04 li .last{ border: none;}
+.about-box_v04 li .over{ padding-bottom: 6.25%;}
+.about-box_v04 li .discount_box{ padding-top: 6.25%; border:none;}
+.about-box_v04 li .discount{  width:60%; padding: 5% 0 0 0;}
+.about-box_v04 li .discount p{ padding: 6% 0; width: 100%;  font-size: 12px; border-bottom: 1px dashed  #b3b3b3;}
+.about-box_v04 li .mid-logo img{margin: 5% auto 0;width: 100%;}
+.about-box_v04 li .qr_code img{margin: 10% auto 0;width: 40%;float: none;display: block;}
+.juan_v04_bottom_text{margin: 12px 0; text-align: center;font-size: 16px;color: #737373;overflow: hidden;}
+.about-box_v04 .juan_v04_bottom{margin-bottom: 0}

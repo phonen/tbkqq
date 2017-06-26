@@ -1,0 +1,64 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminCuntao/items')}">商品列表</a></li>
+    </ul>
+
+    <form method="post" class="js-ajax-form">
+        <div class="table-actions">
+
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminCuntao/item_delete')}" data-subcheck="true" data-msg="你确定删除商品吗？">删除</button>
+
+        </div>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+
+                <th width="70">ID</th>
+                <th width="70">商品ID</th>
+                <th width="160">商品名称</th>
+                <th width="70">商品图片</th>
+
+                <th width="100">村淘佣金</th>
+
+                <th width="50">券后价</th>
+
+                <th width="100">上传时间</th>
+                <th width="100">上传人</th>
+                <th width="50">状态</th>
+                <th width="80">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="items" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.num_iid}</td>
+                    <td><a href="{$vo.itemurl}" target="_blank">{$vo.dtitle}</a></td>
+                    <td><a href="{$vo.pic_url}" target="_blank"><img src="{$vo.pic_url}_250x250.jpg"></a></td>
+                    <td>{$vo.commission_rate}</td>
+
+                    <td>{$vo.coupon_price}</td>
+
+                    <td>{$vo.add_time|date="Y-m-d H:i:s",###}</td>
+                    <td>{$vo.uname}</td>
+                    <php>$status=array("underway"=>"审核通过","0"=>"待审核","-1"=>"删除");</php>
+                    <td>{$status[$vo['status']]}</td>
+                    <td>
+                        <a href="{:U('AdminCuntao/item_edit',array('id'=>$vo['id']))}">编辑</a> |
+                        <a href="{:U('AdminCuntao/item_delete',array('id'=>$vo['id']))}" class="js-ajax-delete">删除</a></td>
+                </tr>
+            </foreach>
+            </tbody>
+
+        </table>
+        <div class="pagination">{$Page}</div>
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

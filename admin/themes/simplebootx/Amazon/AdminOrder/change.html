@@ -1,0 +1,51 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('AdminOrder/index')}">刷单列表</a></li>
+		</ul>
+		<form class="well form-search" method="post" action="{:U('AdminOrder/change')}">
+			帐号：<input type="hidden" name="id" value="{$oid}" />
+			<input type="text" name="username" style="width: 200px;" value="{$formget.username}" placeholder="请输入帐号...">&nbsp; &nbsp;
+			<input type="submit" class="btn btn-primary" value="搜索" />
+		</form>
+		<form method="post" class="form-horizontal js-ajax-form" action="{:U('AdminOrder/change_post')}">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label">原帐号</label>
+					<div class="controls">
+						{$account.username}
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">新帐号</label>
+					<div class="controls">
+						<select class="select_2" style="width:500px" name="order[a_id]">
+							<foreach name="accounts" item="vo">
+								<option value="{$vo.id}">帐号：{$vo.username} | 密码：{$vo.password} | 余额：{$vo.amount}</option>
+							</foreach>
+						</select> &nbsp;&nbsp;
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">帐号异常原因</label>
+					<div class="controls">
+						<select class="select_2" name="status">
+							<option value="-1">帐号密码错误</option>
+							<option value="-2">帐号需要验证</option>
+							<option value="1">帐号没问题</option>
+						</select> &nbsp;&nbsp;
+					</div>
+				</div>
+			</fieldset>
+			<div class="form-actions">
+				<input type="hidden" name="order[id]" value="{$oid}" />
+				<button type="submit" class="btn btn-primary js-ajax-submit">更换</button>
+				<a class="btn" href="{:U('AdminOrder/index')}">{:L('BACK')}</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

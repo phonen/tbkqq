@@ -1,0 +1,68 @@
+<admintpl file="header" />
+<script type="text/javascript" src="__PUBLIC__/js/plupload/plupload.full.min.js"></script>
+<style>
+
+    .progress{ height: 4px; font-size: 0; line-height: 4px; background: orange; width: 0;}
+</style>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminTaoke/item_dsh')}">待审核商品表</a></li>
+        <li><a href="{:U('AdminTaoke/item_add')}" target="_self">添加</a></li>
+        <li><a href="{:U('AdminTaoke/item_addqq')}" target="_self">添加（QQ格式）</a></li>
+    </ul>
+
+    <form class="well form-search" method="post" action="{:U('AdminTaoke/item_dsh')}">
+        <label><input type="radio" name="act" value="export_itemlink" />导出链接</label>
+
+        <input type="submit" class="btn btn-primary" value="搜索" />
+
+    </form>
+    <form method="post" class="js-ajax-form">
+        <div class="table-actions">
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminTaoke/item_dsh_post')}" data-subcheck="true" data-msg="你确定正式推广吗？">正式推广</button>
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminTaoke/item_delete')}" data-subcheck="true" data-msg="你确定删除商品吗？">删除</button>
+
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminTaoke/item_campaign_post')}" data-subcheck="true" data-msg="你确定申请计划吗？">申请计划</button>
+        </div>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="70">ID</th>
+                <th width="160">商品名称</th>
+                <th width="70">卖家</th>
+                <th width="100">佣金比例</th>
+                <th width="50">佣金类型</th>
+
+                <th width="150">券</th>
+                <th width="80">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="items" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+                    <td><a href="{$vo.itemurl}" target="_blank">{$vo.iid}</a></td>
+                    <td><a href="{$vo.itemurl}" target="_blank">{$vo.item}</a></td>
+                    <td>{$vo.seller}</td>
+                    <td>{$vo.srrate}</td>
+                    <td>{$vo.type}</td>
+
+                    <td>{$vo.quan_link}</td>
+                    <td>
+                        <a href="{:U('AdminTaoke/item_edit',array('id'=>$vo['id']))}">编辑</a> |
+                        <a href="{:U('AdminTaoke/item_delete',array('id'=>$vo['id']))}" class="js-ajax-delete">删除</a></td></td>
+                </tr>
+            </foreach>
+            </tbody>
+
+        </table>
+
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+
+</body>
+</html>

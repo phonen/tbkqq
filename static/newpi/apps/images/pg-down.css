@@ -1,0 +1,119 @@
+@charset "utf-8";
+/** CSS Document 
+* Dec: mid-autumn style 
+* Date: 2014-11-13;
+* Author: mumian@juanpi.com;
+**/
+body, html{overflow:hidden;}
+.mobile_header{height:95px;width:100%;position:fixed;top:0;left:0;z-index:1001;}
+#alert_download .alert_content .mobile_con .n-download a,#alert_download .alert_content .mobile_select a,.fixed_right .code_btn{background:url(../images/total/mobile-total.gif) no-repeat;}
+/*stage by mumian start*/
+.stage{position:relative;height:870px;z-index:1;overflow:hidden;}
+.stage_1{background:#e2d4c8;z-index:2;}
+.stage_2{background:#c8e2d8;}
+.stage_3{background:#e5bfbf;}
+.stage_4{background:#bfc3e5;}
+.stage .stage_in{width:980px;height:550px;position:absolute;top:0;left:50%;margin-left:-490px;}
+.stage_left div{position:absolute;}
+.opa{opacity:0;}
+.stage_left .lady_01{top:230px;left:20px;}
+.stage_left .goods_01{top:100px;left:30px;}
+.stage_left .boy{top:270px;left:50px;}
+.stage_left .shirt{top:90px;left:50px;}
+.stage_left .lady_02{top:160px;left:140px;}
+.stage_left .phone_01{top:160px;left:50px;}
+.stage_left .phone_02{top:470px;left:20px;}
+.stage_left .goods_02{top:60px;left:35px;}
+.fixed_right{position:fixed;left:50%;margin-left:40px;width:385px;height:440px;z-index:1000;}
+.fixed_right .step_text{background:url(../images/app/mobile-txt.gif) no-repeat;height:70px;padding-left:385px;width:0;overflow:hidden;}
+.fixed_right.fixed_jp .step_text{background-position:0 -310px;}
+.fixed_right .step_02{background-position:0 -75px !important;}
+.fixed_right .step_03{background-position:0 -152px !important;}
+.fixed_right .step_04{background-position:0 -233px !important;}
+.fixed_right .code_area{background:url(../images/app/code.gif?20141224) no-repeat; width:260px;height:332px;float:right;margin-top:40px;}
+.fixed_right.fixed_jp .code_area{background:url(../images/app/code1.gif?20141224) no-repeat;}
+.fixed_right .code_btn{display:block;background-position:0 -35px;padding-left:168px;height:50px;width:0;overflow:hidden;margin:250px 0 0 45px;}
+.fixed_right.fixed_jp .code_area .code_btn{background-position:0 -86px;}
+.download_arrow{background:url(../images/app/arrow.png) no-repeat;width:38px;height:30px;position:fixed;bottom:30px;left:50%;margin-left:-19px;z-index:5;
+animation:750ms ease-in-out 0s alternate none infinite running arrow-animation;}
+@keyframes arrow-animation {
+	0% {
+	}
+	100% {
+		padding-top: 18px;
+	}
+}
+@keyframes arrow-animation {
+	0% {
+	}
+	100% {
+		padding-top: 18px;
+	}
+}
+.downlaod-install{color:#666;font-size:16px;left:50px;width:450px;height:30px;position:fixed;bottom:20px;margin-left:-19px;z-index:5;font-family:"微软雅黑","宋体";}
+.down-ins li{float:left;margin-right:10px;}
+.down-ins li a{color:#666;text-decoration:underline;}
+.down-ins li a:hover{text-decoration:none;}
+.switch_nav {
+    height: 128px;
+    margin-top: -65px;
+    position: fixed;
+    right: 50px;
+    top: 50%;
+    width: 12px;
+    z-index: 10;
+}
+
+.switch_nav a {
+    background:#eee5de;
+    border-radius: 50%;
+    display: block;
+    height: 12px;
+    margin-bottom:20px;
+    width: 12px;
+}
+.switch_nav a:hover{background:#fff;}
+.switch_nav a.active{background:#fff;}
+/*alert_download by mumian*/
+#alert_download{width:647px;height:auto;}
+#alert_download .alert_box .alert_top{width:645px;background:#fff;}
+#alert_download .alert_content{width:645px;}
+#alert_download .alert_content .mobile_select{position:relative;padding:20px 0 35px 0;width:510px; margin:0 auto;}
+#alert_download .alert_content .mobile_select a{display:block;float:left;margin:0 42px 0;width:86px;height:auto;padding-top:90px;text-align:center;color:#444;font-size:14px;font-family:"微软雅黑","宋体";}
+#alert_download .alert_content .mobile_select a.n-android{background-position:0 -371px;}
+#alert_download .alert_content .mobile_select a.n-iphone{background-position:-87px -371px;}
+#alert_download .alert_content .mobile_select a.n-ipad{background-position:-1px -493px;}
+#alert_download .alert_content .mobile_select a.n-ipad.hover{background-position:-87px -614px;}
+#alert_download .alert_content .mobile_select a.n-android.hover{background-position:0 -251px;}
+#alert_download .alert_content .mobile_select a.n-iphone.hover{background-position:0 -614px;}
+
+#alert_download .alert_content .mobile_select.jp_select a.n-android{background-position:0 -371px;}
+#alert_download .alert_content .mobile_select.jp_select a.n-iphone{background-position:-87px -371px;}
+#alert_download .alert_content .mobile_select.jp_select a.n-ipad{background-position:-1px -493px;}
+#alert_download .alert_content .mobile_select.jp_select a.n-ipad.hover{background-position:-87px -251px;}
+#alert_download .alert_content .mobile_select.jp_select a.n-android.hover{background-position:0 -137px;}
+#alert_download .alert_content .mobile_select.jp_select a.n-iphone.hover{background-position:-87px -137px;}
+#alert_download .alert_content .mobile_select a:hover{text-decoration:none;}
+#alert_download .alert_content .mobile_select .move_img{position:absolute;bottom:-10px;left:80px;}
+#alert_download .alert_content .mobile_con{padding:30px 15px 20px;background:#ececec;}
+#alert_download .alert_content .mobile_con ul.fix_box{
+    float: left;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    width: 400%;}
+#alert_download .alert_content .mobile_con{font-family:"微软雅黑","宋体";}
+#alert_download .alert_content .mobile_con ul.fix_box li{float:left;width:615px;}
+#alert_download .alert_content .mobile_con .n-wechat{text-align:center;color:#666;font-size:16px;width:330px;}
+#alert_download .alert_content .mobile_con .n-wechat img{margin-bottom:10px;}
+#alert_download .alert_content .mobile_con .n-download{font-size:16px;color:#444;width:275px;}
+#alert_download .alert_content .mobile_con .n-download a{
+    display: block;
+    height: 50px;
+    margin: 30px 0 10px 0;
+    overflow: hidden;
+    padding-left: 168px;
+    width: 0;}
+#alert_download .alert_content .mobile_con .n-download a.jky_download{background-position:0 -35px;}
+#alert_download .alert_content .mobile_con .n-download a.jp_download{background-position:0 -86px;}
+/*main by stage end*/

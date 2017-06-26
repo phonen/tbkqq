@@ -1,0 +1,79 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminTaoke/item_history')}">商品仓库表</a></li>
+    </ul>
+    <form class="well form-search" method="post" action="{:U('AdminTaoke/item_history')}">
+        时间：
+        <input type="text" name="startdate" class="js-date" value="{$formget.startdate|default=''}" style="width: 80px;" autocomplete="off">-
+        <input type="text" class="js-date" name="enddate" value="{$formget.enddate}" style="width: 80px;" autocomplete="off"> &nbsp; &nbsp;
+        商品名称：
+        <input type="text" name="item" style="width: 200px;" value="{$formget.item}" placeholder="请输入商品名称...">&nbsp; &nbsp;
+        类目：
+        <select class="select_2" name="class">
+            <option value="无" <php>if($formget['class'] == '无') echo "selected=true";</php>>无</option>
+            <option value="服装" <php>if($formget['class'] == '服装') echo "selected=true";</php>>服装</option>
+            <option value="鞋包" <php>if($formget['class'] == '鞋包') echo "selected=true";</php>>鞋包</option>
+            <option value="母婴" <php>if($formget['class'] == '母婴') echo "selected=true";</php>>母婴</option>
+            <option value="数码家电" <php>if($formget['class'] == '数码家电') echo "selected=true";</php>>数码家电</option>
+            <option value="学习用品" <php>if($formget['class'] == '学习用品') echo "selected=true";</php>>学习用品</option>
+            <option value="饰品化妆品" <php>if($formget['class'] == '饰品化妆品') echo "selected=true";</php>>饰品化妆品</option>
+            <option value="家居用品" <php>if($formget['class'] == '家居用品') echo "selected=true";</php>>家居用品</option>
+            <option value="户外用品" <php>if($formget['class'] == '户外用品') echo "selected=true";</php>>户外用品</option>
+            <option value="食品百货" <php>if($formget['class'] == '食品百货') echo "selected=true";</php>>食品百货</option>
+
+        </select> &nbsp;&nbsp;
+        券过期时间：
+        <input type="text" name="qtime" class="js-date" value="{$formget.qtime|default=''}" style="width: 80px;" autocomplete="off">
+        <input type="submit" class="btn btn-primary" value="搜索" />
+
+    </form>
+
+    <form method="post" class="js-ajax-form">
+        <div class="table-actions">
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminTaoke/item_history_restore')}" data-subcheck="true" data-msg="你确定恢复商品吗？">恢复</button>
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminTaoke/item_history_delete')}" data-subcheck="true" data-msg="你确定删除商品吗？">删除</button>
+        </div>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="70">编号</th>
+                <th width="70">ID</th>
+                <th width="160">商品名称</th>
+                <th width="70">类目</th>
+                <th width="70">卖家</th>
+                <th width="100">佣金比例</th>
+                <th width="50">单价</th>
+                <th width="50">单月销量</th>
+                <th width="50">代理链接数</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="items" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+                    <td><input name="nos[{$vo.id}]" class="input input-order" type="text" size="5" value="{$vo.no}" title="ID:{$vo.id}"></td>
+                    <td>{$vo.iid}</td>
+                    <td><a href="{$vo.itemurl}" target="_blank">{$vo.item}</a></td>
+                    <td>{$vo.class}</td>
+                    <td>{$vo.seller}</td>
+                    <td>{$vo.srrate}</td>
+                    <td>{$vo.price}</td>
+                    <td>{$vo.sellcount}</td>
+                    <td>{$vo.urlc}</td>
+
+                </tr>
+            </foreach>
+            </tbody>
+
+        </table>
+        <div class="pagination">{$Page}</div>
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

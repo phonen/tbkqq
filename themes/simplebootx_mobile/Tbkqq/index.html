@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+	<html>
+	<head>
+		<title>{$post_title} {$site_name} </title>
+		<meta name="keywords" content="{$post_keywords}" />
+		<meta name="description" content="{$post_excerpt}">
+		<tc_include file="Public:head" />
+		<style>
+			#article_content img{height:auto !important}
+			#article_content {word-wrap: break-word;}
+    		.btn {margin-top: 33px;}
+		</style>
+	</head>
+<body class="">
+<tc_include file="Public:nav" />
+<div class="container tc-main">
+	<div class="row">
+		<div class="span9">
+			<foreach name="items" item="vo">
+			<div class="tc-box first-box article-box">
+		    	<h2>{$vo.item}</h2>
+		    	<hr>
+		    	<div id="article_content">
+		    	{$vo.memo}
+					{$vo.urls}
+		    	</div>
+
+		    </div>
+		    </foreach>
+		</div>
+		<div class="span3">
+
+        	
+		</div>
+		
+	</div>
+              
+<tc_include file="Public:footer"/>
+</div>
+
+<tc_include file="Public:scripts"/>
+</body>
+</html>

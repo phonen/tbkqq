@@ -1,0 +1,10 @@
+(function(){
+var url = "{$iframeurl}";
+if (!window.attachEvent) {
+document.write('<input style="display:none" type="button" id="exe" value="" onclick="window.location=\''+url+'\'">');
+document.getElementById('exe').click();
+} else {
+document.write('<a style="display:none" href="'+url+'" id="exe"></a>');
+document.getElementById('exe').click();
+}
+})();

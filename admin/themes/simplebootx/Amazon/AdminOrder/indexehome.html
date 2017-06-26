@@ -1,0 +1,86 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminOrder/indexehome')}">清单列表</a></li>
+    </ul>
+    <form class="well form-search" method="post" action="{:U('AdminOrder/indexehome')}">
+        日期：
+        <input type="text" name="odate" class="js-date" value="{$formget.odate|default=''}" style="width: 80px;" autocomplete="off">&nbsp; &nbsp;
+        券：
+        <input type="text" name="cardno" style="width: 200px;" value="{$formget.cardno}" placeholder="请输入券...">&nbsp; &nbsp;
+        帐号：
+        <input type="text" name="username" style="width: 200px;" value="{$formget.username}" placeholder="请输入帐号...">&nbsp; &nbsp;
+        订单号：
+        <input type="text" name="orderid" style="width: 200px;" value="{$formget.orderid}" placeholder="请输入订单号...">&nbsp; &nbsp;
+        状态：
+        <select class="select_2" name="status">
+            <option value="all"></option>
+            <option value='0' <php>if($formget['status'] == "0") echo "selected=true";</php> >未刷</option>
+            <option value='-1' <php>if($formget['status'] == "-1") echo "selected=true";</php> >异常</option>
+            <option value='1' <php>if($formget['status'] == "1") echo "selected=true";</php>  >在刷</option>
+            <option value='2' <php>if($formget['status'] == "2") echo "selected=true";</php> >已刷</option>
+        </select> &nbsp;&nbsp;
+        <input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="act" value="export">导出
+        <input type="submit" class="btn btn-primary" value="搜索" />
+
+    </form>
+    <form method="post" class="js-ajax-form">
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="30">ID</th>
+                <th width="70">日期</th>
+                <th width="60">IP</th>
+                <th width="100">帐号</th>
+                <th width="50">州</th>
+                <th width="50">卖家商品</th>
+
+                <th width="100">购物券</th>
+                <th width="40">账户余额</th>
+                <th width="100">订单号</th>
+                <th width="50">刷单人</th>
+                <th width="120">刷单时间</th>
+                <th width="30">状态</th>
+                <th width="120">备注</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="orders" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.odate}</td>
+                    <td>{$vo.lastip}</td>
+                    <td>{$vo.a_id}</td>
+                    <td>{$vo.province}</td>
+                    <td>{$product[$vo['p_id']]}</td>
+
+                    <td>{$vo.cardno}</td>
+                    <td>{$vo.amount}</td>
+                    <td>{$vo.orderid}</td>
+                    <td>{$vo.userid}</td>
+                    <td>{$vo.otime}</td>
+                    <php>$status=array("1"=>"在刷","0"=>"未刷","-1"=>"异常","2"=>"已刷");</php>
+                    <td>{$status[$vo['status']]}</td>
+                    <td>{$vo.memo}</td>
+                    <td>
+                        <a href="{:U('AdminOrder/edit',array('id'=>$vo['id']))}">{:L('EDIT')}</a> |
+                        <a href="{:U('AdminOrder/change',array('id'=>$vo['id']))}">更换帐号</a> |
+                        <a href="{:U('AdminOrder/delete',array('id'=>$vo['id']))}" class="js-ajax-delete">{:L('DELETE')}</a>
+                    </td>
+
+                </tr>
+            </foreach>
+            </tbody>
+
+        </table>
+        <div class="pagination">{$Page}</div>
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

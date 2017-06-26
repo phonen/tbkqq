@@ -1,0 +1,33 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('AdminProduct/index')}">{:L('ADMIN_AD_INDEX')}</a></li>
+			<li><a href="{:U('AdminProduct/add')}">{:L('ADMIN_AD_ADD')}</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form" action="{:U('AdminProduct/create_post')}">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label">刷单任务数</label>
+					<div class="controls">
+						<input type="text" name="tasknum" value="{$tasknum}"><span class="form-required">*</span>
+						<input type="hidden" name="id" value="{$id}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">计划日期</label>
+					<div class="controls">
+						<input type="text" name="cdate" class="js-date" value="{$formget.cdate|default=''}" style="width: 80px;" autocomplete="off">
+					</div>
+				</div>
+			</fieldset>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary js-ajax-submit">生成刷单任务</button>
+				<a class="btn" href="{:U('AdminProduct/index')}">{:L('BACK')}</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

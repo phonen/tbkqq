@@ -1,0 +1,41 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('AdminTaoke/item_dsh')}">推广单品表</a></li>
+
+			<li class="active">查看链接</li>
+		</ul>
+		<form method="post" class="js-ajax-form">
+			<div class="table-actions">
+			</div>
+			<table class="table table-hover table-bordered table-list">
+				<thead>
+				<tr>
+					<th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+
+					<th width="160">代理名称</th>
+					<th width="70">链接</th>
+
+				</tr>
+				</thead>
+				<tbody>
+				<foreach name="proxys" item="vo">
+					<tr>
+						<td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+
+						<td>{$vo.proxy}</td>
+						<td>{$itemurl[$vo['proxy']]}</td>
+					</tr>
+				</foreach>
+				</tbody>
+
+			</table>
+
+		</form>
+	</div>
+	<script type="text/javascript" src="__PUBLIC__/js/common.js"></script>
+
+</body>
+</html>

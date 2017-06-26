@@ -1,0 +1,36 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#">导入明细</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form" action="{:U('AdminTaoke/details_load_post')}">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label">淘客帐号</label>
+					<div class="controls">
+						<select class="select_2"  style="width: 220px" name="type">
+							<option value="taoke">淘客</option>
+							<option value="fanli">返利</option>
+						</select> &nbsp;&nbsp;
+
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">导入开始日期</label>
+					<div class="controls">
+						<input type="text" name="startdate" class="js-date" value="" style="width: 80px;" autocomplete="off"><span class="form-required">*</span>
+					</div>
+				</div>
+
+			</fieldset>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary js-ajax-submit">导入</button>
+
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

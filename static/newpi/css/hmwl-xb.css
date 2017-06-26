@@ -1,0 +1,31 @@
+﻿@charset "utf-8";
+ .xiaobao{ padding: 30px 38px; background: #fff; border: 2px solid #f6f6f6; border-bottom: none;}
+ .xiaobao a{ width: 71px; height: 94px; position: absolute;  text-indent: -999999px;top: 0; }
+ .xiaobao .xb_icon{ position: relative; height: 94px;background: url("/static/newpi/images/xiaobao/xiaobao.gif") no-repeat; }
+ .xiaobao .xb_s{  height: 94px;}
+ .xiaobao .xb_s1{  left: 0;} 
+ .xiaobao .xb_s2{  left: 111px;}
+ .xiaobao .xb_s3{  left: 222px;}
+ .xiaobao .xb_s4{  left: 332px;}
+ .xiaobao .xb_s5{  left: 442px;}
+ .xiaobao .xb_s6{  left: 554px;}
+ .xiaobao .xb_s7{  left: 664px;}
+ .xiaobao .xb_s1:hover, .xiaobao .xb_s2:hover, .xiaobao .xb_s3:hover, .xiaobao .xb_s4:hover, .xiaobao .xb_s5:hover, .xiaobao .xb_s6:hover, .xiaobao .xb_s7:hover{background: url("/static/newpi/images/xiaobao/item.gif") no-repeat;}
+ .xiaobao .xb_s1:hover{background-position: 0 -76px;}
+ .xiaobao .xb_s2:hover{background-position: 0px -227px;}
+ .xiaobao .xb_s3:hover{background-position: 0 -325px;}
+ .xiaobao .xb_s4:hover{background-position: -87px -76px;}
+ .xiaobao .xb_s5:hover{background-position: -88px -222px;}
+ .xiaobao .xb_s6:hover{background-position: -89px -320px;}
+ .xiaobao .xb_s7:hover{background-position: -169px -76px;}
+ .xb_js{ padding: 25px 30px; background: #f6f6f6; position: relative;}
+ .xb_js .steup{ width: 628px; height: 137px; margin: 0 auto; display:none;}
+ .xb_js .steup_01{background: url("/static/newpi/images/xiaobao/steup1.gif") no-repeat;}
+ .xb_js .steup_02{background: url("/static/newpi/images/xiaobao/steup2.gif") no-repeat;}
+ .xb_js .steup_03{background: url("/static/newpi/images/xiaobao/steup3.gif") no-repeat;}
+ .xb_js .steup_04{background: url("/static/newpi/images/xiaobao/items/steup4.gif") no-repeat;}
+ .xb_js .steup_05{background: url("/static/newpi/images/xiaobao/items/steup5.gif") no-repeat;}
+ .xb_js .steup_06{background: url("/static/newpi/images/xiaobao/items/steup6.gif") no-repeat;}
+ .xb_js .steup_07{background: url("/static/newpi/images/xiaobao/steup7.gif") no-repeat;}
+ .xb_js .jiao{ position: absolute;  right: 0; bottom: 0; _top:77px; _left:765px;background: url("/static/newpi/images/xiaobao/jiao.gif") no-repeat; width: 21px; height: 21px;}
+ 

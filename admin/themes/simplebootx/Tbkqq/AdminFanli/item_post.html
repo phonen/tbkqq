@@ -1,0 +1,41 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminTaoke/item')}">推广单品表</a></li>
+    </ul>
+
+    <form method="post" class="js-ajax-form">
+
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+
+                <th>ID</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="items" item="vo">
+                <tr>
+                    <td>{$vo.iid}<br>
+                        <img src="{$vo.img}"><br>
+                        {$vo.memo}<br>
+                        <foreach name="{$vo.urls}" item="url">
+
+                            {$url.url}
+                        </foreach>
+                    </td>
+
+                </tr>
+            </foreach>
+            </tbody>
+
+        </table>
+
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

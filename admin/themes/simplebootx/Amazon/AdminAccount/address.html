@@ -1,0 +1,78 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminAccount/address')}">地址列表</a></li>
+    </ul>
+    <form class="well form-search" method="post" action="{:U('AdminAccount/address')}">
+        地址：
+        <input type="text" name="address" style="width: 200px;" value="{$formget.address}" placeholder="请输入地址...">&nbsp; &nbsp;
+        状态：
+        <select class="select_2" name="status">
+            <option value='0' <php>if($formget['status'] == "0") echo "selected=true";</php> >未注册</option>
+            <option value='1' <php>if($formget['status'] == "1") echo "selected=true";</php>  >在注册</option>
+            <option value='2' <php>if($formget['status'] == "2") echo "selected=true";</php> >已注册</option>
+            <option value='-1' <php>if($formget['status'] == "-1") echo "selected=true";</php> >异常</option>
+        </select> &nbsp;&nbsp;
+
+        <input type="submit" class="btn btn-primary" value="搜索" />
+    </form>
+    <form method="post" class="js-ajax-form">
+
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="30">ID</th>
+                <th width="50">编号</th>
+                <th width="50">名</th>
+                <th width="50">姓</th>
+                <th width="100">地址1</th>
+                <th width="100">地址2</th>
+                <th width="50">城市</th>
+                <th width="40">州</th>
+                <th width="80">邮政编码</th>
+                <th width="100">电话</th>
+                <th width="100">帐号</th>
+                <th width="30">状态</th>
+                <th width="120">备注</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="addresss" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.no}</td>
+                    <td>{$vo.firstname}</td>
+                    <td>{$vo.lastname}</td>
+                    <td>{$vo.address1}</td>
+                    <td>{$vo.address2}</td>
+                    <td>{$vo.city}</td>
+                    <td>{$vo.province}</td>
+                    <td>{$vo.code}</td>
+                    <td>{$vo.phone}</td>
+                    <td>{$vo.username}</td>
+                    <php>$status=array("1"=>"在注册","-1"=>"异常","2"=>"已注册","0"=>"未注册");</php>
+                    <td>{$status[$vo['status']]}</td>
+                    <td>{$vo.memo}</td>
+                    <td>
+                        <php>if($vo['status'] == '0') {</php>
+                        <a href="{:U('AdminAccount/add',array('id'=>$vo['id']))}">注册帐号</a> |
+                        <php>}</php>
+
+                    </td>
+
+                </tr>
+            </foreach>
+            </tbody>
+
+        </table>
+        <div class="pagination">{$Page}</div>
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

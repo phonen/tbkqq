@@ -1,0 +1,34 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#">编辑cookie</a></li>
+			<li><a href="{:U('AdminTaoke/cookie_add')}">添加</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form" action="{:U('AdminTaoke/cookie_edit_post')}">
+			<fieldset>
+				<php>if($option_id):</php>
+				<input type="hidden" name="option_id" value="{$option_id}">
+				<php>endif;</php>
+				<foreach name="cookies" item="vo" key="k">
+
+				<div class="control-group">
+					<label class="control-label">{$vo.username}:</label>
+					<div class="controls">
+						<input type="hidden" name="options[{$k}][username]" value="{$vo.username}">
+						<textarea name="options[{$k}][cookie]" style="width: 600px;height: 100px">{$vo.cookie}</textarea>
+					</div>
+				</div>
+					</foreach>
+
+			</fieldset>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary js-ajax-submit">{:L('SAVE')}</button>
+				<a class="btn" href="{:U('AdminTaoke/media')}">{:L('BACK')}</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

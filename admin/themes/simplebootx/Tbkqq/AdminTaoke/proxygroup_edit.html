@@ -1,0 +1,42 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('AdminTaoke/proxygroup')}">公司群管理</a></li>
+			<li class="active">编辑公司群</li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form" action="{:U('AdminTaoke/proxygroup_edit_post')}">
+			<fieldset>
+
+				<div class="control-group">
+					<label class="control-label">QQ群</label>
+					<div class="controls">
+						<input type="hidden" name="proxy[id]" value="{$proxy.id}">
+						<input type="text" name="proxy[memo]" value="{$proxy.memo}"><span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+				<label class="control-label">QQ群号</label>
+				<div class="controls">
+					<input type="text" name="proxy[qqgroup]" value="{$proxy.qqgroup}"><span class="form-required">*</span>
+				</div>
+			</div>
+
+				<div class="control-group">
+					<label class="control-label">发消息酷Q</label>
+					<div class="controls">
+						<input type="text" name="proxy[sendqq]" value="{$proxy.sendqq}">
+					</div>
+				</div>
+
+			</fieldset>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary js-ajax-submit">保存</button>
+				<a class="btn" href="{:U('AdminTaoke/proxygroup')}">返回</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

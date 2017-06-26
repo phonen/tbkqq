@@ -1,0 +1,122 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap js-check-wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="javascript:;">新生成任务列表</a></li>
+		</ul>
+		<form class="js-ajax-form" action="" method="post">
+			<div class="table-actions">
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminOrder/create_post')}">更新信息</button>
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminOrder/status_post')}" data-subcheck="true" data-msg="你确定正式生成刷单任务吗？">正式生成</button>
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminOrder/delete')}" data-subcheck="true" data-msg="你确定删除刷单任务吗？">删除</button>
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminOrder/export')}" data-subcheck="true" data-msg="你确定导出吗？">导出</button>
+			</div>
+			<table class="table table-hover table-bordered table-list">
+				<thead>
+					<tr>
+						<th width="15"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+						<th width="50">刷单ID</th>
+						<th width="50">帐号ID</th>
+						<th width="50">产品ID</th>
+						<th width="120">日期</th>
+						<th width="100">帐号</th>
+						<th width="100">密码</th>
+						<th width="100">产品</th>
+						<th width="50">产品单价</th>
+						<th width="50">券面额</th>
+						<th width="100">券号</th>
+						<th width="100">地址</th>
+					</tr>
+				</thead>
+
+				<foreach name="orders" item="vo">
+				<tr>
+					<td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}" title="ID:{$vo.id}"></td>
+					<td>{$vo.id}</td>
+					<td>{$vo.a_id}</td>
+					<td>{$vo.p_id}</td>
+					<td>{$vo.odate}</td>
+					<td>{$vo.username}</td>
+					<td>{$vo.password}</td>
+					<td>{$vo.product}</td>
+					<td>{$vo.p_amount}</td>
+<td>{$vo.c_amount}</td>
+					<td><input name="cardno[{$vo.id}]" class="input input-order" type="text" size="10" value="{$vo.cardno}" title="ID:{$vo.id}"></td>
+					<td><input name="address[{$vo.id}]" class="input input-order" type="text" size="10" value="{$vo.address}" title="ID:{$vo.id}"></td>
+				</tr>
+				</foreach>
+				<tfoot>
+					<tr>
+						<th width="15"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+						<th width="50">刷单ID</th>
+						<th width="50">帐号ID</th>
+						<th width="50">产品ID</th>
+						<th width="120">日期</th>
+						<th width="100">帐号</th>
+						<th width="100">密码</th>
+						<th width="100">产品</th>
+						<th width="50">产品单价</th>
+						<th width="50">券面额</th>
+						<th width="100">券号</th>
+						<th width="100">地址</th>
+					</tr>
+				</tfoot>
+			</table>
+			<div class="table-actions">
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminOrder/create_post')}">更新信息</button>
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminOrder/status_post')}" data-subcheck="true" data-msg="你确定正式生成刷单任务吗？">正式生成</button>
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminOrder/delete')}" data-subcheck="true" data-msg="你确定删除刷单任务吗？">删除</button>
+				<button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminOrder/create_export')}" data-subcheck="true" data-msg="你确定导出吗？">导出</button>
+			</div>
+		</form>
+		<form action="{:U('AdminOrder/import')}" method="post"  enctype="multipart/form-data">
+			<input type="file" name="csvfile" />	<input type="submit" name="submit" value="Submit" />
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script>
+		function refersh_window() {
+			var refersh_time = getCookie('refersh_time');
+			if (refersh_time == 1) {
+				window.location = "{:U('AdminOrder/create',$formget)}";
+			}
+		}
+		setInterval(function() {
+			refersh_window();
+		}, 2000);
+		$(function() {
+			setCookie("refersh_time", 0);
+			Wind.use('ajaxForm', 'artDialog', 'iframeTools', function() {
+				//批量移动
+				$('.js-articles-move').click(function(e) {
+					var str = 0;
+					var id = tag = '';
+					$("input[name='ids[]']").each(function() {
+						if ($(this).attr('checked')) {
+							str = 1;
+							id += tag + $(this).val();
+							tag = ',';
+						}
+					});
+					if (str == 0) {
+						art.dialog.through({
+							id : 'error',
+							icon : 'error',
+							content : '您没有勾选信息，无法进行操作！',
+							cancelVal : '关闭',
+							cancel : true
+						});
+						return false;
+					}
+					var $this = $(this);
+					art.dialog.open("__ROOT__/index.php?g=portal&m=AdminPost&a=move&ids="+ id, {
+						title : "批量移动",
+						width : "80%"
+					});
+				});
+			});
+		});
+	</script>
+</body>
+</html>

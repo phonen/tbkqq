@@ -1,0 +1,30 @@
+/*43858 首屏广告*/
+.banner_column{margin-top: 10px;}
+.banner_column .content{overflow: hidden;width: 979px;height: 340px;background: #fff;}
+.banner_column dl{width: 980px}
+.banner_column dl dd,.banner_column dl dt{float: left;font-size: 0;border: 1px solid #ececec;overflow: hidden;*position: relative;}
+.banner_column dl dd img,.banner_column dl dt img{-moz-transition:-moz-transform .2s linear;-webkit-transition:-webkit-transform .2s linear;-o-transition:-o-transform .2s linear;-ms-transition:-ms-transform .2s linear;transition:transform .2s linear;}
+.banner_column dl dd img:hover,.banner_column dl dt img:hover{-moz-transform:translateX(-10px); -webkit-transform:translateX(-10px); -o-transform:translateX(-10px); -ms-transform:translateX(-10px); transform:translateX(-10px); }
+.banner_column dl dt{border-width: 0 1px 0 0;}
+
+.banner_column dl dd{border-width:0 1px 1px 0;}
+.banner_column dl dt img{width: 244px;height: 341px;}
+.banner_column dl dd img{width: 244px;height: 170px;}
+
+.deals_tit{line-height: 22px;margin-top: 10px;border-bottom: 1px solid #fff;}
+.deals_tit .con{padding-bottom: 10px;border-bottom:1px solid #dcdcdc;}
+.deals_tit h3{text-align: left;font-size: 14px;}
+.deals_tit h3 b{color: #ff3b37;}
+.deals_tit .sort{float: right;border-right: 1px solid #e2e2e2;margin-left: 30px;color: #666;font-size: 0}
+.deals_tit .sort span{margin-right: 10px;}
+.deals_tit .sort span,.deals_tit .sort a{font-size: 12px;}
+.deals_tit .sort a{display: inline-block;*display:inline;*zoom:1;padding: 0 10px;border: 1px solid #e2e2e2;border-width: 1px 0 1px 1px;}
+.deals_tit .sort a.on{background: #fff;color: #e02f2f;}
+.deals_tit .sort .tooltip .tooltip-content{width: auto;padding-right: 20px;*overflow: hidden}
+.deals_tit .sort .tooltip .tooltip-content .close{top: 6px;right: 5px}
+.deals_tit .sort .tooltip .tooltip-arrow{background: none;height: 5px;width: 10px;*height: 20px;}
+.deals_tit .sort .tooltip .tooltip-arrow i,.deals_tit .sort .tooltip .tooltip-arrow u{background: none;height: 0;width: 0;border-style: solid;border-color: transparent;_overflow:hidden;_filter:chroma(color=tomato);_border-color: tomato;border-width: 4px;position: absolute;}
+.deals_tit .sort .tooltip .tooltip-arrow.up{top: -7px;margin-top: 0;left: 30px}
+.deals_tit .sort .tooltip .tooltip-arrow.up i{border-bottom-color: #cccbcb;margin-top: -1px;}
+.deals_tit .sort .tooltip .tooltip-arrow.up u{border-bottom-color: #fffeef;}
+.index_deal .dealbox{margin-top: 10px;}

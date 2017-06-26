@@ -1,0 +1,68 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminCaijiqq/item')}">全部商品表</a></li>
+
+    </ul>
+    <form class="well form-search" method="post" action="{:U('AdminCaijiqq/item')}">
+        时间：
+        <input type="text" name="startdate" class="js-date" value="{$formget.startdate|default=''}" style="width: 80px;" autocomplete="off">-
+        <input type="text" class="js-date" name="enddate" value="{$formget.enddate}" style="width: 80px;" autocomplete="off"> &nbsp; &nbsp;
+        商品名称：
+        <input type="text" name="item" style="width: 200px;" value="{$formget.item}" placeholder="请输入商品名称...">&nbsp; &nbsp;
+
+        券过期时间：
+        <input type="text" name="qtime" class="js-date" value="{$formget.qtime|default=''}" style="width: 80px;" autocomplete="off">
+        <input type="submit" class="btn btn-primary" value="搜索" />
+
+    </form>
+    <form method="post" class="js-ajax-form">
+        <div class="table-actions">
+            <select class="select_2"  style="width: 220px" name="username">
+                <foreach name="media" item="vo">
+                    <option value="{$vo.username}">{$vo.username}</option>
+                </foreach>
+            </select> &nbsp;&nbsp;
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminCaijiqq/item_tuiguang')}">加入推广</button>
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminCaijiqq/item_getinfo')}">补采信息</button>
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminCaijiq/item_campaign_post')}">申请计划</button>
+        </div>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="50">图片</th>
+                <th width="160">商品名称</th>
+
+                <th width="160">商品文案</th>
+                <th width="100">券时间</th>
+                <th width="100">采集时间</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="items" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.num_iid}"></td>
+                    <td><img src="{$vo.pic_url}_250x250.jpg"></td>
+
+                    <td><a href="https://item.taobao.com/item.htm?id={$vo.num_iid}" target="_blank">{$vo.title}</a></td>
+
+                    <td>{$vo.D_Title}&nbsp;&nbsp;原价：{$vo.price}  券：{$vo.coupon_price} <br>{$vo.intro}</td>
+                    <td>{$vo.coupon_end_time|date="Y-m-d",###}</td>
+
+                    <td>{$vo.add_time|date="Y-m-d",###}</td>
+
+                </tr>
+            </foreach>
+            </tbody>
+
+        </table>
+        <div class="pagination">{$Page}</div>
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('AmazonOrder/index')}">{:L('ADMIN_USER_INDEX')}</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-forms" action="{:U('AdminOrder/shuadan_post')}">
+			<php>$type=array("b"=>"刷单","c"=>"add cart","w"=>"add wishlist");</php>
+			<table class="table table-hover table-bordered table-list">
+				<thead>
+				<tr>
+					<th width="30">ID:</th>
+					<th width="200">用户名:<br><php>echo trim($account['username']);</php></th>
+					<th width="130">密码:<br><php>echo trim($account['password']);</php></th>
+					<th width="80">记录人:{$userid}</th>
+					<th width="100"></th>
+
+
+
+				</tr>
+				</thead>
+				<tbody>
+				<foreach name="orders" item="vo">
+
+					<tr>
+
+						<td colspan="5"><font color="red" >   {$type[$vo['type']]}   </font></td>
+					</tr>
+					<tr>
+						<td rowspan="2">{$vo.id}</td>
+						<td>地    址:{$vo.address}</td>
+
+						<td>卖家产品:{$vo.product}</td>
+						<td>ASIN:{$vo.asin}</td>
+						<td>关键字:{$vo.keyword}<font color="red" >{$vo.memo}</font></td>
+					</tr>
+					<tr>
+
+						<td>刷单金额:<font color="red">{$vo.amount}</font> </td>
+						<td>
+						<php> if($vo['type'] == 'b') {</php>
+							充值卡:<input type="text" name="order[{$vo.id}][cardno]" value="{$vo.cardno}">
+						<php>} else {</php>
+							<input type="hidden" name="order[{$vo.id}][cardno]" value="{$vo.cardno}">
+							<php>}</php>
+						</td>
+
+						<td>
+							<php> if($vo['type'] == 'b') {</php>
+							亚马逊单号:<input type="text" name="order[{$vo.id}][orderid]" value="">
+							<php>} else {</php>
+							<input type="hidden" name="order[{$vo.id}][orderid]" value="">
+							<php>}</php>
+						</td>
+						<td>卖家店铺：{$vo.shop}</td>
+					</tr>
+				</foreach>
+				</tbody>
+			</table>
+			<div class="form-actions">
+				<input type="hidden" name="account[id]" value="{$account.id}">
+				账户余额:<input type="text" name="account[amount]" value="{$account.amount}"  required placeholder="帐号余额" style="width: 80px">
+				代理IP:<input type="text" name="account[lastip]" value="" required placeholder="代理IP" style="width: 100px">
+				州：<input type="text" name="account[province]" value="{$account.province}" required placeholder="州信息" style="width: 50px">
+				帐号地址信息：<input type="text" name="account[address]" value="{$account.address}">
+				<font color="red">邮箱：</font> <input type="text" name="account[email]" value="{$account.email}" <?php if($account['email'] != "") {?> disabled="true" <?php }?>>
+
+				<button type="submit" class="btn btn-primary js-ajax-submit" data-action="{:U('AdminOrder/shuadan_post')}"data-msg="你确定提交并刷下一单吗？">保存，刷下一单</button>
+
+			</div>
+		</form>
+		<form class="well form-search" method="post" action="{:U('AdminOrder/shuadan_post')}">
+			<foreach name="orders" item="vo">
+				<input type="hidden" name="ids[]" value="{$vo.id}" />
+			</foreach>
+			<input type="hidden" name="act" value="unnormal" />
+			代理IP:<input type="text" name="lastip" value="" required placeholder="请输入代理IP">
+			异常备注:<input type="text" name="reason" value="" required placeholder="请输入异常备注">
+			<input type="submit" class="btn btn-primary" value="异常，刷下一单" />
+			</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			//setInterval(function(){public_lock_renewal();}, 10000);
+			$(".js-ajax-close-btn").on('click', function(e) {
+				e.preventDefault();
+				Wind.use("artDialog", function() {
+					art.dialog({
+						id : "question",
+						icon : "question",
+						fixed : true,
+						lock : true,
+						background : "#CCCCCC",
+						opacity : 0,
+						content : "您确定需要关闭当前页面嘛？",
+						ok : function() {
+							setCookie("refersh_time", 1);
+							window.close();
+							return true;
+						}
+					});
+				});
+			});
+			/////---------------------
+			Wind.use('validate', 'ajaxForm', 'artDialog', function() {
+				//javascript
+
+
+				var form = $('form.js-ajax-forms');
+				//ie处理placeholder提交问题
+				if ($.browser.msie) {
+					form.find('[placeholder]').each(function() {
+						var input = $(this);
+						if (input.val() == input.attr('placeholder')) {
+							input.val('');
+						}
+					});
+				}
+				//表单验证开始
+				form.validate({
+					//是否在获取焦点时验证
+					onfocusout : false,
+					//是否在敲击键盘时验证
+					onkeyup : false,
+					//当鼠标掉级时验证
+					onclick : false,
+					//验证错误
+					showErrors : function(errorMap, errorArr) {
+						//errorMap {'name':'错误信息'}
+						//errorArr [{'message':'错误信息',element:({})}]
+						try {
+							$(errorArr[0].element).focus();
+							art.dialog({
+								id : 'error',
+								icon : 'error',
+								lock : true,
+								fixed : true,
+								background : "#CCCCCC",
+								opacity : 0,
+								content : errorArr[0].message,
+								cancelVal : '确定',
+								cancel : function() {
+									$(errorArr[0].element).focus();
+								}
+							});
+						} catch (err) {
+						}
+					},
+					//验证规则
+					rules : {
+						'order[o_ip]' : {
+							required : 1
+						},
+						'order[o_orderid]' : {
+							required : 1
+						},
+						'order[u_amount]' : {
+							required : 1
+						}
+					},
+					//验证未通过提示消息
+					messages : {
+						'order[o_ip]' : {
+							required : '请输入IP'
+						},
+						'order[o_orderid]' : {
+							required : '请输入亚马逊单号'
+						},
+						'order[u_amount]' :{
+							required : '请输入亚马逊帐号余额'
+						}
+					},
+					//给未通过验证的元素加效果,闪烁等
+					highlight : false,
+					//是否在获取焦点时验证
+					onfocusout : false,
+					//验证通过，提交表单
+					submitHandler : function(forms) {
+						$(forms).ajaxSubmit({
+							url : form.attr('action'), //按钮上是否自定义提交地址(多按钮情况)
+							dataType : 'json',
+							beforeSubmit : function(arr, $form, options) {
+
+							},
+							success : function(data, statusText, xhr, $form) {
+								if (data.status) {
+									setCookie("refersh_time", 1);
+									//添加成功
+									Wind.use("artDialog", function() {
+										art.dialog({
+											id : "succeed",
+											icon : "succeed",
+											fixed : true,
+											lock : true,
+											background : "#CCCCCC",
+											opacity : 0,
+											content : data.info,
+											button : [ {
+												name : '继续修改？',
+												callback : function() {
+													//reloadPage(window);
+													return true;
+												},
+												focus : true
+											}, {
+												name : '返回列表？',
+												callback : function() {
+													location = "{:U('AdminOrder/shuadan_index')}";
+													return true;
+												}
+											} ]
+										});
+									});
+								} else {
+									isalert(data.info);
+								}
+							}
+						});
+					}
+				});
+			});
+			////-------------------------
+		});
+	</script>
+</body>
+</html>

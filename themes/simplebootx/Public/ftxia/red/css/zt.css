@@ -1,0 +1,64 @@
+﻿@charset "utf-8";
+.dealbox {
+margin:0 auto;
+width: 1005px;
+margin-top: 20px;
+}
+.dealbox .dealad, .dealbox .deal {
+width: 293px;
+height: 270px;
+float: left;
+border: 1px solid white;
+padding: 10px;
+margin: 0 20px 20px 0;
+display: inline;
+text-align: left;
+background: white;
+border-color: white #E2E2E2 #E2E2E2 white;
+}
+.dealbox .dealad img, .dealbox .deal img {
+width: 290px;
+height: 190px;
+margin-bottom: 10px;
+}
+.dealbox .dealad h3, .dealbox .deal h3 {
+height: 20px;
+margin-bottom: 5px;
+overflow: hidden;
+text-align: left;
+font: 14px/20px "";
+white-space: nowrap;
+text-overflow: ellipsis;
+width: 100%;
+}
+.dealbox .dealad h4 {
+height: 36px;
+padding: 5px 0 0;
+overflow: hidden;
+text-align: right;
+line-height: 36px;
+}
+.dealbox .dealad h4 span {
+float: left;
+color: #999;
+font: 22px/36px "微软雅黑";
+color: #333;
+width: 200px;
+overflow: hidden;
+text-align: left;
+}
+.dealbox .dealad h4 span a, .dealbox .blockAD h4 span a:hover {
+width: auto;
+background: none;
+text-decoration: none;
+}
+.dealbox .dealad h4 a {
+display: inline-block;
+width: 67px;
+height: 31px;
+background: url(../images/icon/icon5.png) no-repeat 0 0;
+margin-top: 5px;
+}
+.dealbox .dealad h4 a:hover {
+background-position: 0 -31px;
+}

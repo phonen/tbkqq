@@ -1,0 +1,420 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-dns-prefetch-control" content="on"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta content="telephone=no" name="format-detection"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <title>{$site.sitename}-每天千款优惠券秒杀，一折限时疯抢！</title>
+    <meta name="Keywords" content="{$site.sitename},优惠券折扣,9块9包邮,限时特卖,优品折扣,{$site.sitename}"/>
+    <meta name="Description" content="{$site.sitename}-优惠券折扣直播第一站！每天更新千款，纯人工筛选验货，限时限量特卖，全场1折包邮！"/>
+    <link href="__TMPL__Public/css/dtk/wap.css?v=921" rel="stylesheet"/>
+
+
+    <link href="__TMPL__Public/css/dtk/mui.min.css" rel="stylesheet"/>
+    <link href="//cdn.bootcss.com/Swiper/3.3.1/css/swiper.min.css" rel="stylesheet">
+
+    <!--        <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>-->
+    <link rel="stylesheet" href="__TMPL__Public/css/dtk/jquery.mobile-1.4.5.css?t=1476413801">
+    <script src="http://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/jquery-mobile/1.4.5/jquery.mobile.min.js"></script>
+
+    <script src="__TMPL__Public/js/dtk/layer/layer.js"></script>
+
+    <!--    <link rel="stylesheet" href="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.css?t=--><!--">-->
+
+    <!--    <script src="http://apps.bdimg.com/libs/jquerymobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>-->
+
+
+    <script src="//cdn.bootcss.com/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script>
+        var bindEvent=function()
+        {
+            $(".goods-list").on('click','.QtkSelfClick',function(){
+
+                var url=$(this).attr("data-qtk-url");
+                $.mobile.changePage(url,"slideup");
+
+            });
+            $(".goods-list2").on('click','.QtkSelfClick',function(){
+
+                var url=$(this).attr("data-qtk-url");
+                $.mobile.changePage(url,"slideup");
+
+            });
+        }
+
+        $(document).one("pagecreate", function(){
+            bindEvent();
+        });
+    </script>
+
+
+    <style>
+        @font-face {
+            font-family: 'iconfont';
+            src: url('//at.alicdn.com/t/font_1465972880_677109.eot'); /* IE9*/
+            src: url('//at.alicdn.com/t/font_1465972880_677109.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */ url('//at.alicdn.com/t/font_1465972880_677109.woff') format('woff'), /* chrome、firefox */ url('//at.alicdn.com/t/font_1465972880_677109.ttf') format('truetype'), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/ url('//at.alicdn.com/t/font_1465972880_677109.svg#iconfont') format('svg'); /* iOS 4.1- */
+        }
+
+    </style>
+    <script type="text/javascript">
+        (function(win,doc){
+            var s = doc.createElement("script"), h = doc.getElementsByTagName("head")[0];
+            if (!win.alimamatk_show) {
+                s.charset = "gbk";
+                s.async = true;
+                s.src = "http://a.alimama.cn/tkapi.js";
+                h.insertBefore(s, h.firstChild);
+            };
+            var o = {
+                pid: "{$site.pid}",/*推广单元ID，用于区分不同的推广渠道*/
+                appkey: "",/*通过TOP平台申请的appkey，设置后引导成交会关联appkey*/
+                unid: "",/*自定义统计字段*/
+                type: "click" /* click 组件的入口标志 （使用click组件必设）*/
+            };
+            win.alimamatk_onload = win.alimamatk_onload || [];
+            win.alimamatk_onload.push(o);
+        })(window,document);
+    </script></head>
+<body>
+<div id="load-more">
+
+    <div>
+        <div class="main-title clearfix">
+            <a class="mui-action-menu mui-pull-left main-icon" href="javascript:void(0)"></a>
+            <h1 class="mui-title main-title-text">{$site.sitename}</h1>
+            <a href="/index.php" rel="external" class="main-home cnzzCounter" data-cnzz-type="51" data-cnzz="0"></a>
+        </div>
+        <!-- 主界面具体展示内容 -->
+        <div class="nav-bar">
+            <ul class="nav-bar-list clearfix">
+                <li class="active"><a rel="external" href="/index.php" class="cnzzCounter"
+                                      data-cnzz-type="51" data-cnzz="0">优惠直播</a></li>
+                <li><a rel="external" href="/index.php?a=dingzhi" class="cnzzCounter" data-cnzz-type="52"
+                       data-cnzz="0">产品定制</a></li>
+
+            </ul>
+        </div>
+
+
+
+
+
+        <div class="you-wrapper">
+            <div class="title-wrapper">
+                <div class="text">
+                    <span class="index" style="padding-top: 3px;line-height: 21px;">独家优惠券直播&nbsp;&nbsp;</span>
+            <span class="mui-badge mui-badge-blue main-badge"
+                  style="font-size: 14px;padding: 3px 4px;border-radius: 15px; left: 135px; top:2px;">{$lists.count}</span>
+                </div>
+            </div>
+        </div>
+        <div class="goods-list">
+            <volist name="lists['items']" id="vo">
+                <div class="goods-item">
+                    <a data-transition="slide" data-qtk-url="/index.php?id={$vo.id}" class="img QtkSelfClick cnzzCounter"
+                       data-cnzz-type="1" data-cnzz="{$vo.id}">
+                                    <span class="today-wrapper">
+                        <span>今日</span>
+                        <span>新品</span>
+                    </span>
+
+                <span class="coupon-wrapper">
+                    <span class="coupon" style="color: #EDFF00;">独家券</span>
+                    <span class="price">{$vo.quan_price}元</span>
+                </span>
+                        <img
+                                src="{$vo.img}_230x230.jpg"
+                                alt="">
+                    </a>
+                    <a data-transition="slide" data-qtk-url="/index.php?id={$vo.id}" class="title QtkSelfClick cnzzCounter"
+                       data-cnzz-type="1" data-cnzz="{$vo.id}">
+                        <div class="text" style=" color:#777777;">{$vo.title}</div>
+                    </a>
+                    <div class="price-wrapper">
+                        <span class="text">券后</span>
+                        <span class="price">￥{$vo.price}</span>
+                        <div class="sold-wrapper">
+                            <span class="sold-num" style="font-size: 10px;">{$vo.sales_num}</span>
+                            <span class="text" style="font-size: 10px;">人已买</span>
+                        </div>
+                    </div>
+                </div>
+            </volist>
+
+
+        </div>
+        <div style="height: 50px;display: block;line-height: 50px;color: #565656;text-align: center;background-color: #fff;"
+             class="pullup-goods">
+            <div class="label">商品加载中...</div>
+        </div>
+        <script language="javascript">
+            //    var pathInfo="//";
+            var page = 2;
+            var isFinish = false;
+            var isLoading = false;
+            var $pullUp = null;
+            var needLoadMore = false;
+
+            var maxScrollY = 0;
+            var windowHeight = 0;
+
+            $(document).ready(function () {
+
+                var mySwiper = new Swiper('.swiper-container', {
+                    loop: true,
+                    autoplay: 2500
+                });
+
+                maxScrollY = $(document).height();
+                windowHeight = $(window).height();
+                $(window).on('resize', function () {
+                    windowHeight = $(window).height();
+                });
+                $(document).on("scrollstop", function (e) {
+                    if (isFinish || isLoading) {
+                        return;
+                    }
+                    var y = $(document).scrollTop();
+                    maxScrollY = $(document).height();
+                    windowHeight = $(window).height();
+                    if (Math.abs(maxScrollY - windowHeight - y) > 100) {
+                        return;
+                    }
+                    var $wrapper = $(this);
+                    if (!$pullUp) {
+                        $pullUp = $wrapper.find('.pullup-goods');
+                    }
+                    var data = null;
+                    getData($wrapper, data, 1);
+                });
+
+                function getData($wrapper, data, direction) {
+                    if (isFinish) {
+                        return;
+                    }
+                    isLoading = true;
+                    if (!$pullUp) {
+                        $pullUp = $wrapper.find('.pullup-goods');
+                    }
+                    var labelTag = $($pullUp).find('.label');
+                    var tPaht = "/index.php";
+                    $.ajax(tPaht, {
+                        data: {r: 'ajax', page: page},
+                        dataType: 'json',
+                        type: 'post',
+                        error: function (xhr, type, errorThrown) {
+                            getData($wrapper, data, direction);
+                        },
+                        success: function (result, status, xhr) {
+                            needLoadMore = false;
+                            if (result.status == 0) {
+                                $('.goods-list').append(result.data);
+//                        myScroll.refresh();
+                                maxScrollY = $(document).height();
+                                isLoading = false;
+                                page++;
+                                //                        $(labelTag).html('上拉加载更多商品');
+                            } else {
+//                        myScroll.refresh();
+                                maxScrollY = $(document).height();
+                                isLoading = false;
+                                $(labelTag).html('没有更多商品啦');
+                                isFinish = true;
+                            }
+                        }
+                    });
+                }
+            });
+        </script>
+
+    </div>
+</div>
+<nav id="new-left-menu">
+    <div class="mask" id="menu-mask"></div>
+    <div class="menu-content">
+        <!-- 菜单具体展示内容 -->
+        <div class="find-wrapper clearfix">
+            <form data-ajax="false" action="/index.php?r=index/search" method="get" style="position: relative">
+                <input type="hidden" name="r" value="index/search">
+                <div class="l-border"></div>
+                <div class="border-btm clearfix">
+                    <div class="input-wrapper">
+                        <input autocomplete="off" type="text" name="kw" placeholder="搜索商品">
+                    </div>
+                    <div class="search-btn-wrapper">
+                        <button type="submit" class="cnzzCounter" data-cnzz-type="54" data-cnzz="1" ></button>
+                    </div>
+                </div>
+                <div class="r-border"></div>
+            </form>
+        </div>
+        <ul class="main-cat">
+            <li class="cat-item mm-nolistview">
+                <a rel="external" href="/index.php?r=index/wap&u=213941" class="cnzzCounter" data-cnzz-type="51" data-cnzz="0">
+                    <span class="icon index"></span>
+                    首页
+                    <span class="arrow"></span>
+                </a>
+            </li>
+            <li class="cat-item">
+                <a rel="external" href="/index.php?r=index/cat&cid=1&u=213941" class="cnzzCounter" data-cnzz-type="51" data-cnzz="1">
+                    <span class="icon clothes"></span>
+                    服装
+                    <span class="arrow"></span>
+                </a>
+            </li>
+            <li class="cat-item">
+                <a rel="external" href="/index.php?r=index/cat&cid=2&u=213941" class="cnzzCounter" data-cnzz-type="51" data-cnzz="2">
+                    <span class="icon muyin"></span>
+                    母婴
+                    <span class="arrow"></span>
+                </a>
+            </li>
+            <li class="cat-item">
+                <a rel="external" href="/index.php?r=index/cat&cid=3&u=213941" class="cnzzCounter" data-cnzz-type="51" data-cnzz="3">
+                    <span class="icon hzp"></span>
+                    化妆品
+                    <span class="arrow"></span>
+                </a>
+            </li>
+            <li class="cat-item">
+                <a rel="external" href="/index.php?r=index/cat&cid=4&u=213941" class="cnzzCounter" data-cnzz-type="51" data-cnzz="4">
+                    <span class="icon jj"></span>
+                    居家
+                    <span class="arrow"></span>
+                </a>
+            </li>
+            <li class="cat-item">
+                <a rel="external" href="/index.php?r=index/cat&cid=5&u=213941" class="cnzzCounter" data-cnzz-type="51" data-cnzz="5">
+                    <span class="icon xbps"></span>
+                    鞋包配饰
+                    <span class="arrow"></span>
+                </a>
+            </li>
+            <li class="cat-item">
+                <a rel="external" href="/index.php?r=index/cat&cid=6&u=213941" class="cnzzCounter" data-cnzz-type="51" data-cnzz="6">
+                    <span class="icon ms"></span>
+                    美食
+                    <span class="arrow"></span>
+                </a>
+            </li>
+            <li class="cat-item">
+                <a rel="external" href="/index.php?r=index/cat&cid=7&u=213941" class="cnzzCounter" data-cnzz-type="51" data-cnzz="7">
+                    <span class="icon wtyp"></span>
+                    文体用品
+                    <span class="arrow"></span>
+                </a>
+            </li>
+            <li class="cat-item">
+                <a rel="external" href="/index.php?r=index/cat&cid=8&u=213941" class="cnzzCounter" data-cnzz-type="51" data-cnzz="8">
+                    <span class="icon smjd"></span>
+                    数码家电
+                    <span class="arrow"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="toTop" onclick=" $('body,html').animate({scrollTop:0},1000);" style="position: fixed;
+    right: 30px;
+    bottom: 30px;
+    font-family: iconfont;
+    display: none;
+    font-size: 37px;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    border: 1px solid #CCCCCC;
+    border-radius: 50px;
+    text-align: center;
+    z-index: 80;
+    line-height: 50px;
+    color: #8c8c8c;">&#xe601;</div>
+<style>
+    .cat-item {
+        padding: 15px 0;
+    }
+
+    .cat-item a {
+        margin: 0;
+    }
+
+    #new-left-menu {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        left: -100%;
+        top: 0;
+        overflow-y: scroll;
+    }
+
+    #new-left-menu .menu-content {
+        position:absolute;
+        top:0;
+        left:0;
+        width: 80%;
+        height:100%;
+        background-color: #fff;
+        overflow-y: auto;
+    }
+    #menu-mask {
+        width:100%;
+        height:100%;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    .main-cat {
+        margin: 0;
+    }
+
+    html body .ui-loader {
+        display: none;
+    }
+
+</style>
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function () {
+        var menu = $('#new-left-menu');
+        var menuHeight = $('#menu-mask').height();
+        var windowHeight = $(window).height();
+        $(menu).find('.mask').css('height', (menuHeight > windowHeight ? menuHeight : windowHeight) + 'px');
+        $(menu).find('.menu-content').css('height', (menuHeight > windowHeight ? menuHeight : windowHeight) + 'px');
+
+        $(window).resize(function () {
+            $(menu).find('.mask').css('height', (menuHeight > windowHeight ? menuHeight : windowHeight) + 'px');
+            $(menu).find('.menu-content').css('height', (menuHeight > windowHeight ? menuHeight : windowHeight) + 'px');
+        });
+
+        $('.main-icon').click(function () {
+            $(menu).css('z-index', 100);
+            $(menu).addClass('opened-menu');
+            $(menu).animate({left: 0},300);
+        });
+        $('#menu-mask').on('click',function () {
+            $(menu).animate({left: -1 * $(window).width()},300,function(){
+                $(menu).removeClass('opened-menu');
+            });
+        });
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 500) {
+                $(".toTop").fadeIn(1500);
+            }
+            else {
+                $(".toTop").fadeOut(1500);
+            }
+        });
+    });
+
+</script>
+
+<script src="https://s11.cnzz.com/z_stat.php?id=1253674728&web_id=1253674728" language="JavaScript"></script>
+</body>
+</html>

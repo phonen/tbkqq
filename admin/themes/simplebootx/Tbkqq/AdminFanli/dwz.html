@@ -1,0 +1,17 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminTaoke/dwz')}">短网址</a></li>
+    </ul>
+    <form class="well form-search" method="post" action="{:U('AdminTaoke/dwz')}">
+        <input type="text" name="url" id="url" value="{$formget.url}" placeholder="请输入url" style="width: 500px"/><br>
+        转化结果：{$dwz}<br>
+        <input type="submit" class="btn btn-primary" value="转换" />
+
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

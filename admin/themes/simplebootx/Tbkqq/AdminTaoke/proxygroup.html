@@ -1,0 +1,60 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminTaoke/proxygroup')}">公司群管理</a></li>
+        <li><a href="{:U('AdminTaoke/proxygroup_add')}">添加公司群</a></li>
+    </ul>
+
+    <form method="post" class="js-ajax-form">
+        <div class="table-actions">
+            <input type="text" name="sendqq" value="">
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminTaoke/proxygroup_post')}" data-subcheck="true" data-msg="你确定使用指定的QQ吗？">设置QQ</button>
+            <select class="select_2"  style="width: 220px" name="qqstatus">
+                <option value="1">群发</option>
+                <option value="0">不群发</option>
+            </select> &nbsp;&nbsp;
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminTaoke/proxygroup_qqstatus_post')}" data-subcheck="true" data-msg="是否设置群发？">群发设置</button>
+
+        </div>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="50">ID</th>
+
+                <th width="120">QQ群</th>
+                <th width="80">QQ群号</th>
+
+                <th width="100">酷QQ</th>
+                <th width="50">自动群发</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="proxys" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+                    <td>{$vo.id}</td>
+
+                    <td>{$vo.memo}</td>
+                    <td>{$vo.qqgroup}</td>
+
+                    <td>{$vo.sendqq}</td>
+                    <td>{$vo.qqstatus}</td>
+                    <td>
+                        <a href="{:U('AdminTaoke/proxygroup_edit',array('id'=>$vo['id']))}">{:L('EDIT')}</a> |
+                        <a href="{:U('AdminTaoke/proxygroup_delete',array('id'=>$vo['id']))}" class="js-ajax-delete">{:L('DELETE')}</a>
+                    </td>
+                </tr>
+            </foreach>
+            </tbody>
+
+        </table>
+
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

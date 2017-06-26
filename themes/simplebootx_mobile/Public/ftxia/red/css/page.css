@@ -1,0 +1,31 @@
+﻿@charset "utf-8";
+.list_page{width:980px;margin:0 auto;text-align: center;font-size: 0;line-height:0;display: inline-block;*display: inline;vertical-align: middle;float:right;}
+.list_page .prev{border-left:1px solid #d8d8d8;}
+.list_page .next_page,.list_page .disabled,.list_page .current,.list_page a,.list_page .gap{padding:0 30px;border:1px solid #d8d8d8; border-left:0; display:inline-block;height:40px; line-height:40px;color:#666; float:left; background-color:#f0f0f0}
+.list_page .current,.list_page a,.list_page .gap{width:40px; padding:0; height:40px; display:inline-block}
+.list_page .current{color:#fff; background-color:#c31403}
+.list_page .disabled{color:#b4b4b4}
+.list_page .next_page{ width:auto}
+.page_div{height: 42px;margin-bottom: 20px;*margin: 20px 0;padding:25px 0 28px 0;}
+.list_page a:hover{background-color:#fff}
+a.prev_page{padding:0 30px; width:auto}
+.page_div .picnext{width:225px;height:95px;display:inline-block;background:url(../images/global/paging_icon1.png) no-repeat 0 -7px;vertical-align: top;margin:-22px 0 0 20px;}
+.list_page span {display: inline-block;vertical-align: top;margin:0;padding:0;}
+.list_page .next_page, .list_page .disabled, .list_page .current, .list_page a, .list_page .gap{float: none;font-size:14px;line-height:40px;font-weight: bold;display: inline-block;vertical-align: top;margin:0;padding:0;}
+
+.page2 { padding: 10px 0 15px; margin-top: 0px; clear: both; overflow: hidden; text-align: right; }
+.page2 a, .page2 span, .page2 i { background: none repeat scroll 0 0 #FF6C01; border-radius: 3px 3px 3px 3px; color: #FFFFFF; font-weight: bold; margin-left: 5px; overflow: hidden; padding: 3px 8px; }
+.page2 a:hover { text-decoration: none; color: #fff; background-color: #FF9C00; }
+.page2 span { background: none repeat scroll 0 0 transparent; border: medium none; color: #FF6C01; font-weight: bold; }
+.page2 a, .page2 span, .page2 i { border-radius: 0px 0px 0px; background: #fff; color: #6c6c6c; border: #ebebeb solid 1px; font-weight: normal; }
+.page2 a:hover { background: #fff; color: #FF8A2C; }
+.page2 span { font-weight: normal; color: #FF8A2C; background: #F7F7F7; }
+
+.page3 { padding: 25px 0 0; margin-top: 0px; clear: both; overflow: hidden; text-align: right; }
+.page3 a, .page3 span, .page3 i { background: none repeat scroll 0 0 #FF6C01; border-radius: 3px 3px 3px 3px; color: #FFFFFF; font-weight: bold; margin-left: 5px; overflow: hidden; padding: 3px 8px; font-size:12px; }
+.page3 a:hover { text-decoration: none; color: #fff; background-color: #FF9C00; }
+.page3 span { background: none repeat scroll 0 0 transparent; border: medium none; color: #FF6C01; font-weight: bold; }
+.page3 a, .page3 span, .page3 i { border-radius: 0px 0px 0px; background: #fff; color: #6c6c6c; border: #ebebeb solid 1px; font-weight: normal; }
+.page3 a:hover { background: #fff; color: #FF8A2C; }
+.page3 span { font-weight: normal; color: #FF8A2C; background: #F7F7F7; }
+.page3 span.pg-prev, .page3 span.pg-next, .page3 a.pg-prev, .page3 a.pg-next { width: 40px; }

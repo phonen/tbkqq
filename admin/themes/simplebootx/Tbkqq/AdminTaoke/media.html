@@ -1,0 +1,53 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminTaoke/media')}">渠道管理</a></li>
+        <li><a href="{:U('AdminTaoke/media_add')}">添加渠道</a></li>
+    </ul>
+
+    <form method="post" class="js-ajax-form">
+
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="50">ID</th>
+                <th width="80">淘客帐号</th>
+                <th width="80">媒体名称</th>
+                <th width="100">来源id</th>
+                <th width="100">推广位名称</th>
+                <th width="100">推广位ID</th>
+                <th width="100">PID</th>
+                <th width="100">代理</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="medias" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.username}</td>
+                    <td>{$vo.media}</td>
+                    <td>{$vo.mediaid}</td>
+                    <td>{$vo.adname}</td>
+                    <td>{$vo.adid}</td>
+                    <td>{$vo.pid}</td>
+                    <td>{$vo.proxy}</td>
+                    <td>
+                        <a href="{:U('AdminTaoke/media_edit',array('id'=>$vo['id']))}">{:L('EDIT')}</a> |
+                        <a href="{:U('AdminTaoke/media_delete',array('id'=>$vo['id']))}" class="js-ajax-delete">{:L('DELETE')}</a>
+                    </td>
+                </tr>
+            </foreach>
+            </tbody>
+
+        </table>
+
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

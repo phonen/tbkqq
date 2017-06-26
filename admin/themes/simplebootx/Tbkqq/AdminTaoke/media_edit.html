@@ -1,0 +1,75 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap">
+	<ul class="nav nav-tabs">
+		<li><a href="{:U('AdminTaoke/media')}">渠道管理</a></li>
+		<li><a href="{:U('AdminTaoke/media_add')}">添加渠道</a></li>
+		<li class="active"><a href="#">编辑渠道</a></li>
+	</ul>
+	<form method="post" class="form-horizontal js-ajax-form" action="{:U('AdminTaoke/media_edit_post')}">
+		<fieldset>
+			<div class="control-group">
+				<label class="control-label">淘客帐号</label>
+				<div class="controls">
+					<input type="hidden" name="media[id]" value="{$media.id}">
+					<input type="text" name="media[username]" value="{$media.username}"><span class="form-required">*</span>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">媒体名称</label>
+				<div class="controls">
+					<input type="text" name="media[media]" value="{$media.media}"><span class="form-required">*</span>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">来源ID</label>
+				<div class="controls">
+					<input type="text" name="media[mediaid]" value="{$media.mediaid}"><span class="form-required">*</span>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">推广位名称</label>
+				<div class="controls">
+					<input type="text" name="media[adname]" value="{$media.adname}"><span class="form-required">*</span>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">推广位ID</label>
+				<div class="controls">
+					<input type="text" name="media[adid]" value="{$media.adid}"><span class="form-required">*</span>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">PID</label>
+				<div class="controls">
+					<input type="text" name="media[pid]" value="{$media.pid}"><span class="form-required">*</span>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">代理</label>
+				<div class="controls">
+					<input type="text" name="media[proxy]" value="{$media.proxy}"><span class="form-required">*</span>
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label">状态</label>
+				<div class="controls">
+					<select class="select_2"  style="width: 220px" name="media[status]">
+						<option value="0" <php>if("0" == $media['status']) echo "selected=true";</php> >无</option>
+						<option value="1" <php>if("1" == $media['status']) echo "selected=true";</php> >激活</option>
+						<option value="-1" <php>if("-1" == $media['status']) echo "selected=true";</php> >停用</option>
+
+					</select> &nbsp;&nbsp;
+				</div>
+			</div>
+		</fieldset>
+		<div class="form-actions">
+			<button type="submit" class="btn btn-primary js-ajax-submit">{:L('SAVE')}</button>
+			<a class="btn" href="{:U('AdminTaoke/media')}">{:L('BACK')}</a>
+		</div>
+	</form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

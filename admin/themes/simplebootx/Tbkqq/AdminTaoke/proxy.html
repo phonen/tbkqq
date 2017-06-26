@@ -1,0 +1,89 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminTaoke/proxy')}">代理管理</a></li>
+        <li><a href="{:U('AdminTaoke/proxy_add')}">添加代理</a></li>
+    </ul>
+
+    <form method="post" class="js-ajax-form">
+        <input type="text" name="sendqq" value="" size="15">
+        <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminTaoke/proxy_post')}" data-subcheck="true" data-msg="你确定使用指定的QQ吗？">设置QQ</button>
+        <input type="text" name="sendwx" value="" size="15">
+        <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminTaoke/proxy_sendwx_post')}" data-subcheck="true" data-msg="你确定使用指定的微信吗？">设置微信</button>
+
+        <select class="select_2"  style="width: 220px" name="qqstatus">
+            <option value="1">QQ群发</option>
+            <option value="0">QQ不群发</option>
+        </select> &nbsp;&nbsp;
+        <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminTaoke/proxy_qqstatus_post')}" data-subcheck="true" data-msg="是否设置QQ群发？">QQ群发设置</button>
+        <select class="select_2"  style="width: 220px" name="wxstatus">
+            <option value="1">微信群发</option>
+            <option value="0">微信不群发</option>
+        </select> &nbsp;&nbsp;
+        <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminTaoke/proxy_wxstatus_post')}" data-subcheck="true" data-msg="是否设置微信群发？">微信群发设置</button>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="30">ID</th>
+                <th width="80">代理帐号</th>
+                <th width="80">上级代理</th>
+                <th width="80">QQ群</th>
+                <th width="80">QQ群号</th>
+                <th width="50">发送酷Q</th>
+                <th width="50">QQ群发</th>
+                <th width="50">群人数</th>
+                <th width="80">微信群名</th>
+                <th width="50">发送微信号</th>
+                <th width="50">微信群发</th>
+                <th width="50">代理微信号</th>
+                <th width="50">分成比例</th>
+                <th width="50">appid</th>
+                <th width="100">appkey</th>
+                <th width="80">网站名</th>
+                <th width="80">网站pid</th>
+
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="proxys" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.proxy}</td>
+                    <td>{$parents[$vo['parent']]}</td>
+                    <td>{$vo.memo}</td>
+                    <td>{$vo.qqgroup}</td>
+                    <td>{$vo.sendqq}</td>
+                    <td>{$vo.qqstatus}</td>
+                    <td>{$vo.qqgnum}</td>
+                    <td>{$vo.wxgroup}</td>
+                    <td>{$vo.sendwx}</td>
+                    <td>{$vo.wxstatus}</td>
+                    <td>{$vo.proxywx}</td>
+                    <td>{$vo.fcrate}</td>
+                    <td>{$vo.appid}</td>
+                    <td>{$vo.appkey}</td>
+                    <td>{$vo.sitename}</td>
+                    <td>{$vo.pid}</td>
+
+
+
+                    <td>
+                        <a href="{:U('AdminTaoke/proxy_edit',array('id'=>$vo['id']))}">{:L('EDIT')}</a> |
+                        <a href="{:U('AdminTaoke/proxy_delete',array('id'=>$vo['id']))}" class="js-ajax-delete">{:L('DELETE')}</a>
+                    </td>
+                </tr>
+            </foreach>
+            </tbody>
+
+        </table>
+
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

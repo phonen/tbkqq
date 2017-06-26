@@ -1,0 +1,56 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('AdminUps/index')}">快递列表</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form" action="{:U('AdminUps/edit_post')}">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label">ID:</label>
+					<div class="controls">
+						{$ups.id}
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">快递单号:</label>
+					<div class="controls">
+						<input type="text" name="ups[ups]" value="{$ups.ups}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">地址</label>
+					<div class="controls">
+						<input type="text" name="ups[address]" value="{$ups.address}">
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">备注:</label>
+					<div class="controls">
+						<input type="text" name="ups[memo]" value="{$ups.memo}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">状态：</label>
+					<div class="controls">
+						<select class="select_2" name="ups[status]">
+							<option value='0' <php>if($ups['status'] == "0") echo "selected=true";</php> >未用</option>
+							<option value='1' <php>if($ups['status'] == "1") echo "selected=true";</php>  >已用</option>
+						</select> &nbsp;&nbsp;
+					</div>
+				</div>
+			</fieldset>
+			<div class="form-actions">
+				<input type="hidden" name="ups[id]" value="{$ups.id}" />
+				<button type="submit" class="btn btn-primary js-ajax-submit" data-action="{:U('AdminUps/edit_post')}"data-msg="你确定提交吗？">保存</button>
+				<a class="btn" href="{:U('AdminUps/index')}">返回</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+
+</body>
+</html>

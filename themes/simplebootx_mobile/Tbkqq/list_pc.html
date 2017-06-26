@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<tc_include file="Public:head" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/qingtao/css/couponGoods.css?0404001" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/qingtao/css/pager.css" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/qingtao/css/common3.css?0322005" />
+	<link rel="stylesheet" type="text/css" href="__PUBLIC__/js/qingtao/css/nprogress.css" />
+<title>{$name} {$seo_title} {$site_name}</title>
+<meta name="keywords" content="{$seo_keywords}" />
+<meta name="description" content="{$seo_description}">
+
+	<!--[if lt IE 9]>
+	<script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body id="pjax_content">
+<script type="text/javascript" src="//cdn.bootcss.com/jquery/1.12.1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/jquery.pjax/1.9.6/jquery.pjax.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+<script type="text/javascript" src="//cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/qingtao/layer-2/layer.js"></script>
+	<tc_include file="Public:nav" />
+
+<style type="text/css">
+	html body .title-bar div.container.cat-list {
+		/*position: absolute;*/
+
+		margin-top: 0;
+		background: #fff;
+		width: 1198px;
+		border: 1px solid #ccc;
+		border-top: 0;
+	}
+
+	.menuDefault {
+
+		margin: 7px 1px;
+		padding: 3px 10px;
+		display: inline-block;
+		font-size: 14px;
+		border-radius: 4px;
+	}
+
+	.menuDefault a {
+
+	}
+
+	.menuDefault:hover {
+		color: #FFFFFF;
+		background-color: #FF6600;
+	}
+
+	.menuDefault:hover a {
+		color: #FFFFFF;
+	}
+
+	.menuDefault em {
+		font-style: normal;
+	}
+
+	.menuActive {
+		/*border: 2px solid red;*/
+		color: #FFFFFF;
+		background-color: #FF6600;
+	}
+
+	.menuActive a {
+		color: #FFFFFF;
+	}
+</style>
+
+<div class="coupon-goods">
+	<div class="goods-bar">
+		<div class="container clearfix">
+			<div class="goods-list">
+				<ul style="margin: auto;">
+					<volist name="lists['items']" id="vo" mod="4">
+					<li data-img='{$vo.imgmemo}' data-no="{$vo.no}" class="fadein <eq name='mod' value='0'> item-first</eq> <eq name='mod' value='3'> item-last</eq> ">
+						<div class="today" style="left: 0;">
+						{$vo.no}
+						</div>
+
+						<div class="goods-pic" data-text='{$vo.urls}
+								{$vo.memo}
+								{$vo.quanurl}'>
+							<img src="{$vo.img}_290x290.jpg">
+						</div>
+						<div class="padding-wrapper">
+							<div class="goods-title">
+								<span class="ico tmall"></span>
+									{$vo.item}
+							</div>
+							<div class="split"></div>
+							<div class="goods-price clearfix">
+							</div>
+
+						</div>
+					</li>
+					</volist>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="pagination"><ul>{$lists['page']}</ul></div>
+</div>
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/qingtao/couponIndex1.js?0517030"></script>
+<script type="text/javascript" src="__PUBLIC__/js/qingtao/scrollTop.js?0316001"></script>
+</body>
+</html>
+<script language="javascript">
+	$(document).on('pjax:start', function () {
+		NProgress.start();
+		NProgress.set(0.2);
+		NProgress.set(0.6);
+	});
+	$(document).on('pjax:end', function () {
+		NProgress.set(0.8);
+		NProgress.done();
+	});
+	$(document).pjax('a[data-pjax],.pagination a', '#pjax_content');
+	$(document).on('submit', 'form[data-pjax]', function (event) {
+		$.pjax.submit(event, '#pjax_content')
+	});
+	$(function () {
+		var scrollTop = new ScrollTop();
+		$("[data-original]").lazyload();
+	})
+</script>

@@ -1,0 +1,63 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminTaoke/item')}">正式商品表</a></li>
+    </ul>
+    <form class="well form-search" method="post" action="{:U('AdminTaoke/item')}">
+        <label><input type="radio" name="act" value="export" />导出文本</label>
+        <label><input type="radio" name="act" value="report" />导出报表</label>
+        <input type="submit" class="btn btn-primary" value="搜索" />
+
+    </form>
+
+    <form method="post" class="js-ajax-form">
+        <div class="table-actions">
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminTaoke/item_post')}">更新编号</button>
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminTaoke/item_delete')}" data-subcheck="true" data-msg="你确定删除商品吗？">删除</button>
+        </div>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="70">编号</th>
+                <th width="70">ID</th>
+                <th width="160">商品名称</th>
+                <th width="70">卖家</th>
+                <th width="100">佣金比例</th>
+                <th width="50">单价</th>
+                <th width="50">单月销量</th>
+                <th width="50">代理链接数</th>
+                <th width="50">状态</th>
+                <th width="80">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="items" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+                    <td><input name="nos[{$vo.id}]" class="input input-order" type="text" size="5" value="{$vo.no}" title="ID:{$vo.id}"></td>
+                    <td>{$vo.iid}</td>
+                    <td><a href="{$vo.itemurl}" target="_blank">{$vo.item}</a></td>
+                    <td>{$vo.seller}</td>
+                    <td>{$vo.srrate}</td>
+                    <td>{$vo.price}</td>
+                    <td>{$vo.sellcount}</td>
+                    <td>{$vo.urlc}</td>
+                    <php>$status=array("1"=>"正式推广","0"=>"待推广","-1"=>"删除");</php>
+                    <td>{$status[$vo['status']]}</td>
+                    <td>
+                        <a href="{:U('AdminTaoke/item_edit',array('id'=>$vo['id']))}">编辑</a> |
+                        <a href="{:U('AdminTaoke/item_delete',array('id'=>$vo['id']))}" class="js-ajax-delete">删除</a></td></td>
+                </tr>
+            </foreach>
+            </tbody>
+
+        </table>
+
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

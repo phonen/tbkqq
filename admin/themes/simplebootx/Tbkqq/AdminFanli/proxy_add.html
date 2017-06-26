@@ -1,0 +1,80 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('AdminTaoke/proxy')}">代理管理</a></li>
+			<li class="active"><a href="{:U('AdminTaoke/proxy_add')}">添加渠道</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form" action="{:U('AdminTaoke/proxy_add_post')}">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label">代理帐号</label>
+					<div class="controls">
+						<input type="text" name="proxy[proxy]" value="{$proxy.proxy}"><span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">上级代理</label>
+					<div class="controls">
+						<select class="select_2"  style="width: 220px" name="proxy[parent]">
+							<option value="0" <php>if($vo['parent'] == '0') echo "selected=true";</php>>无</option>
+							<foreach name="parents" item="vo">
+								<option value="{$vo.id}" <php>if($vo['id'] == $proxy['parent']) echo "selected=true";</php> >{$vo.proxy}</option>
+							</foreach>
+						</select> &nbsp;&nbsp;
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">QQ群</label>
+					<div class="controls">
+						<input type="text" name="proxy[qqgroup]" value="{$proxy.qqgroup}"><span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">QQ群人数</label>
+					<div class="controls">
+						<input type="text" name="proxy[qqgnum]" value="{$proxy.qqgnum}"><span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">分成比例</label>
+					<div class="controls">
+						<input type="text" name="proxy[fcrate]" value="{$proxy.fcrate}"><span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">appid</label>
+					<div class="controls">
+						<input type="text" name="proxy[appid]" value="{$proxy.appid}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">appkey</label>
+					<div class="controls">
+						<input type="text" name="proxy[appkey]" value="{$proxy.appkey}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">网站名</label>
+					<div class="controls">
+						<input type="text" name="proxy[sitename]" value="{$proxy.sitename}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">logo</label>
+					<div class="controls">
+						<input type="text" name="proxy[logo]" value="{$proxy.logo}">
+					</div>
+				</div>
+
+			</fieldset>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary js-ajax-submit">添加</button>
+				<a class="btn" href="{:U('AdminTaoke/proxy')}">返回</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

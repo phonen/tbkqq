@@ -1,0 +1,144 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminCard/index')}">券列表</a></li>
+    </ul>
+    <form class="well form-search" method="post" action="{:U('AdminCard/index')}">
+        面额：
+        <select class="select_2"  style="width: 100px" name="amount">
+            <option value=""></option>
+            <foreach name="amounts" item="vo">
+                <option value="{$vo.amount}">面额：{$vo.amount}</option>
+            </foreach>
+        </select> &nbsp;&nbsp;
+
+        券数量：
+        <input type="text" name="num" style="width: 100px" value="{$formget.num}" placeholder="请输入券数量...">&nbsp; &nbsp;
+        券号：
+        <input type="text" name="cardno" style="width: 200px;" value="{$formget.cardno}" placeholder="请输入券号...">&nbsp; &nbsp;
+        状态：
+        <select class="select_2" name="status" style="width: 80px">
+            <option value='all' <php>if($formget['status'] == "all") echo "selected=true";</php> >全部</option>
+            <option value='0' <php>if($formget['status'] == "0") echo "selected=true";</php> >未用</option>
+            <option value='1' <php>if($formget['status'] == "1") echo "selected=true";</php>  >已用</option>
+            <option value='-1' <php>if($formget['status'] == "-1") echo "selected=true";</php> >异常</option>
+        </select> &nbsp;&nbsp;
+
+        <input type="submit" class="btn btn-primary" value="搜索" />
+    </form>
+    <form method="post" class="js-ajax-form">
+        <div class="table-actions">
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminCard/status_post')}" data-subcheck="true" data-msg="你确定使用这些券吗？">确定使用</button>
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminCard/export')}" data-subcheck="true" data-msg="你确定导出吗？">导出</button>
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminCard/delete')}" data-subcheck="true" data-msg="你确定删除这些券吗？">删除</button>
+        </div>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="30">ID</th>
+                <th width="70">购买日期</th>
+                <th width="60">来路</th>
+                <th width="200">购物券</th>
+                <th width="60">面额</th>
+                <th width="70">使用日期</th>
+                <th width="30">状态</th>
+                <th width="120">备注</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="cards" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+                    <td>{$vo.id}</td>
+                    <td>{$vo.cdate}</td>
+                    <td>{$vo.source}</td>
+                    <td>{$vo.cardno}</td>
+                    <td>{$vo.amount}</td>
+                    <td>{$vo.udate}</td>
+                    <php>$status=array("1"=>"已用","0"=>"未用","-1"=>"异常");</php>
+                    <td>{$status[$vo['status']]}</td>
+                    <td>{$vo.memo}</td>
+                    <td>
+                        <a href="{:U('AdminCard/edit',array('id'=>$vo['id']))}">{:L('EDIT')}</a> |
+                        <a href="{:U('AdminCard/delete',array('id'=>$vo['id']))}" class="js-ajax-delete">{:L('DELETE')}</a>
+                    </td>
+
+                </tr>
+            </foreach>
+
+            </tbody>
+            <tfoot>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="30">ID</th>
+                <th width="70">购买日期</th>
+                <th width="60">来路</th>
+                <th width="200">购物券</th>
+                <th width="60">面额</th>
+                <th width="70">使用日期</th>
+                <th width="30">状态</th>
+                <th width="120">备注</th>
+                <th>操作</th>
+            </tr>
+            </tfoot>
+        </table>
+        <div class="table-actions">
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminCard/status_post')}" data-subcheck="true" data-msg="你确定使用这些券吗？">确定使用</button>
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminCard/export')}" data-subcheck="true" data-msg="你确定导出吗？">导出</button>
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminCard/delete')}" data-subcheck="true" data-msg="你确定删除这些券吗？">删除</button>
+        </div>
+    </form>
+    <form action="{:U('AdminCard/import')}" method="post"  enctype="multipart/form-data">
+        <input type="file" name="csvfile" />	<input type="submit" name="submit" value="Submit" />
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+<script>
+    function refersh_window() {
+        var refersh_time = getCookie('refersh_time');
+        if (refersh_time == 1) {
+            window.location = "{:U('AdminCard/index',$formget)}";
+        }
+    }
+    setInterval(function() {
+        refersh_window();
+    }, 2000);
+    $(function() {
+        setCookie("refersh_time", 0);
+        Wind.use('ajaxForm', 'artDialog', 'iframeTools', function() {
+            //批量移动
+            $('.js-articles-move').click(function(e) {
+                var str = 0;
+                var id = tag = '';
+                $("input[name='ids[]']").each(function() {
+                    if ($(this).attr('checked')) {
+                        str = 1;
+                        id += tag + $(this).val();
+                        tag = ',';
+                    }
+                });
+                if (str == 0) {
+                    art.dialog.through({
+                        id : 'error',
+                        icon : 'error',
+                        content : '您没有勾选信息，无法进行操作！',
+                        cancelVal : '关闭',
+                        cancel : true
+                    });
+                    return false;
+                }
+                var $this = $(this);
+                art.dialog.open("__ROOT__/index.php?g=portal&m=AdminPost&a=move&ids="+ id, {
+                    title : "批量移动",
+                    width : "80%"
+                });
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿@charset "utf-8";
+.w1200 #toolbar .bar-con {width: 1140px;}
+.areaw980{width: 980px;margin: 0 auto}
+#content{width:980px;margin: 0 auto;overflow: hidden;}
+#moudle-list{margin-top:15px;}
+#moudle-list .flow{width: 1140px;border: 1px solid #e5e5e5;background: #f3f3f3;/*border-color: #e5e5e5 #EFEFEF;*/font: 20px/60px "微软雅黑";color: #333;text-align: left;}
+.tips{position: relative; margin:10px auto;width: 978px;border: 1px solid #e5e5e5;background: #f3f3f3;/*border-color: #e5e5e5 #EFEFEF;*/font: 18px/45px "微软雅黑";color: #333;text-align: left;}
+.tips .head{display: inline-block;width: 80px;height: 47px;text-align: center; line-height: 45px;background: #ccc}
+.tips .content{font-size: 14px;margin-left: 15px;position: absolute;top: 0px;left: 80px;}
+#moudle-list .flow span {padding: 0 50px 0 15px;}
+#moudle-list .flow em {color: #999;padding-right:10px;}
+#moudle-list .flow p { font-size:14px; display:inline;}
+#moudle-list .flow i {display: inline-block;width: 60px;height: 60px;background: url(../images/bg.png) no-repeat -55px -348px;vertical-align: middle;}
+#moudle-list .flow .flow-detail {font-size: 14px;color: #09c;vertical-align: top;}
+#moudle-list .deal-list {width: 990px; margin:0px auto; padding:0 0 0 10px;}
+#moudle-list .deal-list .deal{float: left;width:320px;height: 303px;margin: 10px 10px 0 0;display: inline;background: #fff;}
+#moudle-list .deal-list .deal h3{background: #E0E0E0;font: bold 16px/40px "微软雅黑";color: #D11515;}
+#moudle-list .deal-list .deal .info-text {text-align: left;font: 14px/24px Tahoma,Helvetica,Arial,'宋体',sans-serif,\5b8b\4f53;margin: 15px 20px 0 20px;height: 142px;overflow: hidden;}
+#moudle-list .deal-list .deal .date{height: 70px;text-align: left;font: 13px/1.5 Tahoma,Helvetica,Arial,'宋体',sans-serif,\5b8b\4f53;padding: 0px 20px;}
+#moudle-list .deal-list .deal h5{font-weight: bold}
+#moudle-list .deal-list .deal h4 {height: 40px;border-top: 1px dotted #ccc;font: 14px/40px "";text-align: right;padding: 0 10px;}
+#moudle-list .deal-list h4 a {display: inline-block;width: 81px;height: 27px;background: url(../images/bg.png) no-repeat -127px -101px;vertical-align: top;margin-top: 6px;}
+.w980 {
+  width: 980px;
+}

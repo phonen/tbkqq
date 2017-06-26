@@ -1,0 +1,56 @@
+.other_info{overflow:hidden;height:auto;border-top:1px dotted #E2E2E2;padding:10px 0;}
+.other_info a{
+	height: 25px;
+    float: left;
+    padding: 0px 15px;
+    text-align: center;
+    line-height: 25px;
+    font-family: "宋体";
+    border-radius: 20px;
+    text-decoration: none;
+    margin-right: 10px;
+    display: inline;
+font-size: 14px;
+color: #999;
+background:#F6F6F6;margin-bottom: 10px;}
+.btns{width:135px;
+height: 50px;
+line-height: 50px;
+text-align: center;
+display: block;
+color: #FFF;
+font-size: 16px;
+background: url("http://s.juancdn.com/juanpi/images/items/item.gif") no-repeat scroll 0% 0% transparent;
+font-weight: bold;
+text-decoration: none;
+font-family: "宋体";background-position: 0px -452px;}
+.btns:hover{color:#fff;text-decoration:none;}
+
+.line-txt{
+width: 125px;
+font-size: 18px;
+font-family: "微软雅黑";
+color: #2A142B;
+position: absolute;
+left: 50%;
+top:17px;
+margin-left: -76px;
+text-align: center;
+background: url("http://s.juancdn.com/juanpi/images/items/info_bg.gif") no-repeat scroll 0% 0% transparent;
+height: 18px;
+line-height: 18px;
+font-weight: normal;}
+
+.items-tit{position:relative;margin-bottom:30px;background:#fff;}
+.it-line{border-bottom:1px solid #FFF;margin:20px auto 0;border-top:1px solid #2A142B;height:0px;overflow:hidden;}
+.go_btn{border-radius: 5px;
+line-height: 60px;
+color: #FFF;
+text-align: center;
+width: 150px;
+height: 60px;
+margin-right: 20px;background: none repeat scroll 0% 0% #F36;display: block;
+font-size: 16px;
+font-family: "宋体";
+text-decoration: none;}
+.go_btn:hover{color:#fff;text-decoration:none;}

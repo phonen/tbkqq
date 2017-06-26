@@ -1,0 +1,57 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminReport/pre_effect_gongzi')}">代理效果表</a></li>
+    </ul>
+    <form class="well form-search" method="post" action="{:U('AdminReport/pre_effect_gongzi')}">
+        2017年
+        日期：
+        <input type="text" name="startdate" class="js-date" value="{$formget.startdate|default=''}" style="width: 80px;" autocomplete="off">-
+        <input type="text" class="js-date" name="enddate" value="{$formget.enddate}" style="width: 80px;" autocomplete="off"> &nbsp; &nbsp;
+        <input type="submit" class="btn btn-primary" value="搜索" />
+
+    </form>
+    <form method="post" class="js-ajax-form">
+        <div class="table-actions">
+
+        </div>
+        <table id="table" class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="100">代理</th>
+                <th width="100">推广收入</th>
+                <th width="100">返利收入</th>
+                <th width="100">二级收入</th>
+                <th width="100">三级收入</th>
+                <th width="100">中奖产品</th>
+                <th width="80">合计</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="json" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+                    <td>{$vo.proxy}</td>
+                    <td>{$vo.tg}</td>
+                    <td>{$vo.fanli}</td>
+                    <td>{$vo.erji}</td>
+                    <td>{$vo.sanji}</td>
+                    <td>{$vo.zhongjiang}</td>
+
+                    <td>{$vo.heji}</td>
+                </tr>
+            </foreach>
+            </tbody>
+
+        </table>
+
+    </form>
+</div>
+
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

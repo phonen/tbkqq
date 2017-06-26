@@ -1,0 +1,29 @@
+<!-- tc_include file='Ftxia:nav'/-->
+<div  id="back_top"  class="slide-box" style="display:none">
+
+<a href="#" class="back-top" title="返回顶部">
+<img src="__TMPL__Public/ftxia/jwap/images/back-top.png" alt="返回顶部"></a>
+</div>
+
+<script type="text/javascript">
+var FTXIAER = {
+    root: "__ROOT__",
+	site: "/",
+    uid: "<?php echo $visitor['id'];?>", 
+    url: {}
+};
+var lang = {};
+<volist name=":L('js_lang')" id="val">lang.{$key} = "{$val}";</volist>
+</script>
+<ftxload type="js" href="__STATIC__/js/jquery/plugins/jquery.tools.min.js,__STATIC__/js/jquery/plugins/jquery.masonry.js,__STATIC__/js/jquery/plugins/formvalidator.js,__STATIC__/js/fileuploader.js,__STATIC__/js/ftxia.js,__STATIC__/js/front.js,__STATIC__/js/dialog.js,__STATIC__/js/item.js,__STATIC__/js/user.js,__STATIC__/red/js/comment.js,__STATIC__/red/js/comm.js" />
+<script type="text/javascript">
+document.getElementById("back_top").style.display = "none";
+window.onscroll = function () {
+    if (document.documentElement.scrollTop + document.body.scrollTop > 100) {
+        document.getElementById("back_top").style.display = "block";
+    }
+    else {
+        document.getElementById("back_top").style.display = "none";
+    }
+}
+</script>

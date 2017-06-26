@@ -1,0 +1,48 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#">导入产品信息</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form" action="{:U('AdminTaoke/item_load_post')}">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label">淘客帐号</label>
+					<div class="controls">
+						<select class="select_2"  style="width: 220px" name="username">
+							<foreach name="media" item="vo">
+								<option value="{$vo.username}">{$vo.username}</option>
+							</foreach>
+						</select> &nbsp;&nbsp;
+
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">选品库编号</label>
+					<div class="controls">
+						<input type="text" name="groupid" value=""><span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">开始渠道编号</label>
+					<div class="controls">
+						<input type="text" name="proxy1" value=""><span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">结束渠道编号</label>
+					<div class="controls">
+						<input type="text" name="proxy2" value="">
+					</div>
+				</div>
+			</fieldset>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary js-ajax-submit">导入</button>
+				<a class="btn" href="{:U('AdminTaoke/media')}">{:L('BACK')}</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminTaoke/effects')}">媒体效果表</a></li>
+    </ul>
+    <form class="well form-search" method="post" action="{:U('AdminTaoke/effects')}">
+        日期：
+        <input type="text" name="startdate" class="js-date" value="{$formget.startdate|default=''}" style="width: 80px;" autocomplete="off">-
+        <input type="text" class="js-date" name="enddate" value="{$formget.enddate}" style="width: 80px;" autocomplete="off"> &nbsp; &nbsp;
+        代理：
+        <select class="select_2" name="proxy">
+            <option value=""></option>
+            <foreach name="proxys" item="vo">
+                <option value="{$vo.proxy}" <php>if($formget['proxy'] == $vo['proxy']) echo "selected=true";</php>>{$vo.proxy}</option>
+            </foreach>
+        </select> &nbsp;&nbsp;
+        <input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="act" value="export">导出
+        <input type="submit" class="btn btn-primary" value="搜索" />
+
+    </form>
+    <form method="post" class="js-ajax-form">
+
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+
+                <th width="70">日期</th>
+                <th width="160">代理名称</th>
+
+                <th width="50">付款笔数</th>
+
+                <th width="100">效果预估</th>
+
+
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="effects" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+
+                    <td>{$vo.edate}</td>
+                    <td>{$vo.proxy}</td>
+                    <td>{$vo.paycount}</td>
+                    <td>{$vo['pre_effect']*$liuman|round=2}</td>
+
+                </tr>
+            </foreach>
+            </tbody>
+
+        </table>
+
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

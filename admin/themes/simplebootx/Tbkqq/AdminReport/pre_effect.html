@@ -1,0 +1,168 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminReport/pre_effect')}">代理效果表</a></li>
+    </ul>
+    <form class="well form-search" method="post" action="{:U('AdminReport/pre_effect')}">
+        2017年
+        日期：
+        <input type="text" name="startdate" class="js-date" value="{$formget.startdate|default=''}" style="width: 80px;" autocomplete="off">-
+        <input type="text" class="js-date" name="enddate" value="{$formget.enddate}" style="width: 80px;" autocomplete="off"> &nbsp; &nbsp;
+        <input type="submit" class="btn btn-primary" value="搜索" />
+
+    </form>
+    <form method="post" class="js-ajax-form">
+        <div class="table-actions">
+
+        </div>
+        <table id="table" class="table table-hover table-bordered table-list">
+
+
+        </table>
+
+    </form>
+</div>
+<script>
+    //一共四个步骤：第一步为将json字符串转化为二维数组；第二步为将二维数组转化为表格；第三步为合并相同单元格表格；第四步为添加合计行；
+
+    //第一步：将json字符串转化为二维数组
+//    var jsonStr='{"table":[{"一级代理":"China","一级收入":"2014","city":"上海","grade":"高三","contestants":"192","winners":"7"},{"一级代理":"China","一级收入":"2014","city":"上海","grade":"高二","contestants":"267","winners":"11"},{"一级代理":"China","一级收入":"2014","city":"北京","grade":"高二","contestants":"255","winners":"12"},{"一级代理":"China","一级收入":"2014","city":"北京","grade":"高三","contestants":"254","winners":"23"},{"一级代理":"China","一级收入":"2015","city":"北京","grade":"高三","contestants":"259","winners":"18"},{"一级代理":"China","一级收入":"2015","city":"上海","grade":"高二","contestants":"262","winners":"19"},{"一级代理":"China","一级收入":"2016","city":"上海","grade":"高三","contestants":"268","winners":"22"},{"一级代理":"China","一级收入":"2016","city":"上海","grade":"高二","contestants":"218","winners":"18"},{"一级代理":"China","一级收入":"2016","city":"北京","grade":"高二","contestants":"261","winners":"17"},{"一级代理":"China","一级收入":"2016","city":"北京","grade":"高三","contestants":"255","winners":"16"}]}';
+var jsonStr = '{$json}';
+    //利用JSON.parse()将字符串型转化为对象型
+    var jsonObj = JSON.parse(jsonStr);
+    console.log(jsonObj);
+
+    //将json对象数组转化为二维数组
+    var aArr = new Array();
+    var arr = new Array();
+    for (var i in jsonObj.table[0]){
+        aArr.push(i);
+    }
+    for (var i = 0; i < jsonObj.table.length; i++) {
+        arr[i] = new Array();
+        for (var j = 0; j < aArr.length; j++) {
+            arr[i][j] = jsonObj.table[i][aArr[j]];
+        }
+    };
+    arr.unshift(aArr);
+    console.log(arr);
+
+    // 第二步：将二维数组转化为表格
+    //var table = document.createElement("table");
+    //table.setAttribute("id","table");
+    //table.setAttribute("class","table table-hover table-bordered table-list");
+    var table = document.getElementById("table");
+    var thead = document.createElement("tr");
+    for (var i = 0; i < arr[0].length; i++) {
+        var th = document.createElement("th");
+        th.setAttribute("id","tabTh");
+        th.setAttribute("width","70");
+        th.innerText = arr[0][i];
+        thead.appendChild(th);
+    }
+    table.appendChild(thead);
+
+    for (var i = 1; i < arr.length; i++) {
+        var tr = document.createElement("tr");
+        for (var j = 0; j < arr[i].length; j++) {
+            var cell = document.createElement("td");
+            cell.setAttribute("id","td");
+            cell.innerText = arr[i][j];
+            tr.appendChild(cell);
+        }
+        table.appendChild(tr);
+    }
+    //document.body.appendChild(table);
+
+    // 第三步：合并相同单元格
+    function checkArray(arr1,arr2){
+        for (var i = 0; i < arr1.length; i++) {
+            if (arr1[i].innerText===arr2[i].innerText) {
+
+            }else{
+                return false;
+            }
+        }
+        return true;
+    }
+
+    window.onload = function(){
+        var tb = document.getElementById("table");
+        var obj1;
+        var obj2;
+        var objtemp1 = [];
+        var objtemp2 = [];
+        var rowCount = tb.rows.length;
+        var colCount = tb.rows[0].cells.length;
+        var colLength = 4;
+
+        //命名(表头除外)
+        for (var i = 1; i < rowCount; i++) {
+            for (var j = 0; j < colCount; j++) {
+                tb.rows[i].cells[j].id = "tb_" + i.toString() + "_" + j.toString();
+            }
+        }
+
+        //从后往前检查，进行逐列检查合并,开始列为colLength-1
+        for (var col = colLength -1; col >= 0; col--) {
+            //当col>0时有前方的单元格
+            if (col > 0) {
+                //objtemp1为obj1左侧所有单元格集合，初始objtemp1及obj1均从第二行开始(tb_1_)
+                for (var l = 0; l < col; l++) {
+                    objtemp1[l] = document.getElementById("tb_1_" + l.toString());
+                }
+            }
+            obj1 = document.getElementById("tb_1_" + col.toString());
+
+//obj2为obj1下方单元格,obj1从第二行开始，则obj2从第三行开始，遍历以row=2为起始值
+            for (var row = 2; row < rowCount; row++) {
+                //同obj1及objtemp1，col>0：即有前方单元格，此时有objtemp2
+                if (col > 0) {
+                    for (var l = 0; l < col; l++) {
+                        objtemp2[l] = document.getElementById("tb_" + row.toString() +"_"+ l.toString());
+                    }
+                }
+                obj2 = document.getElementById("tb_" + row.toString() +"_"+ col.toString());
+
+//定义完obj1/obj2/objtemp1/objtemp2后，开始合并
+//第一层判断：当obj1的值等于obj2时，即同一列的相邻单元格值相同
+                if (obj1.innerText == obj2.innerText) {
+//第二层判断：obj1/obj2所在列前方还有其他列：即col>0(此步判断为单元格合并的依赖性提供支持)
+                    if (col > 0) {
+//第三层判断：obj1/obj2所在列前方还有其他列，且objtemp1,objtemp2值完全相同，可以合并
+                        if (checkArray(objtemp1,objtemp2)) {
+                            obj1.rowSpan++;
+                            obj2.parentNode.removeChild(obj2);
+                        }
+//第三层判断：obj1/obj2所在列前方还有其他列，且objtemp1,objtemp2值不同，不可合并，并重新对obj1/objtemp1赋值，令其等于原来的obj2/objtemp2
+                        else{
+                            obj1 = document.getElementById("tb_" + row.toString() +"_"+ col.toString());
+                            for (var l = 0; l < col; l++) {
+                                objtemp1[l] = document.getElementById("tb_" + row.toString() +"_"+ l.toString());
+                            }
+                        }
+                    }
+//第二层判断：obj1/obj2所在列为首列，直接合并
+                    else{
+                        obj1.rowSpan++;
+                        obj2.parentNode.removeChild(obj2);
+                    }
+                }
+//第一层判断：当obj1的值不等于obj2时，即同一列的相邻单元格值不相，此时重新对obj1/objtemp1赋值，令其等于原来的obj2/objtemp2
+                else{
+                    obj1 = document.getElementById("tb_" + row.toString() +"_"+ col.toString());
+                    for (var l = 0; l < col; l++) {
+                        objtemp1[l] = document.getElementById("tb_" + row.toString() +"_"+ l.toString());
+                    }
+                }
+            }
+            objtemp1 = [];
+            objtemp2 = [];
+        }
+    }
+</script>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

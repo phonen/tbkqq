@@ -1,0 +1,76 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('AdminOrder/index')}">刷单列表</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form" action="{:U('AdminOrder/add_post')}">
+			<fieldset>
+
+				<div class="control-group">
+					<label class="control-label">商家产品:</label>
+					<div class="controls">
+						<select class="select_2" name="order[p_id]">
+							<foreach name="products" item="vo">
+								<option value="{$vo.id}">{$vo.product}</option>
+							</foreach>
+							</select>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">日期：</label>
+					<div class="controls">
+						<input type="text" name="order[odate]" class="js-date" value="{$formget.odate|default=''}" style="width: 80px;" autocomplete="off">&nbsp; &nbsp;
+					</div>
+				</div>
+
+
+				<div class="control-group">
+					<label class="control-label">地    址:</label>
+					<div class="controls">
+						<input type="text" name="order[address]" value="{$order.address}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">      州:</label>
+					<div class="controls">
+						<input type="text" name="order[province]" value="{$order.province}">
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">充值卡:</label>
+					<div class="controls">
+						<input type="text" name="order[cardno]" value="{$order.cardno}">
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label">备注:</label>
+					<div class="controls">
+						<input type="text" name="order[memo]" value="{$order.memo}">
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">状态：</label>
+					<div class="controls">
+						<select class="select_2" name="order[status]">
+							<option value='0' <php>if($order['status'] == "0") echo "selected=true";</php> >未刷</option>
+							<option value='-1' <php>if($order['status'] == "-1") echo "selected=true";</php> >异常</option>
+							<option value='1' <php>if($order['status'] == "1") echo "selected=true";</php>  >在刷</option>
+							<option value='2' <php>if($order['status'] == "2") echo "selected=true";</php> >已刷</option>
+						</select> &nbsp;&nbsp;
+					</div>
+				</div>
+			</fieldset>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary js-ajax-submit" data-action="{:U('AdminOrder/add_post')}"data-msg="你确定提交吗？">保存</button>
+				<a class="btn" href="{:U('AdminOrder/index')}">返回</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+
+</body>
+</html>

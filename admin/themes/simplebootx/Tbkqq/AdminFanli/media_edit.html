@@ -1,0 +1,53 @@
+<admintpl file="header" />
+</head>
+<body>
+	<div class="wrap">
+		<ul class="nav nav-tabs">
+			<li><a href="{:U('AdminFanli/media')}">返利渠道管理</a></li>
+			<li><a href="{:U('AdminFanli/media_add')}">添加返利渠道</a></li>
+			<li class="active"><a href="#">编辑返利渠道</a></li>
+		</ul>
+		<form method="post" class="form-horizontal js-ajax-form" action="{:U('AdminFanli/media_edit_post')}">
+			<fieldset>
+				<div class="control-group">
+					<label class="control-label">淘客帐号</label>
+					<div class="controls">
+						<input type="hidden" name="media[id]" value="{$media.id}">
+						<input type="text" name="media[username]" value="{$media.username}"><span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">媒体名称</label>
+					<div class="controls">
+						<input type="text" name="media[media]" value="{$media.media}"><span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">来源ID</label>
+					<div class="controls">
+						<input type="text" name="media[mediaid]" value="{$media.mediaid}"><span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">推广位名称</label>
+					<div class="controls">
+						<input type="text" name="media[adname]" value="{$media.adname}"><span class="form-required">*</span>
+					</div>
+				</div>
+				<div class="control-group">
+					<label class="control-label">代理</label>
+					<div class="controls">
+						<input type="text" name="media[proxy]" value="{$media.proxy}"><span class="form-required">*</span>
+					</div>
+				</div>
+
+			</fieldset>
+			<div class="form-actions">
+				<button type="submit" class="btn btn-primary js-ajax-submit">{:L('SAVE')}</button>
+				<a class="btn" href="{:U('AdminFanli/media')}">{:L('BACK')}</a>
+			</div>
+		</form>
+	</div>
+	<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>

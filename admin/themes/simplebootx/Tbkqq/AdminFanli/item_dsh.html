@@ -1,0 +1,96 @@
+<admintpl file="header" />
+<script type="text/javascript" src="__PUBLIC__/js/plupload/plupload.full.min.js"></script>
+<style>
+
+    .progress{ height: 4px; font-size: 0; line-height: 4px; background: orange; width: 0;}
+</style>
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminTaoke/item_dsh')}">待审核商品表</a></li>
+        <li><a href="{:U('AdminTaoke/item_add')}" target="_self">添加</a></li>
+    </ul>
+
+    <div class="wraper">
+        <div class="btn-wraper" style="position: relative;">
+            <input type="button" value="选择文件..." id="browse" style="position: relative; z-index: 1;">
+            <input type="button" value="开始上传" id="upload-btn">
+            <div id="html5_1ahc49p411gcu13e5jsv1sml134d3_container" class="moxie-shim moxie-shim-html5" style="position: absolute; top: 0px; left: 595px; width: 81px; height: 21px; overflow: hidden; z-index: 0;"><input id="html5_1ahc49p411gcu13e5jsv1sml134d3" type="file" style="font-size: 999px; opacity: 0; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;" multiple="" accept=""></div></div>
+        <ul id="file-list">
+
+        </ul>
+    </div>
+    <form method="post" class="js-ajax-form">
+        <div class="table-actions">
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminTaoke/item_dsh_post')}" data-subcheck="true" data-msg="你确定正式推广吗？">正式推广</button>
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminTaoke/item_delete')}" data-subcheck="true" data-msg="你确定删除商品吗？">删除</button>
+        </div>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="70">ID</th>
+                <th width="160">商品名称</th>
+                <th width="70">卖家</th>
+                <th width="100">佣金比例</th>
+                <th width="50">单价</th>
+                <th width="50">单月销量</th>
+                <th width="50">代理链接数</th>
+                <th width="80">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="items" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+                    <td>{$vo.iid}</td>
+                    <td><a href="{$vo.itemurl}" target="_blank">{$vo.item}</a></td>
+                    <td>{$vo.seller}</td>
+                    <td>{$vo.srrate}</td>
+                    <td>{$vo.price}</td>
+                    <td>{$vo.sellcount}</td>
+                    <td>{$vo.urlc}</td>
+                    <td>
+                        <a href="{:U('AdminTaoke/item_edit',array('id'=>$vo['id']))}">编辑</a> |
+                        <a href="{:U('AdminTaoke/item_delete',array('id'=>$vo['id']))}" class="js-ajax-delete">删除</a></td></td>
+                </tr>
+            </foreach>
+            </tbody>
+
+        </table>
+
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+<script type="text/javascript">
+    var uploader = new plupload.Uploader({ //实例化一个plupload上传对象
+        browse_button : 'browse',
+        url : "{:U('AdminTaoke/items_upload')}",
+        flash_swf_url : '__PUBLIC__/js/plupload/Moxie.swf',
+        silverlight_xap_url : '__PUBLIC__/js/plupload/Moxie.xap',
+    });
+    uploader.init(); //初始化
+
+    //绑定文件添加进队列事件
+    uploader.bind('FilesAdded',function(uploader,files){
+        for(var i = 0, len = files.length; i<len; i++){
+            var file_name = files[i].name; //文件名
+            //构造html来更新UI
+            var html = '<li id="file-' + files[i].id +'"><p class="file-name">' + file_name + '</p><p class="progress"></p></li>';
+            $(html).appendTo('#file-list');
+        }
+    });
+
+    //绑定文件上传进度事件
+    uploader.bind('UploadProgress',function(uploader,file){
+        $('#file-'+file.id+' .progress').css('width',file.percent + '%');//控制进度条
+    });
+
+    //上传按钮
+    $('#upload-btn').click(function(){
+        uploader.start(); //开始上传
+    });
+</script>
+</body>
+</html>

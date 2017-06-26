@@ -1,0 +1,41 @@
+<admintpl file="header" />
+</head>
+<body>
+<div class="wrap js-check-wrap">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="{:U('AdminTaoke/item')}">代理商品列表</a></li>
+    </ul>
+
+    <form method="post" class="js-ajax-form">
+        <div class="table-actions">
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminTaoke/item_post')}" data-subcheck="true" data-msg="你确定正式推广吗？">正式推广</button>
+            <button class="btn btn-primary btn-small js-ajax-submit" type="submit" data-action="{:U('AdminTaoke/item_delete')}" data-subcheck="true" data-msg="你确定删除商品吗？">删除</button>
+        </div>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="16"><label><input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x"></label></th>
+                <th width="200">代理</th>
+                <th width="80">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <foreach name="proxyids" item="vo">
+                <tr>
+                    <td><input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]" value="{$vo.id}"></td>
+                    <td><a href="{:U('List/listgrid',array('proxyid'=>$vo))}" target="_blank">{$vo}</a></td>
+
+                    <td>
+                        <a href="{:U('AdminTaoke/item_edit',array('id'=>$vo['id']))}">编辑</a> |
+                        <a href="{:U('AdminTaoke/item_delete',array('id'=>$vo['id']))}" class="js-ajax-delete">删除</a></td></td>
+                </tr>
+            </foreach>
+            </tbody>
+
+        </table>
+
+    </form>
+</div>
+<script src="__PUBLIC__/js/common.js"></script>
+</body>
+</html>
