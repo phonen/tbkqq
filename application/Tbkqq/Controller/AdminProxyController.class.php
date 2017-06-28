@@ -114,6 +114,7 @@ class AdminProxyController extends AdminbaseController {
             $i2 = 0;
             $i3 = 0;
             if($proxy['fcrate'])$liuman = $fcrate * $proxy['fcrate'];
+            else $liuman = $fcrate;
             $proxys2 = M("TbkqqProxy")->where(array("parent"=>$proxy['id']))->group("proxy")->select();
             if($proxys2){
                 foreach($proxys2 as $proxy2){
