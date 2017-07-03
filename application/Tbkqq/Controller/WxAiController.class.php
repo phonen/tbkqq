@@ -903,20 +903,25 @@ class WxAiController extends HomebaseController {
             else 	$proxy = M("TbkqqProxy")->where(array("proxywx"=>$proxywx))->find();
             if($proxy){
                 $pid = $proxy['pid'];
-                $url = "https://temai.m.taobao.com/search.htm?q=" .urlencode(trim($key)) . "&pid={$pid}";
-                $token_data = array();
-                $token_data['logo'] = "";
-                $token_data['text'] = $key;
-                $token_data['url'] = $url;
-                $taotoken = get_taotoken($token_data);
-
-                if ($taotoken == '') $taotoken = get_taotoken($token_data);
-                if ($taotoken == '') $taotoken = get_taotoken($token_data);
-                if ($taotoken == '') $taotoken = get_taotoken($token_data);
-                    echo "为你找到跟" . $key . "相关的产品，详情请复制淘口令:{$taotoken}。";
-
             }
-            else echo "无法为你找产品！";
+            else {
+                $proxy = M("TbkqqProxy")->where(array("proxy"=>"taotehui001"))->find();
+                if($proxy){
+                    $pid = $proxy['pid'];
+                }
+                else $pid = "mm_49479257_13814911_56052501";
+            }
+            $url = "https://temai.m.taobao.com/search.htm?q=" .urlencode(trim($key)) . "&pid={$pid}";
+            $token_data = array();
+            $token_data['logo'] = "";
+            $token_data['text'] = $key;
+            $token_data['url'] = $url;
+            $taotoken = get_taotoken($token_data);
+
+            if ($taotoken == '') $taotoken = get_taotoken($token_data);
+            if ($taotoken == '') $taotoken = get_taotoken($token_data);
+            if ($taotoken == '') $taotoken = get_taotoken($token_data);
+            echo "为你找到跟" . $key . "相关的产品，详情请复制淘口令:{$taotoken}。";
 
         }
     }
