@@ -25,54 +25,55 @@ class WxAiController extends HomebaseController {
     }
 
 
-	public function taoke_info(){
-		if(IS_POST){
-			$appname = C("SITE_APPNAME");
-			$fcrate = C('YONGJIN_RATE');
-			$msg = $_POST['msg'];
-			$proxywx = $_POST['proxywx'];
-			$wxgroup = $_POST['group'];
-			if($_POST['debug'] == '') $debug = false;
-			else $debug = true;
-			$iid = "";
-			if($wxgroup != ''){
-				$proxy = M("TbkqqProxy")->where(array("wxgroup"=>$wxgroup))->find();
-				if($proxy) {$g ="1";}
-				else $proxy = M("TbkqqProxy")->where(array("proxywx"=>$proxywx))->find();
-			}
-			else 	$proxy = M("TbkqqProxy")->where(array("proxywx"=>$proxywx))->find();
-			if($proxy){
+    public function taoke_info(){
+        if(IS_POST){
+            $appname = C("SITE_APPNAME");
+            $fcrate = C('YONGJIN_RATE');
+            $msg = $_POST['msg'];
+            $proxywx = $_POST['proxywx'];
+            $wxgroup = $_POST['group'];
+            if($_POST['debug'] == '') $debug = false;
+            else $debug = true;
+            $iid = "";
+            $qq ='0';
+            if($wxgroup != ''){
+                $proxy = M("TbkqqProxy")->where(array("wxgroup"=>$wxgroup))->find();
+                if($proxy) {$g ="1";}
+                else $proxy = M("TbkqqProxy")->where(array("proxywx"=>$proxywx))->find();
+            }
+            else 	$proxy = M("TbkqqProxy")->where(array("proxywx"=>$proxywx))->find();
+            if($proxy){
                 $fcrate = get_yongjin_by_proxy($proxy['proxy']);
-				//preg_match('/https?:\/\/.*/',$msg,$match);$p = '/https?:\/\/[\w=.?&\/;]+/';
+                //preg_match('/https?:\/\/.*/',$msg,$match);$p = '/https?:\/\/[\w=.?&\/;]+/';
                 preg_match('/https?:\/\/[\w=.?&\/;]+/',$msg,$match);
                 $s = $match[0];
-				if (!empty($s)) {
-					$host = parse_url($s, PHP_URL_HOST);
+                if (!empty($s)) {
+                    $host = parse_url($s, PHP_URL_HOST);
 
 //					if($host == 'e22a.com' || $host == 'c.b1yq.com'|| $host == 'c.b1wt.com' || $host == 'c.b1za.com'|| $host == 'c.b1wv.com'){
-					if($host != 'a.m.taobao.com' && $host != 'uland.taobao.com' && $host != 'item.taobao.com' && $host != 'detail.tmall.com' && $host != 'detail.m.tmall.com' && $host != 'item.m.taobao.com' && $host != 'h5.m.taobao.com' && $host != 's.click.taobao.com'){
-						//preg_match('/(https?:\/\/.*)\??/',$s,$match);
-						//$s = $match[1];
+                    if($host != 'a.m.taobao.com' && $host != 'uland.taobao.com' && $host != 'item.taobao.com' && $host != 'detail.tmall.com' && $host != 'detail.m.tmall.com' && $host != 'item.m.taobao.com' && $host != 'h5.m.taobao.com' && $host != 's.click.taobao.com'){
+                        //preg_match('/(https?:\/\/.*)\??/',$s,$match);
+                        //$s = $match[1];
 
-						$str = file_get_contents($s);
-						preg_match('/var url = \'(https?:\/\/.*)\';/',$str,$match);
-						$s = $match[1];
-					}
+                        $str = file_get_contents($s);
+                        preg_match('/var url = \'(https?:\/\/.*)\';/',$str,$match);
+                        $s = $match[1];
+                    }
 
-					$host = parse_url($s,PHP_URL_HOST);
+                    $host = parse_url($s,PHP_URL_HOST);
 
-					if($host == 'a.m.taobao.com'){
-						preg_match('/\/i(\d+)\.htm/',$s,$match);
+                    if($host == 'a.m.taobao.com'){
+                        preg_match('/\/i(\d+)\.htm/',$s,$match);
 
-						$iid = $match[1];
-					}
-					elseif($host == "uland.taobao.com"){
-						$data = get_url_data($s);
-						$iid = $data['itemId'];
-						$activityId = $data['activityId'];
+                        $iid = $match[1];
+                    }
+                    elseif($host == "uland.taobao.com"){
+                        $data = get_url_data($s);
+                        $iid = $data['itemId'];
+                        $activityId = $data['activityId'];
 
-					}
-					/*
+                    }
+                    /*
                     elseif($host == 'item.taobao.com' || $host == 'detail.tmall.com'){
                         $data = get_url_data($url);
 
@@ -80,224 +81,226 @@ class WxAiController extends HomebaseController {
                     }
                 */
 
-					elseif($host == 'item.taobao.com' || $host == 'detail.tmall.com' || $host == 'detail.m.tmall.com' || $host == 'item.m.taobao.com' || $host == 'h5.m.taobao.com'){
-						//preg_match('/(https?:\/\/.*)/',$s,$match);
-						//$s = $match[1];
-						$data = get_url_data($s);
+                    elseif($host == 'item.taobao.com' || $host == 'detail.tmall.com' || $host == 'detail.m.tmall.com' || $host == 'item.m.taobao.com' || $host == 'h5.m.taobao.com'){
+                        //preg_match('/(https?:\/\/.*)/',$s,$match);
+                        //$s = $match[1];
+                        $data = get_url_data($s);
 
-						$iid = $data['id'];
-					}
+                        $iid = $data['id'];
+                    }
 
-					elseif($host == 's.click.taobao.com'){
-						$data = get_item($s);
-						$iid = $data['id'];
-					}
+                    elseif($host == 's.click.taobao.com'){
+                        $data = get_item($s);
+                        $iid = $data['id'];
+                    }
 
-					if($iid != ""){
+                    if($iid != ""){
 
-						$username = C("ROBOT_USERNAME");//"szh166888";
-						$media = M("TbkqqTaokeMedia")->where(array("proxy"=>$proxy['proxy'],"username"=>$username,"status"=>'1'))->find();
-						if($media){
-							$mediaid = $media['mediaid'];
-							$adid = $media['adid'];
-							$pid = $media['pid'];
+                        $username = C("ROBOT_USERNAME");//"szh166888";
+                        $media = M("TbkqqTaokeMedia")->where(array("proxy"=>$proxy['proxy'],"username"=>$username,"status"=>'1'))->find();
+                        if($media){
+                            $mediaid = $media['mediaid'];
+                            $adid = $media['adid'];
+                            $pid = $media['pid'];
 
-							$t = time();
+                            $t = time();
 
-							$options_model = M("Options");
-							$option=$options_model->where("option_name='cookie_options'")->find();
-							if($option){
-								$options = (array)json_decode($option['option_value'],true);
-								foreach($options as $data) {
-									if($data['username'] == $username) $cookie = $data['cookie'];
-								}
-								if($cookie != ""){
-									$u = "http://pub.alimama.com/items/search.json?q=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D" .$iid . "&auctionTag=&perPageSize=40&shopTag=";
-									$str = openhttp_header($u,'',$cookie);
-									$arr = json_decode($str,true);
-									$sellerId = $arr['data']['pageList'][0]['sellerId'];
-									$tkRate = $arr['data']['pageList'][0]['tkRate'];
-									$eventRate = $arr['data']['pageList'][0]['eventRate'];
-									$img = $arr['data']['pageList'][0]['pictUrl'];
-									$title = $arr['data']['pageList'][0]['title'];
-									if($title == ""){
+                            $options_model = M("Options");
+                            $option=$options_model->where("option_name='cookie_options'")->find();
+                            if($option){
+                                $options = (array)json_decode($option['option_value'],true);
+                                foreach($options as $data) {
+                                    if($data['username'] == $username) $cookie = $data['cookie'];
+                                }
+                                if($cookie != ""){
+                                    $u = "http://pub.alimama.com/items/search.json?q=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D" .$iid . "&auctionTag=&perPageSize=40&shopTag=";
+                                    $str = openhttp_header($u,'',$cookie);
+                                    $arr = json_decode($str,true);
+                                    $sellerId = $arr['data']['pageList'][0]['sellerId'];
+                                    $tkRate = $arr['data']['pageList'][0]['tkRate'];
+                                    $eventRate = $arr['data']['pageList'][0]['eventRate'];
+                                    $img = $arr['data']['pageList'][0]['pictUrl'];
+                                    $title = $arr['data']['pageList'][0]['title'];
+                                    if($title == ""){
                                         \Think\Log::write("title找不到！  " . $u . "   title:" . $title,'WARN');
-										echo "@" . $proxywx . ": 找不到链接，可能商家做了调整，请联系人工客服确认!!";
-										exit();
-									}
-									$price = $arr['data']['pageList'][0]['zkPrice'];
-									if($price == "")$price = $arr['data']['pageList'][0]['reservePrice'];
+                                        echo "@" . $proxywx . ": 找不到链接，可能商家做了调整，请联系人工客服确认!!";
+                                        exit();
+                                    }
+                                    $price = $arr['data']['pageList'][0]['zkPrice'];
+                                    if($price == "")$price = $arr['data']['pageList'][0]['reservePrice'];
 
 
 
-									$u = "http://pub.alimama.com/pubauc/getCommonCampaignByItemId.json?itemId=" . $iid;
-									$str = openhttp_header($u, '', $cookie);
-									$arr = json_decode($str, true);
+                                    $u = "http://pub.alimama.com/pubauc/getCommonCampaignByItemId.json?itemId=" . $iid;
+                                    $str = openhttp_header($u, '', $cookie);
+                                    $arr = json_decode($str, true);
 
-									if ($arr['ok'] == '1' && $arr['data']) {
-										$rate = $tkRate;
+                                    if ($arr['ok'] == '1' && $arr['data']) {
+                                        $rate = $tkRate;
 
-										$cid = '';
-										$keeperid = '';
-										$post = array();
+                                        $cid = '';
+                                        $keeperid = '';
+                                        $post = array();
 
-										foreach ($arr['data'] as $data) {
-											if($data['existStatus'] == '2')$existCid = $data['campaignID'];
-											if($data['manualAudit'] == '1') continue;
-											if ($data['commissionRate'] > $rate) {
-												$rate = $data['commissionRate'];
-												$cid = $data['CampaignID'];
-												$keeperid = $data['ShopKeeperID'];
-											}
-										}
-										if($cid != ""){
-											$post['campId'] = $cid;
-											$post['keeperid'] = $keeperid;
-											$post['applyreason'] = "淘特惠淘客推广申请";
-											$cookie_data = excookie($cookie);
-											$post['_tb_token_'] = $cookie_data['_tb_token_'];
-											$post['t'] = $t;
-
-
-											$post_str = "campId=" . $post['campId'] . "&keeperid=" . $post['keeperid'] . "&applyreason=" . $post['applyreason'] . "&_tb_token_=" . $post['_tb_token_'] . "&t=" . $post['t'];
-											//print_r($post);
-											$u = "http://pub.alimama.com/pubauc/applyForCommonCampaign.json";
-											$reffer = "http://pub.alimama.com/promo/search/index.htm?queryType=2&q=" . $s;
-											sleep(1);
-											$ret = openhttp_header($u, $post_str, $cookie, $reffer, '1');
-										}
-										else {
-											//exit campaign
-											if($existCid != ""){
-												$u = "http://pub.alimama.com/campaign/exitCampaign.json";
-												$post['pubCampaignid'] = $existCid;
-												$post['t'] = time();
-												$cookie_data = excookie($cookie);
-												$post['_tb_token_'] = $cookie_data['_tb_token_'];
-												$post_str = "pubCampaignid=" . $post['pubCampaignid'] . "&_tb_token_=" . $post['_tb_token_'] . "&t=" . $post['t'];
-												$ret = openhttp_header($u, $post_str, $cookie, '', '1');
-											}
-											if($eventRate != ''){
-												if($rate<$eventRate){
-													$rate = $eventRate;
-												}
-											}
+                                        foreach ($arr['data'] as $data) {
+                                            if($data['existStatus'] == '2')$existCid = $data['campaignID'];
+                                            if($data['manualAudit'] == '1') continue;
+                                            if ($data['commissionRate'] > $rate) {
+                                                $rate = $data['commissionRate'];
+                                                $cid = $data['CampaignID'];
+                                                $keeperid = $data['ShopKeeperID'];
+                                            }
+                                        }
+                                        if($cid != ""){
+                                            $post['campId'] = $cid;
+                                            $post['keeperid'] = $keeperid;
+                                            $post['applyreason'] = "淘特惠淘客推广申请";
+                                            $cookie_data = excookie($cookie);
+                                            $post['_tb_token_'] = $cookie_data['_tb_token_'];
+                                            $post['t'] = $t;
 
 
-										}
+                                            $post_str = "campId=" . $post['campId'] . "&keeperid=" . $post['keeperid'] . "&applyreason=" . $post['applyreason'] . "&_tb_token_=" . $post['_tb_token_'] . "&t=" . $post['t'];
+                                            //print_r($post);
+                                            $u = "http://pub.alimama.com/pubauc/applyForCommonCampaign.json";
+                                            $reffer = "http://pub.alimama.com/promo/search/index.htm?queryType=2&q=" . $s;
+                                            sleep(1);
+                                            $ret = openhttp_header($u, $post_str, $cookie, $reffer, '1');
+                                        }
+                                        else {
+                                            //exit campaign
+                                            if($existCid != ""){
+                                                $u = "http://pub.alimama.com/campaign/exitCampaign.json";
+                                                $post['pubCampaignid'] = $existCid;
+                                                $post['t'] = time();
+                                                $cookie_data = excookie($cookie);
+                                                $post['_tb_token_'] = $cookie_data['_tb_token_'];
+                                                $post_str = "pubCampaignid=" . $post['pubCampaignid'] . "&_tb_token_=" . $post['_tb_token_'] . "&t=" . $post['t'];
+                                                $ret = openhttp_header($u, $post_str, $cookie, '', '1');
+                                            }
+                                            if($eventRate != ''){
+                                                if($rate<$eventRate){
+                                                    $rate = $eventRate;
+                                                    $qq = '1';
+                                                }
+                                            }
 
-									}
-									else {
-										$rate = $tkRate;
-										if($eventRate != ''){
-											if($rate<$eventRate){
-												$rate = $eventRate;
-											}
-										}
-									}
+
+                                        }
+
+                                    }
+                                    else {
+                                        $rate = $tkRate;
+                                        if($eventRate != ''){
+                                            if($rate<$eventRate){
+                                                $rate = $eventRate;
+                                                $qq = '1';
+                                            }
+                                        }
+                                    }
 
 
-									if($activityId != ""){
-										$quan_link = "http://shop.m.taobao.com/shop/coupon.htm?seller_id=" . $sellerId ."&activity_id=". $activityId;
-										$header[] = "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.154 Safari/537.36 LBBROWSER";
-										$ch = curl_init();
-										curl_setopt($ch, CURLOPT_URL, $quan_link);
-										//curl_setopt($ch, CURLOPT_REFERER, $tu);
-										curl_setopt($ch, CURLOPT_HEADER, true);
-										curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-										//curl_setopt($ch, CURLOPT_NOBODY,1);
-										curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                                    if($activityId != ""){
+                                        $quan_link = "http://shop.m.taobao.com/shop/coupon.htm?seller_id=" . $sellerId ."&activity_id=". $activityId;
+                                        $header[] = "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.154 Safari/537.36 LBBROWSER";
+                                        $ch = curl_init();
+                                        curl_setopt($ch, CURLOPT_URL, $quan_link);
+                                        //curl_setopt($ch, CURLOPT_REFERER, $tu);
+                                        curl_setopt($ch, CURLOPT_HEADER, true);
+                                        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+                                        //curl_setopt($ch, CURLOPT_NOBODY,1);
+                                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 //			curl_setopt($ch, CURLOPT_FOLLOWLOCATION,true);
-										curl_setopt($ch, CURLOPT_MAXREDIRS,2);
-										$out = curl_exec($ch);
-										curl_close($ch);
+                                        curl_setopt($ch, CURLOPT_MAXREDIRS,2);
+                                        $out = curl_exec($ch);
+                                        curl_close($ch);
 
 
-										if(preg_match('/<span class=\"rest\">(\d+)<\/span>/',$out,$match)){
-											$quan_surpluse = $match[1];
-											if($quan_surpluse == "")$activityId="";
-										}
+                                        if(preg_match('/<span class=\"rest\">(\d+)<\/span>/',$out,$match)){
+                                            $quan_surpluse = $match[1];
+                                            if($quan_surpluse == "")$activityId="";
+                                        }
 
-									}
+                                    }
 
-									if($activityId == ""){
-										$quan_api = "http://taotehui.co/?g=Tbkqq&m=Page&a=find_quan&iid=$iid";
-										$activityId = file_get_contents($quan_api);
+                                    if($activityId == ""){
+                                        $quan_api = "http://taotehui.co/?g=Tbkqq&m=Page&a=find_quan&iid=$iid";
+                                        $activityId = file_get_contents($quan_api);
 
-										if($activityId == ""){
+                                        if($activityId == ""){
 
 
-												$qtk_url = "http://www.qingtaoke.com/api/UserPlan/UserCouponList?sid=$sellerId&gid=$iid";
+                                            $qtk_url = "http://www.qingtaoke.com/api/UserPlan/UserCouponList?sid=$sellerId&gid=$iid";
 
-												$qtk_cookie = '0f4242763305a0552f39b61843503c26=00f0a62ca24de37b108a0eb6e6912654c0e682cda%3A4%3A%7Bi%3A0%3Bs%3A4%3A%225147%22%3Bi%3A1%3Bs%3A12%3A%22pioul%40qq.com%22%3Bi%3A2%3Bi%3A31536000%3Bi%3A3%3Ba%3A0%3A%7B%7D%7D; __cfduid=d9298988d33cf5d025e50f0800d2423041458637207; pgv_pvi=2078657173; PHPSESSID=ihq951b8fbu2nadenrid8bol90; CNZZDATA1256913876=1220425662-1458636544-%7C1472479995; PHPSESSID=beqahligcpq4lpvr5vq7pgatb7; 525d2e01d0d4d2fb427b9926b3856822=9f8b7d357c8e2e558451a99314f15895e633cea9a%3A4%3A%7Bi%3A0%3Bs%3A4%3A%225147%22%3Bi%3A1%3Bs%3A12%3A%22pioul%40qq.com%22%3Bi%3A2%3Bi%3A31536000%3Bi%3A3%3Ba%3A0%3A%7B%7D%7D; qtk_sin=4527me5sgs6muvtbu97frl0f10; CNZZDATA1258823063=1707445734-1471852188-null%7C1484523769; qtkwww_=a855d0ebd8c88a93f8a96697521de895919b9ea7a%3A4%3A%7Bi%3A0%3Bs%3A4%3A%225147%22%3Bi%3A1%3Bs%3A12%3A%22pioul%40qq.com%22%3Bi%3A2%3Bi%3A31536000%3Bi%3A3%3Ba%3A0%3A%7B%7D%7D';
-												$ch = curl_init();
-												curl_setopt($ch, CURLOPT_URL, $qtk_url);
-												curl_setopt($ch, CURLOPT_COOKIE,$qtk_cookie);
-												curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+                                            $qtk_cookie = '0f4242763305a0552f39b61843503c26=00f0a62ca24de37b108a0eb6e6912654c0e682cda%3A4%3A%7Bi%3A0%3Bs%3A4%3A%225147%22%3Bi%3A1%3Bs%3A12%3A%22pioul%40qq.com%22%3Bi%3A2%3Bi%3A31536000%3Bi%3A3%3Ba%3A0%3A%7B%7D%7D; __cfduid=d9298988d33cf5d025e50f0800d2423041458637207; pgv_pvi=2078657173; PHPSESSID=ihq951b8fbu2nadenrid8bol90; CNZZDATA1256913876=1220425662-1458636544-%7C1472479995; PHPSESSID=beqahligcpq4lpvr5vq7pgatb7; 525d2e01d0d4d2fb427b9926b3856822=9f8b7d357c8e2e558451a99314f15895e633cea9a%3A4%3A%7Bi%3A0%3Bs%3A4%3A%225147%22%3Bi%3A1%3Bs%3A12%3A%22pioul%40qq.com%22%3Bi%3A2%3Bi%3A31536000%3Bi%3A3%3Ba%3A0%3A%7B%7D%7D; qtk_sin=4527me5sgs6muvtbu97frl0f10; CNZZDATA1258823063=1707445734-1471852188-null%7C1484523769; qtkwww_=a855d0ebd8c88a93f8a96697521de895919b9ea7a%3A4%3A%7Bi%3A0%3Bs%3A4%3A%225147%22%3Bi%3A1%3Bs%3A12%3A%22pioul%40qq.com%22%3Bi%3A2%3Bi%3A31536000%3Bi%3A3%3Ba%3A0%3A%7B%7D%7D';
+                                            $ch = curl_init();
+                                            curl_setopt($ch, CURLOPT_URL, $qtk_url);
+                                            curl_setopt($ch, CURLOPT_COOKIE,$qtk_cookie);
+                                            curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 
-												$str = curl_exec($ch);
-												curl_close($ch);
-												$arr = json_decode($str,true);
-												if($arr['data']){
+                                            $str = curl_exec($ch);
+                                            curl_close($ch);
+                                            $arr = json_decode($str,true);
+                                            if($arr['data']){
 
-													$quan_str = "";
-													$quan_arr = array();
-													foreach($arr['data'] as $data){
+                                                $quan_str = "";
+                                                $quan_arr = array();
+                                                foreach($arr['data'] as $data){
 
-														if($data['remain']>0) {
-															if($price>$data['applyAmount']){
-																if($data['activity_id'] == "")$quan_arr[] = $data['activityId'];
-																else $quan_arr[] = $data['activity_id'];
+                                                    if($data['remain']>0) {
+                                                        if($price>$data['applyAmount']){
+                                                            if($data['activity_id'] == "")$quan_arr[] = $data['activityId'];
+                                                            else $quan_arr[] = $data['activity_id'];
 
-																$quan_link = "http://shop.m.taobao.com/shop/coupon.htm?activityId=" . $data['activityId'] . "&sellerId=" . $sellerId;
-																$header = array();
-																$header[] = "Accept-Language: zh-CN,zh;q=0.8";
-																$header[] = "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.154 Safari/537.36 LBBROWSER";
-																$ch = curl_init();
-																curl_setopt($ch, CURLOPT_URL, $quan_link);
-																//curl_setopt($ch, CURLOPT_REFERER, $tu);
-																curl_setopt($ch, CURLOPT_HEADER, true);
-																curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-																//curl_setopt($ch, CURLOPT_NOBODY,1);
-																curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-																curl_setopt($ch, CURLOPT_FOLLOWLOCATION,true);
-																curl_setopt($ch, CURLOPT_MAXREDIRS,2);
-																$out = curl_exec($ch);
-																curl_close($ch);
-																if(preg_match('/<dd>(.*)<\/dd>/',$out,$match))
-																	$quan_str .=  $match[1] ."：" .$quan_link . "\n";
-															}
-														}
-													}
+                                                            $quan_link = "http://shop.m.taobao.com/shop/coupon.htm?activityId=" . $data['activityId'] . "&sellerId=" . $sellerId;
+                                                            $header = array();
+                                                            $header[] = "Accept-Language: zh-CN,zh;q=0.8";
+                                                            $header[] = "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.154 Safari/537.36 LBBROWSER";
+                                                            $ch = curl_init();
+                                                            curl_setopt($ch, CURLOPT_URL, $quan_link);
+                                                            //curl_setopt($ch, CURLOPT_REFERER, $tu);
+                                                            curl_setopt($ch, CURLOPT_HEADER, true);
+                                                            curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+                                                            //curl_setopt($ch, CURLOPT_NOBODY,1);
+                                                            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                                                            curl_setopt($ch, CURLOPT_FOLLOWLOCATION,true);
+                                                            curl_setopt($ch, CURLOPT_MAXREDIRS,2);
+                                                            $out = curl_exec($ch);
+                                                            curl_close($ch);
+                                                            if(preg_match('/<dd>(.*)<\/dd>/',$out,$match))
+                                                                $quan_str .=  $match[1] ."：" .$quan_link . "\n";
+                                                        }
+                                                    }
+                                                }
 
-												}
-												else $quan_str = "";
+                                            }
+                                            else $quan_str = "";
 
-										}
-									}
+                                        }
+                                    }
 
-									if($activityId == ""){
-										if($eventRate>$rate)
-											$u = "http://pub.alimama.com/common/code/getAuctionCode.json?auctionid=$iid&adzoneid=$adid&siteid=$mediaid&scenes=3&channel=tk_qqhd&t=$t";
-										else
-											$u = "http://pub.alimama.com/common/code/getAuctionCode.json?auctionid=$iid&adzoneid=$adid&siteid=$mediaid&scenes=1&t=$t";
-										$str = openhttp_header($u,'',$cookie);
-										if($str != ""){
-											$arr = json_decode($str,true);
-											if($arr['data']['couponLink'] != "") $link = $arr['data']['couponLink'];
-											else {
-												$link = $arr['data']['shortLinkUrl'];
-												if($quan_str == "")$quan_str = " 没找到券，价格合适可以直接购买";
-											}
+                                    if($activityId == ""){
+                                        if($qq == '1')
+                                            $u = "http://pub.alimama.com/common/code/getAuctionCode.json?auctionid=$iid&adzoneid=$adid&siteid=$mediaid&scenes=3&channel=tk_qqhd&t=$t";
+                                        else
+                                            $u = "http://pub.alimama.com/common/code/getAuctionCode.json?auctionid=$iid&adzoneid=$adid&siteid=$mediaid&scenes=1&t=$t";
+                                        $str = openhttp_header($u,'',$cookie);
+                                        if($str != ""){
+                                            $arr = json_decode($str,true);
+                                            if($arr['data']['couponLink'] != "") $link = $arr['data']['couponLink'];
+                                            else {
+                                                $link = $arr['data']['shortLinkUrl'];
+                                                if($quan_str == "")$quan_str = " 没找到券，价格合适可以直接购买";
+                                            }
 
-											if($arr['data']['couponLinkTaoToken'] != "") $taotoken = $arr['data']['couponLinkTaoToken'];
-											else $taotoken = $arr['data']['taoToken'];
+                                            if($arr['data']['couponLinkTaoToken'] != "") $taotoken = $arr['data']['couponLinkTaoToken'];
+                                            else $taotoken = $arr['data']['taoToken'];
                                             if($appname == "yhg" || $g == "1")$yongjin = "";
                                             else{
                                                 if($proxy['fcrate'] != "") $yongjin = round($rate * $fcrate * $proxy['fcrate'],2);
                                                 else $yongjin =  round($rate * $fcrate,2);
                                             }
-											if($link == ""){
+                                            if($link == ""){
                                                 \Think\Log::write("link找不到！taokeinfo  " . $u,'WARN');
 
                                                 $ldata = array();
@@ -309,49 +312,49 @@ class WxAiController extends HomebaseController {
                                                 $quan_str = "券被抢光，请在购买时留意领券！";
                                                 echo "@" . $proxywx . ": 【" . $title . "】".  $yongjin ." 淘口令：" . $taotoken . $quan_str;
                                             }
-											else{
+                                            else{
 
-												echo "@" . $proxywx . ": 【" . $title . "】" .$yongjin . "下单链接：".$link . " 淘口令：" . $taotoken . $quan_str;
-											}
-										}
-										else echo "@" . $proxywx . ": 找不到t这个链接，可能机器人掉线了，请联系人工客服";
-									}
-									else {
-										if($eventRate>$rate)
-											$dx = "0";
-										else $dx = "1";
-										$link = "https://uland.taobao.com/coupon/edetail?activityId=" .$activityId ."&pid=" . $pid ."&itemId=" . $iid ."&src=qhkj_dtkp&dx=" . $dx;
-										if($appname == "yhg" || $g == "1")$yongjin = "";
-										else {
-											if($proxy['fcrate'] != "")$yongjin = round($rate * $fcrate * $proxy['fcrate'],2);
-											else $yongjin =  round($rate * $fcrate,2);
-										}
-										$token_data = array();
-										$token_data['logo'] = $img;
-										$token_data['text'] = $title;
-										$token_data['url'] = $link;
-										$taotoken = get_taotoken($token_data);
+                                                echo "@" . $proxywx . ": 【" . $title . "】" .$yongjin . "下单链接：".$link . " 淘口令：" . $taotoken . $quan_str;
+                                            }
+                                        }
+                                        else echo "@" . $proxywx . ": 找不到t这个链接，可能机器人掉线了，请联系人工客服";
+                                    }
+                                    else {
+                                        if($qq == '1')
+                                            $dx = "0";
+                                        else $dx = "1";
+                                        $link = "https://uland.taobao.com/coupon/edetail?activityId=" .$activityId ."&pid=" . $pid ."&itemId=" . $iid ."&src=qhkj_dtkp&dx=" . $dx;
+                                        if($appname == "yhg" || $g == "1")$yongjin = "";
+                                        else {
+                                            if($proxy['fcrate'] != "")$yongjin = round($rate * $fcrate * $proxy['fcrate'],2);
+                                            else $yongjin =  round($rate * $fcrate,2);
+                                        }
+                                        $token_data = array();
+                                        $token_data['logo'] = $img;
+                                        $token_data['text'] = $title;
+                                        $token_data['url'] = $link;
+                                        $taotoken = get_taotoken($token_data);
 
-										if($taotoken == '')$taotoken = get_taotoken($token_data);
-										if($taotoken == '')$taotoken = get_taotoken($token_data);
-										if($taotoken == '')$taotoken = get_taotoken($token_data);
+                                        if($taotoken == '')$taotoken = get_taotoken($token_data);
+                                        if($taotoken == '')$taotoken = get_taotoken($token_data);
+                                        if($taotoken == '')$taotoken = get_taotoken($token_data);
 
-										echo "@" . $proxywx . ": 【" . $title . "】" .$yongjin . "下单链接：".$link . $quan_str . "口令：" .$taotoken;
-									}
-								}
-							}
+                                        echo "@" . $proxywx . ": 【" . $title . "】" .$yongjin . "下单链接：".$link . $quan_str . "口令：" .$taotoken;
+                                    }
+                                }
+                            }
 
-						}
+                        }
 
-					}
-					else echo "@" . $proxywx . ": 这个链接格式机器人认不到，请手工打开然后通过手机淘宝分享";
-				}
-			}
-			else {
-				echo "@" . $proxywx . ": 你没有登记代理编号，请@我，并输入代理帐号：" . $appname . "001  这种格式进行登记";
-			}
-		}
-	}
+                    }
+                    else echo "@" . $proxywx . ": 这个链接格式机器人认不到，请手工打开然后通过手机淘宝分享";
+                }
+            }
+            else {
+                echo "@" . $proxywx . ": 你没有登记代理编号，请@我，并输入代理帐号：" . $appname . "001  这种格式进行登记";
+            }
+        }
+    }
 
 
 	public function save_link(){
@@ -575,29 +578,29 @@ class WxAiController extends HomebaseController {
 	}
 
 
-	public function taoke_info_v1(){
-		if(IS_POST){
-			$appname = C("SITE_APPNAME");
+    public function taoke_info_v1(){
+        if(IS_POST){
+            $appname = C("SITE_APPNAME");
 
-			$msg = $_POST['msg'];
-			$proxywx = $_POST['proxywx'];
-			$wxgroup = $_POST['group'];
-			$iid = $_POST['iid'];
-
-			if($wxgroup != ''){
-				$proxy = M("TbkqqProxy")->where(array("wxgroup"=>$wxgroup))->find();
-				if($proxy) {$g ="1";}
-				else $proxy = M("TbkqqProxy")->where(array("proxywx"=>$proxywx))->find();
-			}
-			else {
+            $msg = $_POST['msg'];
+            $proxywx = $_POST['proxywx'];
+            $wxgroup = $_POST['group'];
+            $iid = $_POST['iid'];
+            $qq ='0';
+            if($wxgroup != ''){
+                $proxy = M("TbkqqProxy")->where(array("wxgroup"=>$wxgroup))->find();
+                if($proxy) {$g ="1";}
+                else $proxy = M("TbkqqProxy")->where(array("proxywx"=>$proxywx))->find();
+            }
+            else {
                 $g = "1";
-			    if($proxywx != '')$proxy = M("TbkqqProxy")->where(array("proxywx"=>$proxywx))->find();
-			    else{
+                if($proxywx != '')$proxy = M("TbkqqProxy")->where(array("proxywx"=>$proxywx))->find();
+                else{
 
                     $proxy = M("TbkqqProxy")->where("proxy like '%001'")->find();
                 }
             }
-			if($proxy){
+            if($proxy){
                 $fcrate = get_yongjin_by_proxy($proxy['proxy']);
                 if($iid == ''){
                     preg_match('/https?:\/\/[\w=.?&\/;]+/',$msg,$match);
@@ -627,235 +630,237 @@ class WxAiController extends HomebaseController {
                         }
                     }
                 }
-					if($iid != "") {
+                if($iid != "") {
 
-                        $username = C("ROBOT_USERNAME");//"szh166888";
-                        $media = M("TbkqqTaokeMedia")->where(array("proxy" => $proxy['proxy'], "username" => $username, "status" => '1'))->find();
-                        if ($media) {
-                            $mediaid = $media['mediaid'];
-                            $adid = $media['adid'];
-                            $pid = $media['pid'];
+                    $username = C("ROBOT_USERNAME");//"szh166888";
+                    $media = M("TbkqqTaokeMedia")->where(array("proxy" => $proxy['proxy'], "username" => $username, "status" => '1'))->find();
+                    if ($media) {
+                        $mediaid = $media['mediaid'];
+                        $adid = $media['adid'];
+                        $pid = $media['pid'];
 
-                            $t = time();
+                        $t = time();
 
-                            $cookie = get_cookie_by_username($username);
+                        $cookie = get_cookie_by_username($username);
 
-                            if ($cookie != "") {
-                                $u = "http://pub.alimama.com/items/search.json?q=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D" . $iid . "&auctionTag=&perPageSize=40&shopTag=";
-                                $str = openhttp_header($u, '', $cookie);
-                                $arr = json_decode($str, true);
-                                $sellerId = $arr['data']['pageList'][0]['sellerId'];
-                                $tkRate = $arr['data']['pageList'][0]['tkRate'];
-                                $eventRate = $arr['data']['pageList'][0]['eventRate'];
-                                $img = $arr['data']['pageList'][0]['pictUrl'];
-                                $title = $arr['data']['pageList'][0]['title'];
-                                if ($title == "") {
-                                    echo "找不到链接，可能商家做了调整，请联系人工客服确认！";
-                                    \Think\Log::write("title找不到！  " . $u, 'WARN');
-                                    exit();
-                                }
-                                $price = $arr['data']['pageList'][0]['zkPrice'];
-                                if ($price == "") $price = $arr['data']['pageList'][0]['reservePrice'];
-                                $u = "http://pub.alimama.com/pubauc/getCommonCampaignByItemId.json?itemId=" . $iid;
-                                $str = openhttp_header($u, '', $cookie);
-                                $arr = json_decode($str, true);
+                        if ($cookie != "") {
+                            $u = "http://pub.alimama.com/items/search.json?q=https%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fid%3D" . $iid . "&auctionTag=&perPageSize=40&shopTag=";
+                            $str = openhttp_header($u, '', $cookie);
+                            $arr = json_decode($str, true);
+                            $sellerId = $arr['data']['pageList'][0]['sellerId'];
+                            $tkRate = $arr['data']['pageList'][0]['tkRate'];
+                            $eventRate = $arr['data']['pageList'][0]['eventRate'];
+                            $img = $arr['data']['pageList'][0]['pictUrl'];
+                            $title = $arr['data']['pageList'][0]['title'];
+                            if ($title == "") {
+                                echo "找不到链接，可能商家做了调整，请联系人工客服确认！";
+                                \Think\Log::write("title找不到！  " . $u, 'WARN');
+                                exit();
+                            }
+                            $price = $arr['data']['pageList'][0]['zkPrice'];
+                            if ($price == "") $price = $arr['data']['pageList'][0]['reservePrice'];
+                            $u = "http://pub.alimama.com/pubauc/getCommonCampaignByItemId.json?itemId=" . $iid;
+                            $str = openhttp_header($u, '', $cookie);
+                            $arr = json_decode($str, true);
 
-                                if ($arr['ok'] == '1' && $arr['data']) {
-                                    $rate = $tkRate;
+                            if ($arr['ok'] == '1' && $arr['data']) {
+                                $rate = $tkRate;
 
-                                    $cid = '';
-                                    $keeperid = '';
-                                    $post = array();
+                                $cid = '';
+                                $keeperid = '';
+                                $post = array();
 
-                                    foreach ($arr['data'] as $data) {
-                                        if ($data['existStatus'] == '2') $existCid = $data['campaignID'];
-                                        if ($data['manualAudit'] == '1') continue;
-                                        if ($data['commissionRate'] > $rate) {
-                                            $rate = $data['commissionRate'];
-                                            $cid = $data['CampaignID'];
-                                            $keeperid = $data['ShopKeeperID'];
-                                        }
+                                foreach ($arr['data'] as $data) {
+                                    if ($data['existStatus'] == '2') $existCid = $data['campaignID'];
+                                    if ($data['manualAudit'] == '1') continue;
+                                    if ($data['commissionRate'] > $rate) {
+                                        $rate = $data['commissionRate'];
+                                        $cid = $data['CampaignID'];
+                                        $keeperid = $data['ShopKeeperID'];
                                     }
-                                    if ($cid != "") {
-                                        $post['campId'] = $cid;
-                                        $post['keeperid'] = $keeperid;
-                                        $post['applyreason'] = "淘特惠淘客推广申请";
+                                }
+                                if ($cid != "") {
+                                    $post['campId'] = $cid;
+                                    $post['keeperid'] = $keeperid;
+                                    $post['applyreason'] = "淘特惠淘客推广申请";
+                                    $cookie_data = excookie($cookie);
+                                    $post['_tb_token_'] = $cookie_data['_tb_token_'];
+                                    $post['t'] = $t;
+
+                                    $post_str = "campId=" . $post['campId'] . "&keeperid=" . $post['keeperid'] . "&applyreason=" . $post['applyreason'] . "&_tb_token_=" . $post['_tb_token_'] . "&t=" . $post['t'];
+                                    //print_r($post);
+                                    $u = "http://pub.alimama.com/pubauc/applyForCommonCampaign.json";
+                                    $reffer = "http://pub.alimama.com/promo/search/index.htm?queryType=2&q=" . $s;
+                                    sleep(1);
+                                    $ret = openhttp_header($u, $post_str, $cookie, $reffer, '1');
+                                } else {
+                                    //exit campaign
+                                    if ($existCid != "") {
+                                        $u = "http://pub.alimama.com/campaign/exitCampaign.json";
+                                        $post['pubCampaignid'] = $existCid;
+                                        $post['t'] = time();
                                         $cookie_data = excookie($cookie);
                                         $post['_tb_token_'] = $cookie_data['_tb_token_'];
-                                        $post['t'] = $t;
-
-                                        $post_str = "campId=" . $post['campId'] . "&keeperid=" . $post['keeperid'] . "&applyreason=" . $post['applyreason'] . "&_tb_token_=" . $post['_tb_token_'] . "&t=" . $post['t'];
-                                        //print_r($post);
-                                        $u = "http://pub.alimama.com/pubauc/applyForCommonCampaign.json";
-                                        $reffer = "http://pub.alimama.com/promo/search/index.htm?queryType=2&q=" . $s;
-                                        sleep(1);
-                                        $ret = openhttp_header($u, $post_str, $cookie, $reffer, '1');
-                                    } else {
-                                        //exit campaign
-                                        if ($existCid != "") {
-                                            $u = "http://pub.alimama.com/campaign/exitCampaign.json";
-                                            $post['pubCampaignid'] = $existCid;
-                                            $post['t'] = time();
-                                            $cookie_data = excookie($cookie);
-                                            $post['_tb_token_'] = $cookie_data['_tb_token_'];
-                                            $post_str = "pubCampaignid=" . $post['pubCampaignid'] . "&_tb_token_=" . $post['_tb_token_'] . "&t=" . $post['t'];
-                                            $ret = openhttp_header($u, $post_str, $cookie, '', '1');
-                                        }
-                                        if ($eventRate != '') {
-                                            if ($rate < $eventRate) {
-                                                $rate = $eventRate;
-                                            }
-                                        }
-
-
+                                        $post_str = "pubCampaignid=" . $post['pubCampaignid'] . "&_tb_token_=" . $post['_tb_token_'] . "&t=" . $post['t'];
+                                        $ret = openhttp_header($u, $post_str, $cookie, '', '1');
                                     }
-
-                                } else {
-                                    $rate = $tkRate;
                                     if ($eventRate != '') {
                                         if ($rate < $eventRate) {
                                             $rate = $eventRate;
+                                            $qq ='1';
                                         }
                                     }
-                                }
 
-
-                                if ($activityId != "") {
-
-                                    $url = "http://uland.taobao.com/cp/coupon?activityId={$activityId}&itemId={$iid}";
-                                    $coupon = get_coupon_info_v1($url);
-                                    if (!$coupon) {
-                                        $activityId = "";
-                                    }
 
                                 }
 
-                                if ($activityId == "") {
-                                    $quan = get_activeid_by_iid($iid);
-                                    if ($quan) {
-                                        $activityId = $quan['id'];
-                                        $quan_str = $quan['str'];
+                            } else {
+                                $rate = $tkRate;
+                                if ($eventRate != '') {
+                                    if ($rate < $eventRate) {
+                                        $rate = $eventRate;
+                                        $qq = '1';
                                     }
                                 }
-                                if ($activityId == "") {
-                                    $qtk_url = "http://www.qingtaoke.com/api/UserPlan/UserCouponList?sid=$sellerId&gid=$iid";
+                            }
 
-                                    $qtk_cookie = '0f4242763305a0552f39b61843503c26=00f0a62ca24de37b108a0eb6e6912654c0e682cda%3A4%3A%7Bi%3A0%3Bs%3A4%3A%225147%22%3Bi%3A1%3Bs%3A12%3A%22pioul%40qq.com%22%3Bi%3A2%3Bi%3A31536000%3Bi%3A3%3Ba%3A0%3A%7B%7D%7D; __cfduid=d9298988d33cf5d025e50f0800d2423041458637207; pgv_pvi=2078657173; PHPSESSID=ihq951b8fbu2nadenrid8bol90; CNZZDATA1256913876=1220425662-1458636544-%7C1472479995; PHPSESSID=beqahligcpq4lpvr5vq7pgatb7; 525d2e01d0d4d2fb427b9926b3856822=9f8b7d357c8e2e558451a99314f15895e633cea9a%3A4%3A%7Bi%3A0%3Bs%3A4%3A%225147%22%3Bi%3A1%3Bs%3A12%3A%22pioul%40qq.com%22%3Bi%3A2%3Bi%3A31536000%3Bi%3A3%3Ba%3A0%3A%7B%7D%7D; qtk_sin=4527me5sgs6muvtbu97frl0f10; CNZZDATA1258823063=1707445734-1471852188-null%7C1484523769; qtkwww_=a855d0ebd8c88a93f8a96697521de895919b9ea7a%3A4%3A%7Bi%3A0%3Bs%3A4%3A%225147%22%3Bi%3A1%3Bs%3A12%3A%22pioul%40qq.com%22%3Bi%3A2%3Bi%3A31536000%3Bi%3A3%3Ba%3A0%3A%7B%7D%7D';
-                                    $ch = curl_init();
-                                    curl_setopt($ch, CURLOPT_URL, $qtk_url);
-                                    curl_setopt($ch, CURLOPT_COOKIE, $qtk_cookie);
-                                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-                                    $str = curl_exec($ch);
-                                    curl_close($ch);
-                                    $arr = json_decode($str, true);
-                                    if ($arr['data']) {
+                            if ($activityId != "") {
 
-                                        $quan_str = "";
-                                        $quan_arr = array();
-                                        foreach ($arr['data'] as $data) {
+                                $url = "http://uland.taobao.com/cp/coupon?activityId={$activityId}&itemId={$iid}";
+                                $coupon = get_coupon_info_v1($url);
+                                if (!$coupon) {
+                                    $activityId = "";
+                                }
 
-                                            if ($data['remain'] > 0) {
-                                                if ($price > $data['applyAmount']) {
-                                                    if ($data['activity_id'] == "") $quan_arr[] = $data['activityId'];
-                                                    else $quan_arr[] = $data['activity_id'];
+                            }
 
-                                                    $quan_link = "http://shop.m.taobao.com/shop/coupon.htm?activityId=" . $data['activityId'] . "&sellerId=" . $sellerId;
-                                                    $header = array();
-                                                    $header[] = "Accept-Language: zh-CN,zh;q=0.8";
-                                                    $header[] = "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.154 Safari/537.36 LBBROWSER";
-                                                    $ch = curl_init();
-                                                    curl_setopt($ch, CURLOPT_URL, $quan_link);
-                                                    //curl_setopt($ch, CURLOPT_REFERER, $tu);
-                                                    curl_setopt($ch, CURLOPT_HEADER, true);
-                                                    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-                                                    //curl_setopt($ch, CURLOPT_NOBODY,1);
-                                                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                                                    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-                                                    curl_setopt($ch, CURLOPT_MAXREDIRS, 2);
-                                                    $out = curl_exec($ch);
-                                                    curl_close($ch);
-                                                    if (preg_match('/<dd>(.*)<\/dd>/', $out, $match))
-                                                        $quan_str .= $match[1] . "：" . $quan_link . "\n";
-                                                }
+                            if ($activityId == "") {
+                                $quan = get_activeid_by_iid($iid);
+                                if ($quan) {
+                                    $activityId = $quan['id'];
+                                    $quan_str = $quan['str'];
+                                }
+                            }
+                            if ($activityId == "") {
+                                $qtk_url = "http://www.qingtaoke.com/api/UserPlan/UserCouponList?sid=$sellerId&gid=$iid";
+
+                                $qtk_cookie = '0f4242763305a0552f39b61843503c26=00f0a62ca24de37b108a0eb6e6912654c0e682cda%3A4%3A%7Bi%3A0%3Bs%3A4%3A%225147%22%3Bi%3A1%3Bs%3A12%3A%22pioul%40qq.com%22%3Bi%3A2%3Bi%3A31536000%3Bi%3A3%3Ba%3A0%3A%7B%7D%7D; __cfduid=d9298988d33cf5d025e50f0800d2423041458637207; pgv_pvi=2078657173; PHPSESSID=ihq951b8fbu2nadenrid8bol90; CNZZDATA1256913876=1220425662-1458636544-%7C1472479995; PHPSESSID=beqahligcpq4lpvr5vq7pgatb7; 525d2e01d0d4d2fb427b9926b3856822=9f8b7d357c8e2e558451a99314f15895e633cea9a%3A4%3A%7Bi%3A0%3Bs%3A4%3A%225147%22%3Bi%3A1%3Bs%3A12%3A%22pioul%40qq.com%22%3Bi%3A2%3Bi%3A31536000%3Bi%3A3%3Ba%3A0%3A%7B%7D%7D; qtk_sin=4527me5sgs6muvtbu97frl0f10; CNZZDATA1258823063=1707445734-1471852188-null%7C1484523769; qtkwww_=a855d0ebd8c88a93f8a96697521de895919b9ea7a%3A4%3A%7Bi%3A0%3Bs%3A4%3A%225147%22%3Bi%3A1%3Bs%3A12%3A%22pioul%40qq.com%22%3Bi%3A2%3Bi%3A31536000%3Bi%3A3%3Ba%3A0%3A%7B%7D%7D';
+                                $ch = curl_init();
+                                curl_setopt($ch, CURLOPT_URL, $qtk_url);
+                                curl_setopt($ch, CURLOPT_COOKIE, $qtk_cookie);
+                                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+                                $str = curl_exec($ch);
+                                curl_close($ch);
+                                $arr = json_decode($str, true);
+                                if ($arr['data']) {
+
+                                    $quan_str = "";
+                                    $quan_arr = array();
+                                    foreach ($arr['data'] as $data) {
+
+                                        if ($data['remain'] > 0) {
+                                            if ($price > $data['applyAmount']) {
+                                                if ($data['activity_id'] == "") $quan_arr[] = $data['activityId'];
+                                                else $quan_arr[] = $data['activity_id'];
+
+                                                $quan_link = "http://shop.m.taobao.com/shop/coupon.htm?activityId=" . $data['activityId'] . "&sellerId=" . $sellerId;
+                                                $header = array();
+                                                $header[] = "Accept-Language: zh-CN,zh;q=0.8";
+                                                $header[] = "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.154 Safari/537.36 LBBROWSER";
+                                                $ch = curl_init();
+                                                curl_setopt($ch, CURLOPT_URL, $quan_link);
+                                                //curl_setopt($ch, CURLOPT_REFERER, $tu);
+                                                curl_setopt($ch, CURLOPT_HEADER, true);
+                                                curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+                                                //curl_setopt($ch, CURLOPT_NOBODY,1);
+                                                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                                                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+                                                curl_setopt($ch, CURLOPT_MAXREDIRS, 2);
+                                                $out = curl_exec($ch);
+                                                curl_close($ch);
+                                                if (preg_match('/<dd>(.*)<\/dd>/', $out, $match))
+                                                    $quan_str .= $match[1] . "：" . $quan_link . "\n";
                                             }
                                         }
+                                    }
 
-                                    } else $quan_str = "";
+                                } else $quan_str = "";
 
-                                }
+                            }
 
-                                if ($activityId == "") {
-                                    if ($eventRate > $rate)
-                                        $u = "http://pub.alimama.com/common/code/getAuctionCode.json?auctionid=$iid&adzoneid=$adid&siteid=$mediaid&scenes=3&channel=tk_qqhd&t=$t";
-                                    else
-                                        $u = "http://pub.alimama.com/common/code/getAuctionCode.json?auctionid=$iid&adzoneid=$adid&siteid=$mediaid&scenes=1&t=$t";
-                                    $str = openhttp_header($u, '', $cookie);
-                                    if ($str != "") {
-                                        $arr = json_decode($str, true);
-                                        if ($arr['data']['couponLink'] != "") $link = $arr['data']['couponLink'];
-                                        else {
-                                            $link = $arr['data']['shortLinkUrl'];
-                                            if ($quan_str == "") $quan_str = " 没找到券，价格合适可以直接购买";
-                                        }
+                            if ($activityId == "") {
+                                if ($qq == '1')
+                                    $u = "http://pub.alimama.com/common/code/getAuctionCode.json?auctionid=$iid&adzoneid=$adid&siteid=$mediaid&scenes=3&channel=tk_qqhd&t=$t";
+                                else
+                                    $u = "http://pub.alimama.com/common/code/getAuctionCode.json?auctionid=$iid&adzoneid=$adid&siteid=$mediaid&scenes=1&t=$t";
+                                $str = openhttp_header($u, '', $cookie);
+                                if ($str != "") {
+                                    $arr = json_decode($str, true);
+                                    if ($arr['data']['couponLink'] != "") $link = $arr['data']['couponLink'];
+                                    else {
+                                        $link = $arr['data']['shortLinkUrl'];
+                                        if ($quan_str == "") $quan_str = " 没找到券，价格合适可以直接购买";
+                                    }
 
-                                        if ($arr['data']['couponLinkTaoToken'] != "") $taotoken = $arr['data']['couponLinkTaoToken'];
-                                        else $taotoken = $arr['data']['taoToken'];
-                                        if ($appname == "yhg" || $g == "1") $yongjin = "";
-                                        else {
-                                            if ($proxy['fcrate'] != "") $yongjin = round($rate * $fcrate * $proxy['fcrate'], 2);
-                                            else $yongjin = round($rate * $fcrate, 2);
-                                        }
-
-                                        if ($link == "") {
-                                            \Think\Log::write("link找不到！v1  " . $u, 'WARN');
-
-                                            $ldata = array();
-                                            $ldata['url'] = "https://uland.taobao.com/coupon/edetail?pid=" . $pid . "&itemId=" . $iid . "&src=cd_cdll";
-                                            $ldata['logo'] = $img;
-                                            $ldata['text'] = $title;
-
-                                            $taotoken = get_taotoken($ldata);
-                                            $quan_str = "券被抢光，请在购买时留意领券！";
-                                            echo "【" . $title . "】". $yongjin . " 淘口令：" . $taotoken . $quan_str;
-                                        } else {
-                                            echo "【" . $title . "】" . $yongjin . "下单链接：" . $link . " 淘口令：" . $taotoken . $quan_str;
-                                        }
-                                    } else echo "找不到这个链接，可能机器人掉线了，请联系人工客服c!";
-                                } else {
-                                    if ($eventRate > $rate)
-                                        $dx = "0";
-                                    else $dx = "1";
-                                    $link = "https://uland.taobao.com/coupon/edetail?activityId=" . $activityId . "&pid=" . $pid . "&itemId=" . $iid . "&src=qhkj_dtkp&dx=" . $dx;
+                                    if ($arr['data']['couponLinkTaoToken'] != "") $taotoken = $arr['data']['couponLinkTaoToken'];
+                                    else $taotoken = $arr['data']['taoToken'];
                                     if ($appname == "yhg" || $g == "1") $yongjin = "";
                                     else {
                                         if ($proxy['fcrate'] != "") $yongjin = round($rate * $fcrate * $proxy['fcrate'], 2);
                                         else $yongjin = round($rate * $fcrate, 2);
                                     }
-                                    $token_data = array();
-                                    $token_data['logo'] = $img;
-                                    $token_data['text'] = $title;
-                                    $token_data['url'] = $link;
-                                    $taotoken = get_taotoken($token_data);
 
-                                    if ($taotoken == '') $taotoken = get_taotoken($token_data);
-                                    if ($taotoken == '') $taotoken = get_taotoken($token_data);
-                                    if ($taotoken == '') $taotoken = get_taotoken($token_data);
+                                    if ($link == "") {
+                                        \Think\Log::write("link找不到！v1  " . $u, 'WARN');
 
-                                    echo "【" . $title . "】" . $yongjin . "下单链接：" . $link . $quan_str . "口令：" . $taotoken;
+                                        $ldata = array();
+                                        $ldata['url'] = "https://uland.taobao.com/coupon/edetail?pid=" . $pid . "&itemId=" . $iid . "&src=cd_cdll";
+                                        $ldata['logo'] = $img;
+                                        $ldata['text'] = $title;
+
+                                        $taotoken = get_taotoken($ldata);
+                                        $quan_str = "券被抢光，请在购买时留意领券！";
+                                        echo "【" . $title . "】". $yongjin . " 淘口令：" . $taotoken . $quan_str;
+                                    } else {
+                                        echo "【" . $title . "】" . $yongjin . "下单链接：" . $link . " 淘口令：" . $taotoken . $quan_str;
+                                    }
+                                } else echo "找不到这个链接，可能机器人掉线了，请联系人工客服c!";
+                            } else {
+                                if ($qq == '1')
+                                    $dx = "0";
+                                else $dx = "1";
+                                $link = "https://uland.taobao.com/coupon/edetail?activityId=" . $activityId . "&pid=" . $pid . "&itemId=" . $iid . "&src=qhkj_dtkp&dx=" . $dx;
+                                if ($appname == "yhg" || $g == "1") $yongjin = "";
+                                else {
+                                    if ($proxy['fcrate'] != "") $yongjin = round($rate * $fcrate * $proxy['fcrate'], 2);
+                                    else $yongjin = round($rate * $fcrate, 2);
                                 }
+                                $token_data = array();
+                                $token_data['logo'] = $img;
+                                $token_data['text'] = $title;
+                                $token_data['url'] = $link;
+                                $taotoken = get_taotoken($token_data);
+
+                                if ($taotoken == '') $taotoken = get_taotoken($token_data);
+                                if ($taotoken == '') $taotoken = get_taotoken($token_data);
+                                if ($taotoken == '') $taotoken = get_taotoken($token_data);
+
+                                echo "【" . $title . "】" . $yongjin . "下单链接：" . $link . $quan_str . "口令：" . $taotoken;
                             }
                         }
-
                     }
-					else echo "这个链接格式机器人认不到，请手工打开然后通过手机淘宝分享";
 
-			}
-			else {
-				echo "你没有登记代理编号，请@我，并输入代理帐号：" . $appname . "001  这种格式进行登记";
-			}
-		}
-	}
+                }
+                else echo "这个链接格式机器人认不到，请手工打开然后通过手机淘宝分享";
+
+            }
+            else {
+                echo "你没有登记代理编号，请@我，并输入代理帐号：" . $appname . "001  这种格式进行登记";
+            }
+        }
+    }
 
 	public function search_item_by_key(){
         if(IS_POST) {
@@ -994,6 +999,7 @@ class WxAiController extends HomebaseController {
             $proxywx = $_POST['proxywx'];
             $wxgroup = $_POST['group'];
 
+            $qq = '0';
             if($wxgroup != ''){
                 $proxy = M("TbkqqProxy")->where(array("wxgroup"=>$wxgroup))->find();
                 if($proxy) {$g ="1";}
@@ -1090,6 +1096,7 @@ class WxAiController extends HomebaseController {
                                         if($eventRate != ''){
                                             if($rate<$eventRate){
                                                 $rate = $eventRate;
+                                                $qq ='1';
                                             }
                                         }
 
@@ -1102,69 +1109,70 @@ class WxAiController extends HomebaseController {
                                     if($eventRate != ''){
                                         if($rate<$eventRate){
                                             $rate = $eventRate;
+                                            $qq = '1';
                                         }
                                     }
                                 }
 
 
 
-                                    $quan_api = "http://taotehui.co/?g=Tbkqq&m=Page&a=find_quan&iid=$iid";
-                                    $activityId = file_get_contents($quan_api);
+                                $quan_api = "http://taotehui.co/?g=Tbkqq&m=Page&a=find_quan&iid=$iid";
+                                $activityId = file_get_contents($quan_api);
 
-                                    if($activityId == ""){
+                                if($activityId == ""){
 
 
-                                        $qtk_url = "http://www.qingtaoke.com/api/UserPlan/UserCouponList?sid=$sellerId&gid=$iid";
+                                    $qtk_url = "http://www.qingtaoke.com/api/UserPlan/UserCouponList?sid=$sellerId&gid=$iid";
 
-                                        $qtk_cookie = '0f4242763305a0552f39b61843503c26=00f0a62ca24de37b108a0eb6e6912654c0e682cda%3A4%3A%7Bi%3A0%3Bs%3A4%3A%225147%22%3Bi%3A1%3Bs%3A12%3A%22pioul%40qq.com%22%3Bi%3A2%3Bi%3A31536000%3Bi%3A3%3Ba%3A0%3A%7B%7D%7D; __cfduid=d9298988d33cf5d025e50f0800d2423041458637207; pgv_pvi=2078657173; PHPSESSID=ihq951b8fbu2nadenrid8bol90; CNZZDATA1256913876=1220425662-1458636544-%7C1472479995; PHPSESSID=beqahligcpq4lpvr5vq7pgatb7; 525d2e01d0d4d2fb427b9926b3856822=9f8b7d357c8e2e558451a99314f15895e633cea9a%3A4%3A%7Bi%3A0%3Bs%3A4%3A%225147%22%3Bi%3A1%3Bs%3A12%3A%22pioul%40qq.com%22%3Bi%3A2%3Bi%3A31536000%3Bi%3A3%3Ba%3A0%3A%7B%7D%7D; qtk_sin=4527me5sgs6muvtbu97frl0f10; CNZZDATA1258823063=1707445734-1471852188-null%7C1484523769; qtkwww_=a855d0ebd8c88a93f8a96697521de895919b9ea7a%3A4%3A%7Bi%3A0%3Bs%3A4%3A%225147%22%3Bi%3A1%3Bs%3A12%3A%22pioul%40qq.com%22%3Bi%3A2%3Bi%3A31536000%3Bi%3A3%3Ba%3A0%3A%7B%7D%7D';
-                                        $ch = curl_init();
-                                        curl_setopt($ch, CURLOPT_URL, $qtk_url);
-                                        curl_setopt($ch, CURLOPT_COOKIE,$qtk_cookie);
-                                        curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+                                    $qtk_cookie = '0f4242763305a0552f39b61843503c26=00f0a62ca24de37b108a0eb6e6912654c0e682cda%3A4%3A%7Bi%3A0%3Bs%3A4%3A%225147%22%3Bi%3A1%3Bs%3A12%3A%22pioul%40qq.com%22%3Bi%3A2%3Bi%3A31536000%3Bi%3A3%3Ba%3A0%3A%7B%7D%7D; __cfduid=d9298988d33cf5d025e50f0800d2423041458637207; pgv_pvi=2078657173; PHPSESSID=ihq951b8fbu2nadenrid8bol90; CNZZDATA1256913876=1220425662-1458636544-%7C1472479995; PHPSESSID=beqahligcpq4lpvr5vq7pgatb7; 525d2e01d0d4d2fb427b9926b3856822=9f8b7d357c8e2e558451a99314f15895e633cea9a%3A4%3A%7Bi%3A0%3Bs%3A4%3A%225147%22%3Bi%3A1%3Bs%3A12%3A%22pioul%40qq.com%22%3Bi%3A2%3Bi%3A31536000%3Bi%3A3%3Ba%3A0%3A%7B%7D%7D; qtk_sin=4527me5sgs6muvtbu97frl0f10; CNZZDATA1258823063=1707445734-1471852188-null%7C1484523769; qtkwww_=a855d0ebd8c88a93f8a96697521de895919b9ea7a%3A4%3A%7Bi%3A0%3Bs%3A4%3A%225147%22%3Bi%3A1%3Bs%3A12%3A%22pioul%40qq.com%22%3Bi%3A2%3Bi%3A31536000%3Bi%3A3%3Ba%3A0%3A%7B%7D%7D';
+                                    $ch = curl_init();
+                                    curl_setopt($ch, CURLOPT_URL, $qtk_url);
+                                    curl_setopt($ch, CURLOPT_COOKIE,$qtk_cookie);
+                                    curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
 
-                                        $str = curl_exec($ch);
-                                        curl_close($ch);
-                                        $arr = json_decode($str,true);
-                                        if($arr['data']){
+                                    $str = curl_exec($ch);
+                                    curl_close($ch);
+                                    $arr = json_decode($str,true);
+                                    if($arr['data']){
 
-                                            $quan_str = "";
-                                            $quan_arr = array();
-                                            foreach($arr['data'] as $data){
+                                        $quan_str = "";
+                                        $quan_arr = array();
+                                        foreach($arr['data'] as $data){
 
-                                                if($data['remain']>0) {
-                                                    if($price>$data['applyAmount']){
-                                                        if($data['activity_id'] == "")$quan_arr[] = $data['activityId'];
-                                                        else $quan_arr[] = $data['activity_id'];
+                                            if($data['remain']>0) {
+                                                if($price>$data['applyAmount']){
+                                                    if($data['activity_id'] == "")$quan_arr[] = $data['activityId'];
+                                                    else $quan_arr[] = $data['activity_id'];
 
-                                                        $quan_link = "http://shop.m.taobao.com/shop/coupon.htm?activityId=" . $data['activityId'] . "&sellerId=" . $sellerId;
-                                                        $header = array();
-                                                        $header[] = "Accept-Language: zh-CN,zh;q=0.8";
-                                                        $header[] = "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.154 Safari/537.36 LBBROWSER";
-                                                        $ch = curl_init();
-                                                        curl_setopt($ch, CURLOPT_URL, $quan_link);
-                                                        //curl_setopt($ch, CURLOPT_REFERER, $tu);
-                                                        curl_setopt($ch, CURLOPT_HEADER, true);
-                                                        curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-                                                        //curl_setopt($ch, CURLOPT_NOBODY,1);
-                                                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                                                        curl_setopt($ch, CURLOPT_FOLLOWLOCATION,true);
-                                                        curl_setopt($ch, CURLOPT_MAXREDIRS,2);
-                                                        $out = curl_exec($ch);
-                                                        curl_close($ch);
-                                                        if(preg_match('/<dd>(.*)<\/dd>/',$out,$match))
-                                                            $quan_str .=  $match[1] ."：" .$quan_link . "\n";
-                                                    }
+                                                    $quan_link = "http://shop.m.taobao.com/shop/coupon.htm?activityId=" . $data['activityId'] . "&sellerId=" . $sellerId;
+                                                    $header = array();
+                                                    $header[] = "Accept-Language: zh-CN,zh;q=0.8";
+                                                    $header[] = "User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.154 Safari/537.36 LBBROWSER";
+                                                    $ch = curl_init();
+                                                    curl_setopt($ch, CURLOPT_URL, $quan_link);
+                                                    //curl_setopt($ch, CURLOPT_REFERER, $tu);
+                                                    curl_setopt($ch, CURLOPT_HEADER, true);
+                                                    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+                                                    //curl_setopt($ch, CURLOPT_NOBODY,1);
+                                                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                                                    curl_setopt($ch, CURLOPT_FOLLOWLOCATION,true);
+                                                    curl_setopt($ch, CURLOPT_MAXREDIRS,2);
+                                                    $out = curl_exec($ch);
+                                                    curl_close($ch);
+                                                    if(preg_match('/<dd>(.*)<\/dd>/',$out,$match))
+                                                        $quan_str .=  $match[1] ."：" .$quan_link . "\n";
                                                 }
                                             }
-
                                         }
-                                        else $quan_str = "";
 
                                     }
+                                    else $quan_str = "";
+
+                                }
 
 
                                 if($activityId == ""){
-                                    if($eventRate>$rate)
+                                    if($qq=='1')
                                         $u = "http://pub.alimama.com/common/code/getAuctionCode.json?auctionid=$iid&adzoneid=$adid&siteid=$mediaid&scenes=3&channel=tk_qqhd&t=$t";
                                     else
                                         $u = "http://pub.alimama.com/common/code/getAuctionCode.json?auctionid=$iid&adzoneid=$adid&siteid=$mediaid&scenes=1&t=$t";
@@ -1204,7 +1212,7 @@ class WxAiController extends HomebaseController {
                                     else echo "@" . $proxywx . ": 找不到t这个链接，可能机器人掉线了，请联系人工客服";
                                 }
                                 else {
-                                    if($eventRate>$rate)
+                                    if($qq == '1')
                                         $dx = "0";
                                     else $dx = "1";
                                     $link = "https://uland.taobao.com/coupon/edetail?activityId=" .$activityId ."&pid=" . $pid ."&itemId=" . $iid ."&src=qhkj_dtkp&dx=" . $dx;
@@ -1246,7 +1254,7 @@ class WxAiController extends HomebaseController {
             $iid = $_POST['iid'];
             $proxyid = $_POST['proxy'];
 
-
+            $qq = '0';
             $proxy = M("TbkqqProxy")->where(array("proxy"=>$proxyid))->find();
             if($proxy){
                 if($iid != ""){
@@ -1336,6 +1344,7 @@ class WxAiController extends HomebaseController {
                                         if($eventRate != ''){
                                             if($rate<$eventRate){
                                                 $rate = $eventRate;
+                                                $qq = '1';
                                             }
                                         }
 
@@ -1348,6 +1357,7 @@ class WxAiController extends HomebaseController {
                                     if($eventRate != ''){
                                         if($rate<$eventRate){
                                             $rate = $eventRate;
+                                            $qq = '1';
                                         }
                                     }
                                 }
@@ -1410,7 +1420,7 @@ class WxAiController extends HomebaseController {
 
 
                                 if($activityId == ""){
-                                    if($eventRate>=$rate)
+                                    if($qq == '1')
                                         $u = "http://pub.alimama.com/common/code/getAuctionCode.json?auctionid=$iid&adzoneid=$adid&siteid=$mediaid&scenes=3&channel=tk_qqhd&t=$t";
                                     else
                                         $u = "http://pub.alimama.com/common/code/getAuctionCode.json?auctionid=$iid&adzoneid=$adid&siteid=$mediaid&scenes=1&t=$t";
@@ -1438,7 +1448,7 @@ class WxAiController extends HomebaseController {
                                     else echo "找不到t这个链接，可能机器人掉线了，请联系人工客服";
                                 }
                                 else {
-                                    if($eventRate>=$rate)
+                                    if($qq == '1')
                                         $dx = "0";
                                     else $dx = "1";
                                     $link = "https://uland.taobao.com/coupon/edetail?activityId=" .$activityId ."&pid=" . $pid ."&itemId=" . $iid ."&src=qhkj_dtkp&dx=" . $dx;
