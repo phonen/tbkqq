@@ -576,6 +576,7 @@ if($str == "") exit();
         $enddate =date("Y-m-d");
         $where = "ctime>='" . $startdate . "'";
         $filename_arr = array();
+        $username_arr = array();
         $filename = "";
         $u="http://pub.alimama.com/report/getTbkPaymentDetails.json?queryType=1&payStatus=&DownloadID=DOWNLOAD_REPORT_INCOME_NEW&startTime=$startdate&endTime=$enddate";
 
@@ -600,6 +601,7 @@ if($str == "") exit();
                     if ($f) {
                         fwrite($f, $str);
                         $filename_arr[] = $filename;
+                        $username_arr[] = $data['username'];
                         fclose($f);
                         sleep(3);
                     }
@@ -608,8 +610,10 @@ if($str == "") exit();
             }
 
             M("TbkqqTaokeDetails")->where($where)->delete();
+            $p = 0;
             foreach($filename_arr as $filename){
-                $this->details_import($filename, "xls",'taoke');
+                $this->details_import($filename, "xls",'taoke',$username_arr[$p]);
+                $p++;
             }
 
         }
@@ -640,7 +644,7 @@ if($str == "") exit();
                     $cookie = $data['cookie'];
                     $str = openhttp_header($u, '', $cookie);
 
-                    if($str == "") continue;
+                    if($str == "") exit();
                     $curtime = time();
                     $filename = './Uploads/details_' . $curtime . ".xls";
                     $f = fopen($filename, 'w');
