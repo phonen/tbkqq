@@ -570,6 +570,54 @@ if($str == "") exit();
 
 	}
 
+    public function detail_autoload_post(){
+        set_time_limit(0);
+        $startdate = date("Y-m-d",time()-2*86400);
+        $enddate =date("Y-m-d");
+        $where = "ctime>='" . $startdate . "'";
+        $filename_arr = array();
+        $filename = "";
+        $u="http://pub.alimama.com/report/getTbkPaymentDetails.json?queryType=1&payStatus=&DownloadID=DOWNLOAD_REPORT_INCOME_NEW&startTime=$startdate&endTime=$enddate";
+
+        $options_model = M("Options");
+        $option=$options_model->where("option_name='cookie_options'")->find();
+        if($option){
+
+            $options = (array)json_decode($option['option_value'],true);
+
+            foreach($options as $data) {
+                $media = M("TbkqqTaokeMedia")->where(array("username" => $data['username']))->find();
+                if ($media) {
+
+                    $cookie = $data['cookie'];
+                    $str = openhttp_header($u, '', $cookie);
+
+                    if($str == "") exit();
+                    $curtime = time();
+                    $filename = './Uploads/details_' . $curtime . ".xls";
+                    $f = fopen($filename, 'w');
+                    echo $data['username'] . "\n";
+                    if ($f) {
+                        fwrite($f, $str);
+                        $filename_arr[] = $filename;
+                        fclose($f);
+                        sleep(3);
+                    }
+
+                }
+            }
+
+            M("TbkqqTaokeDetails")->where($where)->delete();
+            foreach($filename_arr as $filename){
+                $this->details_import($filename, "xls",'taoke');
+            }
+
+        }
+
+    }
+
+
+
     public function detail_autoload(){
         set_time_limit(0);
         $startdate = date("Y-m-d",time()-2*86400);
