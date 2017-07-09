@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5a052809-71a3-47ea-a90a-676d99c51add" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php" afterPath="$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Tbkqq/Common/function.php" afterPath="$PROJECT_DIR$/application/Tbkqq/Common/function.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,18 +18,28 @@
       <file leaf-file-name="WxAiController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1124">
-              <caret line="1450" column="49" lean-forward="false" selection-start-line="1450" selection-start-column="49" selection-end-line="1450" selection-end-column="49" />
+            <state relative-caret-position="376">
+              <caret line="549" column="69" lean-forward="true" selection-start-line="549" selection-start-column="69" selection-end-line="549" selection-end-column="69" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminCollectController.class.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="function.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/Tbkqq/Common/function.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="669">
+              <caret line="593" column="17" lean-forward="false" selection-start-line="593" selection-start-column="17" selection-end-line="593" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminCollectController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1122">
-              <caret line="628" column="41" lean-forward="true" selection-start-line="628" selection-start-column="41" selection-end-line="628" selection-end-column="41" />
+              <caret line="673" column="38" lean-forward="false" selection-start-line="673" selection-start-column="38" selection-end-line="673" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -41,6 +51,7 @@
     <findStrings>
       <find>search_items</find>
       <find>detail_au</find>
+      <find>ajjl</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -53,6 +64,7 @@
         <option value="$PROJECT_DIR$/application/Tbkqq/Controller/AdminProxyController.class.php" />
         <option value="$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php" />
         <option value="$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php" />
+        <option value="$PROJECT_DIR$/application/Tbkqq/Common/function.php" />
       </list>
     </option>
   </component>
@@ -148,6 +160,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tbkqq" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tbkqq" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tbkqq" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Common" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -283,7 +317,9 @@
       <workItem from="1499018741938" duration="699000" />
       <workItem from="1499044353525" duration="403000" />
       <workItem from="1499075145366" duration="310000" />
-      <workItem from="1499329624523" duration="1169000" />
+      <workItem from="1499329624523" duration="1211000" />
+      <workItem from="1499331200507" duration="19000" />
+      <workItem from="1499584527795" duration="503000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1498638530370</created>
@@ -306,11 +342,18 @@
       <option name="project" value="LOCAL" />
       <updated>1499329837522</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="1">
+      <created>1499330812467</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1499330812468</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7446000" />
+    <option name="totallyTimeSpent" value="8010000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2182" height="1416" extended-state="6" />
@@ -352,6 +395,38 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39150">
+          <caret line="1450" column="49" lean-forward="false" selection-start-line="1450" selection-start-column="49" selection-end-line="1450" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18171">
+          <caret line="673" column="38" lean-forward="true" selection-start-line="673" selection-start-column="38" selection-end-line="673" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="39150">
+          <caret line="1450" column="49" lean-forward="false" selection-start-line="1450" selection-start-column="49" selection-end-line="1450" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16956">
+          <caret line="628" column="41" lean-forward="true" selection-start-line="628" selection-start-column="41" selection-end-line="628" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
@@ -370,7 +445,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -427,22 +501,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1124">
-          <caret line="1450" column="49" lean-forward="false" selection-start-line="1450" selection-start-column="49" selection-end-line="1450" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1122">
-          <caret line="628" column="41" lean-forward="true" selection-start-line="628" selection-start-column="41" selection-end-line="628" selection-end-column="41" />
+          <caret line="673" column="38" lean-forward="false" selection-start-line="673" selection-start-column="38" selection-end-line="673" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="549" column="69" lean-forward="true" selection-start-line="549" selection-start-column="69" selection-end-line="549" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Common/function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="669">
+          <caret line="593" column="17" lean-forward="false" selection-start-line="593" selection-start-column="17" selection-end-line="593" selection-end-column="17" />
           <folding />
         </state>
       </provider>
