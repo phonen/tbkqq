@@ -4,6 +4,7 @@
     <list default="true" id="5a052809-71a3-47ea-a90a-676d99c51add" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Tbkqq/Common/function.php" afterPath="$PROJECT_DIR$/application/Tbkqq/Common/function.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Tbkqq/Controller/QingController.class.php" afterPath="$PROJECT_DIR$/application/Tbkqq/Controller/QingController.class.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,8 +19,8 @@
       <file leaf-file-name="WxAiController.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="549" column="69" lean-forward="true" selection-start-line="549" selection-start-column="69" selection-end-line="549" selection-end-column="69" />
+            <state relative-caret-position="322">
+              <caret line="520" column="60" lean-forward="false" selection-start-line="520" selection-start-column="40" selection-end-line="520" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -28,8 +29,18 @@
       <file leaf-file-name="function.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/Tbkqq/Common/function.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="669">
-              <caret line="593" column="17" lean-forward="false" selection-start-line="593" selection-start-column="17" selection-end-line="593" selection-end-column="17" />
+            <state relative-caret-position="480">
+              <caret line="586" column="24" lean-forward="true" selection-start-line="586" selection-start-column="24" selection-end-line="586" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="QingController.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/QingController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="26" column="55" lean-forward="false" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -64,6 +75,7 @@
         <option value="$PROJECT_DIR$/application/Tbkqq/Controller/AdminProxyController.class.php" />
         <option value="$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php" />
         <option value="$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php" />
+        <option value="$PROJECT_DIR$/application/Tbkqq/Controller/QingController.class.php" />
         <option value="$PROJECT_DIR$/application/Tbkqq/Common/function.php" />
       </list>
     </option>
@@ -319,7 +331,7 @@
       <workItem from="1499075145366" duration="310000" />
       <workItem from="1499329624523" duration="1211000" />
       <workItem from="1499331200507" duration="19000" />
-      <workItem from="1499584527795" duration="503000" />
+      <workItem from="1499584527795" duration="1127000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1498638530370</created>
@@ -349,11 +361,18 @@
       <option name="project" value="LOCAL" />
       <updated>1499330812468</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="1">
+      <created>1499585043866</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1499585043866</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8010000" />
+    <option name="totallyTimeSpent" value="8634000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2182" height="1416" extended-state="6" />
@@ -514,16 +533,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="549" column="69" lean-forward="true" selection-start-line="549" selection-start-column="69" selection-end-line="549" selection-end-column="69" />
+        <state relative-caret-position="322">
+          <caret line="520" column="60" lean-forward="false" selection-start-line="520" selection-start-column="40" selection-end-line="520" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/QingController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="26" column="55" lean-forward="false" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/Tbkqq/Common/function.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="669">
-          <caret line="593" column="17" lean-forward="false" selection-start-line="593" selection-start-column="17" selection-end-line="593" selection-end-column="17" />
+        <state relative-caret-position="480">
+          <caret line="586" column="24" lean-forward="true" selection-start-line="586" selection-start-column="24" selection-end-line="586" selection-end-column="24" />
           <folding />
         </state>
       </provider>
