@@ -588,10 +588,16 @@ function get_siteurl_by_login($proxy){
     foreach ($sites as $key => $site){
         if(substr($proxy,0,strlen($key)) == $key){
             $proxyid = substr($proxy,strlen($key));
-            if($proxyid === '001') $proxyid = 'www';
-            if($key == 'buyi')
+
+            if($key == 'buyi'){
+                if($proxyid === '001') $proxy = 'buyi001';
                 return array("url"=>$proxy . "." .$site ,"base_url"=>$site);
-            else return array("url"=>$proxyid . "." .$site,"base_url"=>$site);
+            }
+
+            else {
+                if($proxyid === '001') $proxyid = 'www';
+                return array("url"=>$proxyid . "." .$site,"base_url"=>$site);
+            }
         }
     }
 }
