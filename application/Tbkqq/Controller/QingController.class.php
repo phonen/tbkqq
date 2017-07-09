@@ -24,7 +24,7 @@ class QingController extends HomebaseController {
         }
         else{
             $appname = C("SITE_APPNAME");
-            $proxy = M("TbkqqProxy",'cmf_','DB_BUYI')->where(array("proxy"=>$appname . $proxyid))->find();
+            $proxy = M("TbkqqProxy")->where(array("proxy"=>$appname . $proxyid))->find();
             if($proxy){
                 import("Org.Util.HttpHelper");
                 import("Org.Util.CacheHelper");
