@@ -26,7 +26,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="function.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="function.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/Tbkqq/Common/function.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="480">
@@ -36,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="QingController.class.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="QingController.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/QingController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
-              <caret line="26" column="55" lean-forward="false" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
+            <state relative-caret-position="459">
+              <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -75,8 +75,8 @@
         <option value="$PROJECT_DIR$/application/Tbkqq/Controller/AdminProxyController.class.php" />
         <option value="$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php" />
         <option value="$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php" />
-        <option value="$PROJECT_DIR$/application/Tbkqq/Controller/QingController.class.php" />
         <option value="$PROJECT_DIR$/application/Tbkqq/Common/function.php" />
+        <option value="$PROJECT_DIR$/application/Tbkqq/Controller/QingController.class.php" />
       </list>
     </option>
   </component>
@@ -331,7 +331,7 @@
       <workItem from="1499075145366" duration="310000" />
       <workItem from="1499329624523" duration="1211000" />
       <workItem from="1499331200507" duration="19000" />
-      <workItem from="1499584527795" duration="1127000" />
+      <workItem from="1499584527795" duration="1260000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1498638530370</created>
@@ -368,11 +368,18 @@
       <option name="project" value="LOCAL" />
       <updated>1499585043866</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="1">
+      <created>1499585668536</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1499585668536</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8634000" />
+    <option name="totallyTimeSpent" value="8767000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2182" height="1416" extended-state="6" />
@@ -539,18 +546,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/QingController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="26" column="55" lean-forward="false" selection-start-line="26" selection-start-column="55" selection-end-line="26" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/Tbkqq/Common/function.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
           <caret line="586" column="24" lean-forward="true" selection-start-line="586" selection-start-column="24" selection-end-line="586" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/QingController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
           <folding />
         </state>
       </provider>
