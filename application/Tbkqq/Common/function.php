@@ -590,7 +590,7 @@ function get_siteurl_by_login($proxy){
             $proxyid = substr($proxy,strlen($key));
             if($proxyid === '001') $proxyid = 'www';
             if($key == 'buyi')
-                return array("url"=>$proxyid . "." .$site,"base_url"=>'taotehui.co');
+                return array("url"=>$proxy . "." .$site ,"base_url"=>$site);
             else return array("url"=>$proxyid . "." .$site,"base_url"=>$site);
         }
     }
