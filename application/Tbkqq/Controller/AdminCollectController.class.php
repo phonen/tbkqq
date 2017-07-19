@@ -622,7 +622,7 @@ if($str == "") exit();
 
 
 
-    public function detail_autoload(){
+    public function detail_autoload1(){
         set_time_limit(0);
         $startdate = date("Y-m-d",time()-2*86400);
         $enddate =date("Y-m-d");
