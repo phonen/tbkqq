@@ -886,9 +886,9 @@ class WxAiController extends HomebaseController {
                 if($iid == ''){
                     preg_match('/https?:\/\/[\w=.?&\/;%]+/',$msg,$match);
                     $s = $match[0];
-                    $ret_str = $s;
+
                     if (!empty($s)) {
-                        $ret_str .= "yessss";
+
                         $host = parse_url($s, PHP_URL_HOST);
                         if ($host != 'a.m.taobao.com' && $host != 'uland.taobao.com' && $host != 'item.taobao.com' && $host != 'detail.tmall.com' && $host != 'detail.m.tmall.com' && $host != 'item.m.taobao.com' && $host != 'h5.m.taobao.com' && $host != 's.click.taobao.com') {
                             $str = file_get_contents($s);
@@ -1136,7 +1136,7 @@ class WxAiController extends HomebaseController {
                     }
 
                 }
-                else echo "这个链接格式机器人认不到，请手工打开然后通过手机淘宝分享" . $ret_str;
+                else echo "这个链接格式机器人认不到，请手工打开然后通过手机淘宝分享";
 
             }
             else {
