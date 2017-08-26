@@ -1483,4 +1483,17 @@ class WxAiController extends HomebaseController {
 
     }
 
+    public function save_openid(){
+        if(IS_POST){
+            $msg = $_POST['msg'];
+            $openid = $_POST['openid'];
+
+            $data['openid'] = $openid;
+            if(M("TbkqqProxy")->where(array("proxy"=>$msg))->save($data)>=0){
+                echo "@" . $msg . ": 设置成功！";
+            }
+            else echo "@" . $msg . ": 设置错误，请联系老板！";
+        }
+    }
+
 }

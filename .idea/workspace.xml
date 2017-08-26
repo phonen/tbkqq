@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5a052809-71a3-47ea-a90a-676d99c51add" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php" afterPath="$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php" afterPath="$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,12 +14,32 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="AdminCollectController.class.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
+      <file leaf-file-name="item_dsh.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/admin/themes/simplebootx/Tbkqq/AdminTaoke/item_dsh.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-444">
-              <caret line="624" column="36" lean-forward="false" selection-start-line="624" selection-start-column="36" selection-end-line="624" selection-end-column="36" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WxAiController.class.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="20839">
+              <caret line="1490" column="38" lean-forward="true" selection-start-line="1490" selection-start-column="38" selection-end-line="1490" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AiController.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/AiController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="673">
+              <caret line="362" column="5" lean-forward="true" selection-start-line="351" selection-start-column="4" selection-end-line="362" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -32,6 +52,8 @@
       <find>search_items</find>
       <find>detail_au</find>
       <find>ajjl</find>
+      <find>order_j</find>
+      <find>sa</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -42,10 +64,10 @@
       <list>
         <option value="$PROJECT_DIR$/application/Tbkqq/Controller/AdminReportController.class.php" />
         <option value="$PROJECT_DIR$/application/Tbkqq/Controller/AdminProxyController.class.php" />
-        <option value="$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php" />
         <option value="$PROJECT_DIR$/application/Tbkqq/Controller/QingController.class.php" />
         <option value="$PROJECT_DIR$/application/Tbkqq/Common/function.php" />
         <option value="$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php" />
+        <option value="$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php" />
       </list>
     </option>
   </component>
@@ -77,6 +99,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -253,14 +277,42 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="AdminTaoke" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tbkqq" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tbkqq" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="themes" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="simplebootx" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tbkqq" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="AdminProxy" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -303,7 +355,12 @@
       <workItem from="1499584527795" duration="3116000" />
       <workItem from="1499937218097" duration="1070000" />
       <workItem from="1499994878028" duration="39000" />
-      <workItem from="1500457638260" duration="381000" />
+      <workItem from="1500457638260" duration="409000" />
+      <workItem from="1500458673565" duration="12000" />
+      <workItem from="1503198964360" duration="366000" />
+      <workItem from="1503327292687" duration="10000" />
+      <workItem from="1503374998528" duration="957000" />
+      <workItem from="1503712018609" duration="1174000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1498638530370</created>
@@ -382,11 +439,18 @@
       <option name="project" value="LOCAL" />
       <updated>1499587047529</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="1">
+      <created>1500458028125</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1500458028125</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12113000" />
+    <option name="totallyTimeSpent" value="14660000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2182" height="1416" extended-state="6" />
@@ -426,7 +490,15 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php">
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16659">
+          <caret line="624" column="36" lean-forward="false" selection-start-line="624" selection-start-column="36" selection-end-line="624" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/themes/simplebootx/Tbkqq/AdminTaoke/item_dsh.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -434,11 +506,89 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/AdminTaokeController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18846">
+          <caret line="698" column="200" lean-forward="false" selection-start-line="698" selection-start-column="48" selection-end-line="698" selection-end-column="200" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16659">
+          <caret line="624" column="36" lean-forward="false" selection-start-line="624" selection-start-column="36" selection-end-line="624" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/themes/simplebootx/Tbkqq/AdminTaoke/item_dsh.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/AdminTaokeController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17874">
+          <caret line="668" column="46" lean-forward="false" selection-start-line="668" selection-start-column="46" selection-end-line="668" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16848">
+          <caret line="624" column="36" lean-forward="false" selection-start-line="624" selection-start-column="36" selection-end-line="624" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/themes/simplebootx/Tbkqq/AdminTaoke/item_dsh.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/AdminTaokeController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18036">
+          <caret line="668" column="46" lean-forward="true" selection-start-line="668" selection-start-column="46" selection-end-line="668" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/Tbkqq/Common/function.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16362">
           <caret line="606" column="44" lean-forward="true" selection-start-line="606" selection-start-column="44" selection-end-line="606" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -446,7 +596,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="729">
           <caret line="27" column="75" lean-forward="false" selection-start-line="27" selection-start-column="75" selection-end-line="27" selection-end-column="75" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -454,7 +603,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="39150">
           <caret line="1450" column="49" lean-forward="false" selection-start-line="1450" selection-start-column="49" selection-end-line="1450" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -470,7 +618,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="39150">
           <caret line="1450" column="49" lean-forward="false" selection-start-line="1450" selection-start-column="49" selection-end-line="1450" selection-end-column="49" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -486,7 +633,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -494,7 +640,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -554,19 +699,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="596" column="77" lean-forward="false" selection-start-line="596" selection-start-column="77" selection-end-line="596" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/Tbkqq/Common/function.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
           <caret line="606" column="44" lean-forward="false" selection-start-line="606" selection-start-column="44" selection-end-line="606" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -574,7 +710,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
           <caret line="27" column="75" lean-forward="false" selection-start-line="27" selection-start-column="75" selection-end-line="27" selection-end-column="75" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -582,19 +717,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="501">
           <caret line="124" column="39" lean-forward="false" selection-start-line="124" selection-start-column="39" selection-end-line="124" selection-end-column="39" />
-          <folding>
-            <marker date="1498638378732" expanded="true" signature="4105:4372" ph="select b.pro... cmf_tbkqq_taoke_details" />
-            <marker date="1498638378732" expanded="true" signature="4461:4681" ph="select b.pro... cmf_tbkqq_taoke_details" />
-            <marker date="1498638378732" expanded="true" signature="7341:7592" ph="select b.pro... cmf_tbkqq_taoke_details" />
-            <marker date="1498638378732" expanded="true" signature="7725:7945" ph="select b.pro... cmf_tbkqq_taoke_details" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/AdminTaokeController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="698" column="200" lean-forward="false" selection-start-line="698" selection-start-column="48" selection-end-line="698" selection-end-column="200" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-444">
+        <state relative-caret-position="1122">
           <caret line="624" column="36" lean-forward="false" selection-start-line="624" selection-start-column="36" selection-end-line="624" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/themes/simplebootx/Tbkqq/AdminTaoke/item_dsh.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/AiController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="673">
+          <caret line="362" column="5" lean-forward="true" selection-start-line="351" selection-start-column="4" selection-end-line="362" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20839">
+          <caret line="1490" column="38" lean-forward="true" selection-start-line="1490" selection-start-column="38" selection-end-line="1490" selection-end-column="38" />
           <folding />
         </state>
       </provider>
