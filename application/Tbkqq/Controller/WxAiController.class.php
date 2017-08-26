@@ -884,7 +884,7 @@ class WxAiController extends HomebaseController {
             if($proxy){
                 $fcrate = get_yongjin_by_proxy($proxy['proxy']);
                 if($iid == ''){
-                    preg_match('/https?:\/\/[\w=.?&\/;]+/',$msg,$match);
+                    preg_match('/https?:\/\/[\w=.?&\/;%]+/',$msg,$match);
                     $s = $match[0];
                     $ret_str = $s;
                     if (!empty($s)) {
