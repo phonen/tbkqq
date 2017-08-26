@@ -862,6 +862,7 @@ class WxAiController extends HomebaseController {
         }
     }
 
+
     public function taoke_info_openid(){
         if(IS_POST){
             $appname = C("SITE_APPNAME");
@@ -1133,7 +1134,7 @@ class WxAiController extends HomebaseController {
                     }
 
                 }
-                else echo "这个链接格式机器人认不到，请手工打开然后通过手机淘宝分享";
+                else echo "这个链接格式机器人认不到，请手工打开然后通过手机淘宝分享" . $msg;
 
             }
             else {
