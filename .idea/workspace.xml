@@ -28,8 +28,8 @@
       <file leaf-file-name="WxAiController.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="875" column="0" lean-forward="true" selection-start-line="875" selection-start-column="0" selection-end-line="875" selection-end-column="0" />
+            <state relative-caret-position="292">
+              <caret line="890" column="43" lean-forward="false" selection-start-line="890" selection-start-column="43" selection-end-line="890" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -360,7 +360,7 @@
       <workItem from="1503198964360" duration="366000" />
       <workItem from="1503327292687" duration="10000" />
       <workItem from="1503374998528" duration="957000" />
-      <workItem from="1503712018609" duration="2127000" />
+      <workItem from="1503712018609" duration="3767000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1498638530370</created>
@@ -453,11 +453,25 @@
       <option name="project" value="LOCAL" />
       <updated>1503713518693</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="1">
+      <created>1503715394391</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1503715394391</updated>
+    </task>
+    <task id="LOCAL-00015" summary="1">
+      <created>1503716705768</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1503716705768</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15613000" />
+    <option name="totallyTimeSpent" value="17253000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2182" height="1416" extended-state="6" />
@@ -761,8 +775,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="875" column="0" lean-forward="true" selection-start-line="875" selection-start-column="0" selection-end-line="875" selection-end-column="0" />
+        <state relative-caret-position="292">
+          <caret line="890" column="43" lean-forward="false" selection-start-line="890" selection-start-column="43" selection-end-line="890" selection-end-column="43" />
           <folding />
         </state>
       </provider>
