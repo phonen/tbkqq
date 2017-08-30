@@ -15,7 +15,7 @@ class MpController extends HomebaseController{
         if($proxy){
             header("Location: http://cms.taotehui.co/index.php?r=index/wap&pid=" . $proxy['pid']);
         }
-		
+        else echo "openid:" . $openid;
 	}
 	
 
