@@ -127,7 +127,8 @@ class AdminReportController extends AdminbaseController {
 				if($proxys2){
 
 					foreach($proxys2 as $proxy2){
-						if($proxy2['fcrate']) $liuman2 = $fcrate *$proxy2['fcrate'];
+                        if($proxy2['fcrate']) $liuman2 = $fcrate *$proxy2['fcrate'];
+                        else $liuman2 = $fcrate;
 						$i2 += $all[$proxy2['proxy']]*$liuman2*0.2;
 						$proxys3 = M("TbkqqProxy")->where(array("parent"=>$proxy2['id']))->group("proxy")->select();
 						if($proxys3){
@@ -173,6 +174,7 @@ class AdminReportController extends AdminbaseController {
         foreach($proxys as $proxy){
             $fcrate = get_yongjin_by_proxy($proxy['proxy']);
             if($proxy['fcrate'])$liuman = $fcrate * $proxy['fcrate'];
+            else $liuman = $fcrate;
             $medias = M("TbkqqTaokeMedia")->where(array("proxy"=>$proxy['proxy']))->select();
             $where_ors = array();
             foreach($medias as $media){
@@ -206,17 +208,20 @@ class AdminReportController extends AdminbaseController {
                 $i3 = 0;
                 $fcrate = get_yongjin_by_proxy($proxy['proxy']);
                 if($proxy['fcrate'])$liuman = $fcrate * $proxy['fcrate'];
+                else $liuman = $fcrate;
                 $proxys2 = M("TbkqqProxy")->where(array("parent"=>$proxy['id']))->group("proxy")->select();
                 if($proxys2){
 
                     foreach($proxys2 as $proxy2){
                         if($proxy2['fcrate']) $liuman2 = $fcrate *$proxy2['fcrate'];
+                        else $liuman2 = $fcrate;
                         $i2 += $all[$proxy2['proxy']]*$liuman2*0.2;
                         $proxys3 = M("TbkqqProxy")->where(array("parent"=>$proxy2['id']))->group("proxy")->select();
                         if($proxys3){
 
                             foreach($proxys3 as $proxy3){
                                 if($proxy3['fcrate']) $liuman3 = $fcrate *$proxy3['fcrate'];
+                                else $liuman3 = $fcrate;
                                 $i3 += $all[$proxy3['proxy']]*$liuman3*0.03;
                                 //$json[] = array("一级代理"=>$proxy['proxy'],"一级收入"=>"推广收入：" . round($all[$proxy['proxy']] * $liuman,2) ." 返利收入:" . round($fall[$proxy['proxy']] * $fcrate*0.5,2) ,"二级代理"=>$proxy2['proxy'],"二级收入"=>round($all[$proxy2['proxy']]*$liuman2*0.2,2),"三级代理"=>$proxy3['proxy'],"三级收入"=>round($all[$proxy3['proxy']]*$liuman3*0.03,2));
                             }
