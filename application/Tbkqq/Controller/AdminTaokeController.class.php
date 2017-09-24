@@ -102,7 +102,7 @@ class AdminTaokeController extends AdminbaseController {
 
 
     public function item_dsh(){
-        $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+        $item_model = M('TbkqqTaokeItem');
         $act = $_POST['act'];
         if($act == "export_itemlink"){
             $str = "=======================================================================================\r\n";
@@ -137,7 +137,7 @@ class AdminTaokeController extends AdminbaseController {
     }
 
     public function item(){
-        $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+        $item_model = M('TbkqqTaokeItem');
         $act = $_POST['act'];
         $where="status='1'";
         if($act == "export"){
@@ -281,7 +281,7 @@ class AdminTaokeController extends AdminbaseController {
 
     public function item_restore(){
         if(isset($_POST['ids'])){
-            $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+            $item_model = M('TbkqqTaokeItem');
             $ids=join(",",$_POST['ids']);
             $data['status'] = '0';
             $items =$item_model->where("id in ($ids)")->save($data);
@@ -304,7 +304,7 @@ class AdminTaokeController extends AdminbaseController {
 
     public function item_add_post(){
         if (IS_POST) {
-            $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+            $item_model = M('TbkqqTaokeItem');
 
             $item=I("post.item");
             $url = str_replace("amp;","",$item['itemurl']);
@@ -455,7 +455,7 @@ class AdminTaokeController extends AdminbaseController {
     public function item_campaign_post(){
         set_time_limit(0);
         if (IS_POST) {
-            $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+            $item_model = M('TbkqqTaokeItem');
             if(isset($_POST['ids'])) {
                 $ids = join(",", $_POST['ids']);
             }
@@ -481,7 +481,7 @@ class AdminTaokeController extends AdminbaseController {
 
     public function item_addqq_post(){
         if (IS_POST) {
-            $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+            $item_model = M('TbkqqTaokeItem');
 
             $item=I("post.item");
 
@@ -641,7 +641,7 @@ class AdminTaokeController extends AdminbaseController {
 
     public function item_edit(){
         $id=  intval(I("get.id"));
-        $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+        $item_model = M('TbkqqTaokeItem');
         $item = $item_model->where("id=$id")->find();
         $this->assign("item",$item);
         $this->display();
@@ -649,7 +649,7 @@ class AdminTaokeController extends AdminbaseController {
 
     public function item_edit_post(){
         if (IS_POST) {
-            $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+            $item_model = M('TbkqqTaokeItem');
             $item=I("post.item");
             $result=$item_model->save($item);
             if ($result!==false) {
@@ -663,7 +663,7 @@ class AdminTaokeController extends AdminbaseController {
     public function item_dsh_post(){
         set_time_limit(0);
         if(IS_POST){
-            $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+            $item_model = M('TbkqqTaokeItem');
             $ids = $_POST['ids'];
             //$username=I("post.usernames");
             $username = C("PRODUCT_USERNAME");
@@ -765,7 +765,7 @@ class AdminTaokeController extends AdminbaseController {
 
     public function item_post(){
         if(IS_POST){
-            $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+            $item_model = M('TbkqqTaokeItem');
             $ids = $_POST['nos'];
             foreach ($ids as $id => $r) {
                 $data['no'] = $r;
@@ -777,7 +777,7 @@ class AdminTaokeController extends AdminbaseController {
 
     public function item_all_post(){
         if(IS_POST){
-            $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+            $item_model = M('TbkqqTaokeItem');
             $ids = $_POST['ids'];
             $i = 1;
             foreach ($ids as $id) {
@@ -791,7 +791,7 @@ class AdminTaokeController extends AdminbaseController {
 
     public function item_delete(){
         set_time_limit(0);
-        $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+        $item_model = M('TbkqqTaokeItem');
         $data['status']='-1';
         if(isset($_GET['id'])){
             $id = intval(I("get.id"));
@@ -1041,7 +1041,7 @@ class AdminTaokeController extends AdminbaseController {
 
     public function item_favload_post(){
         if (IS_POST) {
-            $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+            $item_model = M('TbkqqTaokeItem');
             if(isset($_POST['ids'])) {
                 $ids = join(",", $_POST['ids']);
             }
@@ -1073,7 +1073,7 @@ class AdminTaokeController extends AdminbaseController {
 
     public function item_fav_load_post(){
         if (IS_POST) {
-            $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+            $item_model = M('TbkqqTaokeItem');
             if(isset($_POST['ids'])) {
                 $ids = join(",", $_POST['ids']);
             }

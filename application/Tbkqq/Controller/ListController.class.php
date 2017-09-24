@@ -350,7 +350,7 @@ class ListController extends HomebaseController {
 //if(C('SITE_APPNAME') == 'yhg')$item['urls'] = "领券下单：" .  convert_dwz($itemurl['qurl']) . "<br>";
 				//else
 				//$item['urls'] = "下单链接：" .  $baseurl. "/?id=" .$itemurl['id'] . "<br>";
-                
+
 				$kouling = $itemurl['quankl']==''?$itemurl['taokl']:$itemurl['quankl'];
 
 				//if(C('SITE_APPNAME') == 'yhg')$item['memo'] = $item['memo'] . $mm1 . $kouling . $mm2  . $mm4;
