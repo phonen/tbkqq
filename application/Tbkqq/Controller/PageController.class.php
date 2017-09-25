@@ -63,7 +63,7 @@ class PageController extends HomebaseController{
 */
 
 	public function item_img(){
-        $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+        $item_model = M('TbkqqTaokeItem');
 		$no = $_GET['no'];
 		$item = $item_model->where(array("no"=>$no,"status"=>"1"))->find();
 		if($item['imgmemo'] == '')		$imgurl = $item['img']  . "_290x290.jpg";
@@ -75,7 +75,7 @@ class PageController extends HomebaseController{
 		header("location:".$imgurl);
 	}
 	public function item_aliimg(){
-        $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+        $item_model = M('TbkqqTaokeItem');
 		$no = $_GET['no'];
 		$item = $item_model->where(array("no"=>$no,"status"=>"1"))->find();
 		if($item['imgmemo'] == '')		$imgurl = $item['img']  . "_290x290.jpg";
@@ -88,7 +88,7 @@ class PageController extends HomebaseController{
 	}
 
 	public function item_memo(){
-        $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+        $item_model = M('TbkqqTaokeItem');
 		$baseurl = "http://dwz." . C("BASE_DOMAIN") ."/?id=";
 		$no = $_GET['no'];
 		$group = $_GET['group'];
@@ -126,7 +126,7 @@ class PageController extends HomebaseController{
 	}
 
 	public function item_url(){
-        $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+        $item_model = M('TbkqqTaokeItem');
 		$no = $_GET['no'];
 		$qq = $_GET['qq'];
 		$baseurl = "http://dwz." . C("BASE_DOMAIN") . "/?id=";
@@ -155,7 +155,7 @@ class PageController extends HomebaseController{
 	}
 
 	public function item_wx_url(){
-        $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+        $item_model = M('TbkqqTaokeItem');
 		$no = $_GET['no'];
 		$wx = $_GET['wx'];
 		$group = $_GET['group'];
@@ -224,7 +224,7 @@ class PageController extends HomebaseController{
 	}
 
 	public function item_group_json() {
-        $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+        $item_model = M('TbkqqTaokeItem');
 		$no = $_GET['no'];
 		$qq = $_GET['qq'];
 		$item = $item_model->where(array("no"=>$no,"status"=>"1"))->find();
@@ -266,7 +266,7 @@ class PageController extends HomebaseController{
 
 
 	public function item_wx_memo(){
-        $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+        $item_model = M('TbkqqTaokeItem');
 		$baseurl = "http://dwz." . C("BASE_DOMAIN") ."/?id=";
 		$no = $_GET['no'];
 		$group = $_GET['group'];
@@ -293,7 +293,7 @@ class PageController extends HomebaseController{
 	}
 
 	public function item_wxnew_memo(){
-        $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+        $item_model = M('TbkqqTaokeItem');
 		$baseurl = "http://dwz." . C("BASE_DOMAIN") ."/?id=";
 		$no = $_GET['no'];
 		$group = $_GET['group'];
@@ -536,7 +536,7 @@ class PageController extends HomebaseController{
 	}
 
 	public function range_json(){
-        $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+        $item_model = M('TbkqqTaokeItem');
 		if($_GET['start'] == '' || $_GET['end'] == '' || $_GET['send'] == '') exit();
 		else {
 
@@ -713,7 +713,7 @@ class PageController extends HomebaseController{
 	}
 
 	public function bufa_json(){
-        $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+        $item_model = M('TbkqqTaokeItem');
 		$nos = $_GET['nos'];
 		$groups = $_GET['groups'];
 		$from = $_GET['from'];
@@ -839,7 +839,7 @@ class PageController extends HomebaseController{
 	}
 
 	public function single_json(){
-        $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+        $item_model = M('TbkqqTaokeItem');
 		$no = $_GET['no'];
 		$group = $_GET['group'];
 		$from = $_GET['from'];
@@ -994,7 +994,7 @@ class PageController extends HomebaseController{
 
 	public function schedule_json(){
 		if(IS_POST){
-            $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+            $item_model = M('TbkqqTaokeItem');
 			$no = $_POST['no'];
 			$send = $_POST['send'];
 			$group = $_POST['group'];
@@ -1005,7 +1005,7 @@ class PageController extends HomebaseController{
 
 		}
 		else {
-            $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+            $item_model = M('TbkqqTaokeItem');
 			$send = $_GET['send'];
 			$start = $_GET['start'];
 			$end = $_GET['end'];
@@ -1220,8 +1220,8 @@ $i++;
 			if($iid != ''){
 
 				if($_POST['item'] == 'item')
-				$taoke_model = M('TbkItem','cmf_','DB_DATAOKE');
-				elseif($_POST['item'] == 'item2')$taoke_model = M('TbkItem2','cmf_','DB_DATAOKE');
+				$taoke_model = M('TbkItem');
+				elseif($_POST['item'] == 'item2')$taoke_model = M('TbkItem2');
 				$taoke = $taoke_model->where(array("iid"=>$iid))->find();
 				$curtime = date("Y-m-d H:i:s");
 				$data = array();
@@ -1411,8 +1411,8 @@ $i++;
 			if($iid != ''){
 
 				if($_POST['item'] == 'item')
-					$taoke_model = M('TbkItem','cmf_','DB_DATAOKE');
-				elseif($_POST['item'] == 'item2')$taoke_model = M('TbkItem2','cmf_','DB_DATAOKE');
+					$taoke_model = M('TbkItem');
+				elseif($_POST['item'] == 'item2')$taoke_model = M('TbkItem2');
 				$taoke = $taoke_model->where(array("iid"=>$iid))->find();
 				$curtime = date("Y-m-d H:i:s");
 				$data = array();
@@ -1523,10 +1523,10 @@ $i++;
 
 				}
 				print_r($data);
-				if(M("CaijiqqItems",'cmf_','DB_DATAOKE')->where(array("num_iid"=>$iid))->find())
-					M("CaijiqqItems",'cmf_','DB_DATAOKE')->save($data);
+				if(M("CaijiqqItems")->where(array("num_iid"=>$iid))->find())
+					M("CaijiqqItems")->save($data);
 				else
-					M("CaijiqqItems",'cmf_','DB_DATAOKE')->add($data);
+					M("CaijiqqItems")->add($data);
 			}
 
 		}
@@ -1534,7 +1534,7 @@ $i++;
 
 	public function find_quan(){
 		$iid = $_GET['iid'];
-		$taoke_model = M('TbkItem','cmf_','DB_DATAOKE');
+		$taoke_model = M('TbkItem');
 		$taoke = $taoke_model->where(array("iid"=>$iid))->find();
 		if($taoke){
 			$data = get_url_data($taoke['quan_link']);
@@ -1544,7 +1544,7 @@ $i++;
 			exit();
 		}
 		else{
-			$taoke_model = M('TbkItem2','cmf_','DB_DATAOKE');
+			$taoke_model = M('TbkItem2');
 			$taoke = $taoke_model->where(array("iid"=>$iid))->find();
 			if($taoke){
 				$data = get_url_data($taoke['quan_link']);
@@ -1554,7 +1554,7 @@ $i++;
 				exit();
 			}
 			else {
-				$taoke_model = M('TbkqqDataokeItem','cmf_','DB_DATAOKE');
+				$taoke_model = M('TbkqqDataokeItem');
 				$taoke = $taoke_model->where(array("iid"=>$iid))->find();
 				if($taoke){
 					$data = get_url_data($taoke['quan_link']);

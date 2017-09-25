@@ -308,7 +308,7 @@ class ListController extends HomebaseController {
 
 	public function oneclick() {
 		if(sp_is_user_login()){
-            $item_model = M('TbkqqTaokeItem','cmf_','DB_DATAOKE');
+            $item_model = M('TbkqqTaokeItem');
 			$t = $_GET['t'];//手机1，其他pc
 			//$proxyid = substr($_SESSION['user']['user_login'], -3,3);
 			$proxyid = substr($_SESSION['user']['user_login'],strlen(C('SITE_APPNAME')));
@@ -383,7 +383,7 @@ class ListController extends HomebaseController {
 			$t = $_GET['t'];//手机1，其他pc
 			//$proxyid = substr($_SESSION['user']['user_login'], -3,3);
 			$proxyid = substr($_SESSION['user']['user_login'],strlen(C('SITE_APPNAME')));
-			$taoke_model = M('CaijiqqItems','cmf_','DB_DATAOKE');
+			$taoke_model = M('CaijiqqItems');
 			$count =$taoke_model->count();
 
 			import('Page');
@@ -447,7 +447,7 @@ class ListController extends HomebaseController {
 			$t = $_GET['t'];//手机1，其他pc
 			//$proxyid = substr($_SESSION['user']['user_login'], -3,3);
 			$proxyid = substr($_SESSION['user']['user_login'],strlen(C('SITE_APPNAME')));
-			$taoke_model = M('TbkItem','cmf_','DB_DATAOKE');
+			$taoke_model = M('TbkItem');
 			$count =$taoke_model->count();
 
 			import('Page');
@@ -509,7 +509,7 @@ class ListController extends HomebaseController {
             $proxy_name = $_SESSION['user']['user_login'];
             $site = get_siteurl_by_login($proxy_name);
 
-			$taoke_model = M('TbkItem','cmf_','DB_DATAOKE');
+			$taoke_model = M('TbkItem');
 			$count =$taoke_model->count();
 
 			import('Page');
