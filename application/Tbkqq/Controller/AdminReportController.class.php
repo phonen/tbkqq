@@ -92,7 +92,7 @@ class AdminReportController extends AdminbaseController {
                     array_push($where_ands, "$field $operator '$get'");
                 }
             }
-            $sql = "select b.proxy,sum(a.effect) pre_effect,count(a.orderid) c_order from cmf_tbkqq_taoke_details a,cmf_tbkqq_taoke_media b where a.ctime>= '" . $_POST['startdate'] . "' and a.ctime< '" . $_POST['enddate'] ."'' and a.sourceid=b.mediaid and a.adname=b.adname group by b.proxy";
+            $sql = "select b.proxy,sum(a.effect) pre_effect,count(a.orderid) c_order from cmf_tbkqq_taoke_details a,cmf_tbkqq_taoke_media b where a.ctime>= '" . $_POST['startdate'] . "' and a.ctime< '" . $_POST['enddate'] ."' and a.sourceid=b.mediaid and a.adname=b.adname group by b.proxy";
         }
         else {
             $startdate = date('Y-m-01');

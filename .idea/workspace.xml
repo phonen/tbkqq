@@ -41,10 +41,10 @@
             <state relative-caret-position="756">
               <caret line="94" column="225" lean-forward="false" selection-start-line="94" selection-start-column="225" selection-end-line="94" selection-end-column="225" />
               <folding>
-                <marker date="1506667565692" expanded="true" signature="4105:4375" ph="select b.pro... cmf_tbkqq_taoke_details" />
-                <marker date="1506667565692" expanded="true" signature="4464:4684" ph="select b.pro... cmf_tbkqq_taoke_details" />
-                <marker date="1506667565692" expanded="true" signature="7411:7662" ph="select b.pro... cmf_tbkqq_taoke_details" />
-                <marker date="1506667565692" expanded="true" signature="7795:8015" ph="select b.pro... cmf_tbkqq_taoke_details" />
+                <marker date="1506667740795" expanded="true" signature="4105:4374" ph="select b.pro... cmf_tbkqq_taoke_details" />
+                <marker date="1506667740795" expanded="true" signature="4463:4683" ph="select b.pro... cmf_tbkqq_taoke_details" />
+                <marker date="1506667740795" expanded="true" signature="7410:7661" ph="select b.pro... cmf_tbkqq_taoke_details" />
+                <marker date="1506667740795" expanded="true" signature="7794:8014" ph="select b.pro... cmf_tbkqq_taoke_details" />
               </folding>
             </state>
           </provider>
@@ -559,7 +559,7 @@
       <workItem from="1506239410644" duration="1107000" />
       <workItem from="1506327055282" duration="666000" />
       <workItem from="1506471834352" duration="660000" />
-      <workItem from="1506613507744" duration="1032000" />
+      <workItem from="1506613507744" duration="1207000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1498638530370</created>
@@ -764,11 +764,18 @@
       <option name="project" value="LOCAL" />
       <updated>1506327216871</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="1">
+      <created>1506667579716</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1506667579716</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="34788000" />
+    <option name="totallyTimeSpent" value="34963000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2182" height="1416" extended-state="6" />
@@ -1175,10 +1182,10 @@
         <state relative-caret-position="756">
           <caret line="94" column="225" lean-forward="false" selection-start-line="94" selection-start-column="225" selection-end-line="94" selection-end-column="225" />
           <folding>
-            <marker date="1506667565692" expanded="true" signature="4105:4375" ph="select b.pro... cmf_tbkqq_taoke_details" />
-            <marker date="1506667565692" expanded="true" signature="4464:4684" ph="select b.pro... cmf_tbkqq_taoke_details" />
-            <marker date="1506667565692" expanded="true" signature="7411:7662" ph="select b.pro... cmf_tbkqq_taoke_details" />
-            <marker date="1506667565692" expanded="true" signature="7795:8015" ph="select b.pro... cmf_tbkqq_taoke_details" />
+            <marker date="1506667740795" expanded="true" signature="4105:4374" ph="select b.pro... cmf_tbkqq_taoke_details" />
+            <marker date="1506667740795" expanded="true" signature="4463:4683" ph="select b.pro... cmf_tbkqq_taoke_details" />
+            <marker date="1506667740795" expanded="true" signature="7410:7661" ph="select b.pro... cmf_tbkqq_taoke_details" />
+            <marker date="1506667740795" expanded="true" signature="7794:8014" ph="select b.pro... cmf_tbkqq_taoke_details" />
           </folding>
         </state>
       </provider>
