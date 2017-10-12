@@ -1491,6 +1491,24 @@ class WxAiController extends HomebaseController {
         }
     }
 
+    public function test_temai_by_key_proxy(){
+        $pid = "mm_49479257_13814911_56052501";
+           $key = "衣服";
+            $url = "https://temai.m.taobao.com/search.htm?q=" .urlencode(trim($key)) . "&pid={$pid}";
+            $token_data = array();
+            $token_data['logo'] = "";
+            $token_data['text'] = $key;
+            $token_data['url'] = $url;
+            $taotoken = get_taotoken($token_data);
+
+            if ($taotoken == '') $taotoken = get_taotoken($token_data);
+            if ($taotoken == '') $taotoken = get_taotoken($token_data);
+            if ($taotoken == '') $taotoken = get_taotoken($token_data);
+            echo "为你找到跟" . $key . "相关的产品，详情请复制淘口令:{$taotoken}。";
+
+
+    }
+
     public function search_temai_by_key_openid(){
         if(IS_POST) {
 
