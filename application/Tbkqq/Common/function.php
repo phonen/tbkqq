@@ -463,7 +463,7 @@ function get_taotoken($data){
     $tpwd_param->user_id="24234234234";
     $req->setTpwdParam(json_encode($tpwd_param));
     $resp = $c->execute($req);
-    print_r($resp);
+//    print_r($resp);
     return $resp->model;
 }
 

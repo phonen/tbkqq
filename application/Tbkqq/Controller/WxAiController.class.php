@@ -1477,6 +1477,8 @@ class WxAiController extends HomebaseController {
                 else $pid = "mm_49479257_13814911_56052501";
             }
             $url = "https://temai.m.taobao.com/search.htm?q=" .urlencode(trim($key)) . "&pid={$pid}";
+
+
             $token_data = array();
             $token_data['logo'] = "";
             $token_data['text'] = $key;
@@ -1486,7 +1488,11 @@ class WxAiController extends HomebaseController {
             if ($taotoken == '') $taotoken = get_taotoken($token_data);
             if ($taotoken == '') $taotoken = get_taotoken($token_data);
             if ($taotoken == '') $taotoken = get_taotoken($token_data);
+
+
             echo "为你找到跟" . $key . "相关的产品，详情请复制淘口令:{$taotoken}。";
+
+
 
         }
     }
