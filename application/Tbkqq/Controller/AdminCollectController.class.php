@@ -572,7 +572,7 @@ if($str == "") exit();
 
     public function detail_autoload_post(){
         set_time_limit(0);
-        $startdate = date("Y-m-d",time()-4*86400);
+        $startdate = date("Y-m-d",time()-2*86400);
         $enddate =date("Y-m-d");
         $where = "ctime>='" . $startdate . "'";
         $filename_arr = array();
