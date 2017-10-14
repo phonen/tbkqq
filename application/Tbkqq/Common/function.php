@@ -463,7 +463,7 @@ function get_taotoken($data){
     $req->setExt("{\"xx\":\"xx\"}");
     $resp = $c->execute($req);
 
-    return $resp->model;
+    return $resp->data->model;
 }
 
 function get_taotoken_all($data){
@@ -489,7 +489,7 @@ function get_taotoken_all($data){
 
 
     print_r($resp);
-    return $resp->model;
+    return $resp->data->model;
 }
 
 function get_item_info($iid){
