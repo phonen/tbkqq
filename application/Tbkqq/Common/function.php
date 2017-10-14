@@ -479,15 +479,16 @@ function get_taotoken_all($data){
     $c->appkey = $token[$key]['TOKEN_APPKEY'];
     $c->secretKey = $token[$key]['TOKEN_SECRETKEY'];
     $c->format = 'json';
-    $req = new WirelessShareTpwdCreateRequest;
-    $tpwd_param = new IsvTpwdInfo;
-    $tpwd_param->ext="{\"xx\":\"xx\"}";
-    $tpwd_param->logo=$data['logo'];
-    $tpwd_param->text=$data['text'];
-    $tpwd_param->url=$data['url'];
-    $tpwd_param->user_id="24234234234";
-    $req->setTpwdParam(json_encode($tpwd_param));
+
+    $req = new TbkTpwdCreateRequest;
+    $req->setUserId("24234234234");
+    $req->setText($data['text']);
+    $req->setUrl($data['url']);
+    $req->setLogo($data['logo']);
+    $req->setExt("{\"xx\":\"xx\"}");
     $resp = $c->execute($req);
+
+   
     print_r($resp);
     return $resp->model;
 }
