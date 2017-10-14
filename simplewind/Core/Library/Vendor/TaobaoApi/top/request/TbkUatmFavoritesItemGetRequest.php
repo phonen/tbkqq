@@ -3,7 +3,7 @@
  * TOP API: taobao.tbk.uatm.favorites.item.get request
  * 
  * @author auto create
- * @since 1.0, 2016.04.29
+ * @since 1.0, 2017.07.26
  */
 class TbkUatmFavoritesItemGetRequest
 {

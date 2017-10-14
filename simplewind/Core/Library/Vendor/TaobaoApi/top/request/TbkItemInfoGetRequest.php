@@ -3,7 +3,7 @@
  * TOP API: taobao.tbk.item.info.get request
  * 
  * @author auto create
- * @since 1.0, 2016.01.05
+ * @since 1.0, 2017.09.05
  */
 class TbkItemInfoGetRequest
 {

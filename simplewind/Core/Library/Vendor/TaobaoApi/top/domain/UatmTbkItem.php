@@ -8,19 +8,57 @@ class UatmTbkItem
 {
 	
 	/** 
+	 * 后台一级类目
+	 **/
+	public $category;
+	
+	/** 
 	 * 淘客地址
 	 **/
 	public $click_url;
 	
 	/** 
-	 * 招行活动的结束时间；
-如果该宝贝取自普通的选品组，则取值为1970-01-01 00:00:00
+	 * 佣金比率(%)
+	 **/
+	public $commission_rate;
+	
+	/** 
+	 * 商品优惠券推广链接
+	 **/
+	public $coupon_click_url;
+	
+	/** 
+	 * 优惠券结束时间
+	 **/
+	public $coupon_end_time;
+	
+	/** 
+	 * 优惠券面额
+	 **/
+	public $coupon_info;
+	
+	/** 
+	 * 优惠券剩余量
+	 **/
+	public $coupon_remain_count;
+	
+	/** 
+	 * 优惠券开始时间
+	 **/
+	public $coupon_start_time;
+	
+	/** 
+	 * 优惠券总量
+	 **/
+	public $coupon_total_count;
+	
+	/** 
+	 * 招行活动的结束时间；如果该宝贝取自普通的选品组，则取值为1970-01-01 00:00:00
 	 **/
 	public $event_end_time;
 	
 	/** 
-	 * 招商活动开始时间；
-如果该宝贝取自普通选品组，则取值为1970-01-01 00:00:00；
+	 * 招商活动开始时间；如果该宝贝取自普通选品组，则取值为1970-01-01 00:00:00；
 	 **/
 	public $event_start_time;
 	
@@ -85,7 +123,7 @@ class UatmTbkItem
 	public $tk_rate;
 	
 	/** 
-	 * 宝贝类型，1 普通商品 2 鹊桥高佣金商品，3 定向招商商品
+	 * 宝贝类型：1 普通商品； 2 鹊桥高佣金商品；3 定向招商商品；4 营销计划商品;
 	 **/
 	public $type;
 	

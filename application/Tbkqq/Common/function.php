@@ -488,7 +488,7 @@ function get_taotoken_all($data){
     $req->setExt("{\"xx\":\"xx\"}");
     $resp = $c->execute($req);
 
-   
+
     print_r($resp);
     return $resp->model;
 }
