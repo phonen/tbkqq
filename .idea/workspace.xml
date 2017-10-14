@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="5a052809-71a3-47ea-a90a-676d99c51add" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Tbkqq/Common/function.php" afterPath="$PROJECT_DIR$/application/Tbkqq/Common/function.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php" afterPath="$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,17 +25,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AdminCollectController.class.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AdminCollectController.class.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12289">
-              <caret line="987" column="28" lean-forward="false" selection-start-line="987" selection-start-column="21" selection-end-line="987" selection-end-column="28" />
+            <state relative-caret-position="85">
+              <caret line="574" column="42" lean-forward="false" selection-start-line="574" selection-start-column="42" selection-end-line="574" selection-end-column="42" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="function.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="function.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/Tbkqq/Common/function.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="312">
@@ -66,7 +66,6 @@
       <list>
         <option value="$PROJECT_DIR$/application/Tbkqq/Controller/AdminProxyController.class.php" />
         <option value="$PROJECT_DIR$/application/Tbkqq/Controller/QingController.class.php" />
-        <option value="$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php" />
         <option value="$PROJECT_DIR$/application/Portal/Controller/MpController.class.php" />
         <option value="$PROJECT_DIR$/themes/simplebootx/Tbkqq/list_mobile.html" />
         <option value="$PROJECT_DIR$/application/Tbkqq/Controller/MpController.class.php" />
@@ -76,6 +75,7 @@
         <option value="$PROJECT_DIR$/application/Tbkqq/Controller/AdminReportController.class.php" />
         <option value="$PROJECT_DIR$/application/Tbkqq/Controller/WxAiController.class.php" />
         <option value="$PROJECT_DIR$/application/Tbkqq/Common/function.php" />
+        <option value="$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php" />
       </list>
     </option>
   </component>
@@ -708,7 +708,7 @@
       <workItem from="1506908002597" duration="84000" />
       <workItem from="1507770216925" duration="1948000" />
       <workItem from="1507810796790" duration="3951000" />
-      <workItem from="1507949858932" duration="4383000" />
+      <workItem from="1507949858932" duration="6262000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1498638530370</created>
@@ -983,11 +983,18 @@
       <option name="project" value="LOCAL" />
       <updated>1507964980876</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="1">
+      <created>1507965196463</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1507965196463</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47066000" />
+    <option name="totallyTimeSpent" value="48945000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="2182" height="1416" extended-state="6" />
@@ -1377,14 +1384,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12289">
-          <caret line="987" column="28" lean-forward="false" selection-start-line="987" selection-start-column="21" selection-end-line="987" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/Portal/Common/function.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -1405,6 +1404,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
           <caret line="465" column="24" lean-forward="false" selection-start-line="465" selection-start-column="24" selection-end-line="465" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/Tbkqq/Controller/AdminCollectController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="574" column="42" lean-forward="false" selection-start-line="574" selection-start-column="42" selection-end-line="574" selection-end-column="42" />
           <folding />
         </state>
       </provider>
