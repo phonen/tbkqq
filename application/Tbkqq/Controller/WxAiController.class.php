@@ -1481,7 +1481,7 @@ class WxAiController extends HomebaseController {
 
             $token_data = array();
             $token_data['logo'] = "";
-            $token_data['text'] = $key;
+            $token_data['text'] = "要找的宝贝：" .$key;
             $token_data['url'] = $url;
             $taotoken = get_taotoken($token_data);
 
