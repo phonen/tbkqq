@@ -1507,9 +1507,8 @@ class WxAiController extends HomebaseController {
             $token_data['url'] = $url;
             $taotoken = get_taotoken($token_data);
 
-            if ($taotoken == '') $taotoken = get_taotoken($token_data);
-            if ($taotoken == '') $taotoken = get_taotoken($token_data);
-            if ($taotoken == '') $taotoken = get_taotoken($token_data);
+            if ($taotoken == '') $taotoken = get_taotoken_all($token_data);
+            
             echo "为你找到跟" . $key . "相关的产品，详情请复制淘口令:{$taotoken}。";
 
 

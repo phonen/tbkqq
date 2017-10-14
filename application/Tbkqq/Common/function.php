@@ -467,6 +467,31 @@ function get_taotoken($data){
     return $resp->model;
 }
 
+function get_taotoken_all($data){
+
+    Vendor('TaobaoApi.TopSdk');
+    date_default_timezone_set('Asia/Shanghai');
+    $c = new TopClient;
+    $token = C('TOKEN');
+    $key = array_rand($token);
+    //$c->appkey = C('TOKEN_APPKEY');
+    //$c->secretKey = C('TOKEN_SECRETKEY');
+    $c->appkey = $token[$key]['TOKEN_APPKEY'];
+    $c->secretKey = $token[$key]['TOKEN_SECRETKEY'];
+    $c->format = 'json';
+    $req = new WirelessShareTpwdCreateRequest;
+    $tpwd_param = new IsvTpwdInfo;
+    $tpwd_param->ext="{\"xx\":\"xx\"}";
+    $tpwd_param->logo=$data['logo'];
+    $tpwd_param->text=$data['text'];
+    $tpwd_param->url=$data['url'];
+    $tpwd_param->user_id="24234234234";
+    $req->setTpwdParam(json_encode($tpwd_param));
+    $resp = $c->execute($req);
+    print_r($resp);
+    return $resp->model;
+}
+
 function get_item_info($iid){
     Vendor('TaobaoApi.TopSdk');
     date_default_timezone_set('Asia/Shanghai');
