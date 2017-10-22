@@ -1389,6 +1389,7 @@ class WxAiController extends HomebaseController {
                                         $taotoken = get_taotoken($ldata);
                                         $quan_str = "券被抢光，请在购买时留意领券！";
                                         echo "【" . $title . "】". $yongjin . " 淘口令：" . $taotoken . $quan_str;
+                                        \Think\Log::write("【" . $title . "】". $yongjin . " 淘口令：" . $taotoken . $quan_str, 'WARN');
                                     } else {
                                         echo "【" . $title . "】" . $yongjin . "下单链接：" . $link . " 淘口令：" . $taotoken . $quan_str;
                                     }
