@@ -196,7 +196,7 @@ class PageController extends HomebaseController{
 			$proxys = M("TbkqqProxyQqgrp")->where(array("sendqq" => $qq, "qqstatus" => 1))->select();
 			if ($proxys) {
 				foreach ($proxys as $proxy) {
-					$json_url .= "www.taotehui.co" . "|" . $proxy['qqgroup'] . ",";
+					$json_url .= "www.taotehui.com.cn" . "|" . $proxy['qqgroup'] . ",";
 				}
 			}
 		}
@@ -490,7 +490,7 @@ class PageController extends HomebaseController{
 			if ($proxys) {
 				foreach ($proxys as $proxy) {
 
-					$json_arr[] = array("qqgrp"=>$proxy['qqgroup'],"site"=>"www.taotehui.co");
+					$json_arr[] = array("qqgrp"=>$proxy['qqgroup'],"site"=>"www.taotehui.com.cn");
 				}
 			}
 		}
@@ -526,7 +526,7 @@ class PageController extends HomebaseController{
 					$proxys = M("TbkqqProxyQqgrp")->where(array("sendqq" => $send, "qqstatus" => 1))->select();
 					if ($proxys) {
 						foreach ($proxys as $proxy) {
-							$proxy_arr[] = array("qqgrp"=>$proxy['qqgroup'],"site"=>"www.taotehui.co");
+							$proxy_arr[] = array("qqgrp"=>$proxy['qqgroup'],"site"=>"www.taotehui.com.cn");
 						}
 					}
 				}
@@ -620,7 +620,7 @@ class PageController extends HomebaseController{
 									$proxyid = "taotehui001";
 									if($proxyid == '001') $www = 'www';
 									else $www = $proxyid;
-									$www = "www.taotehui.co";
+									$www = "www.taotehui.com.cn";
 									$mm3 = "\n-------------------
 省钱网站：http://" . $www;
 									$mm4 = "推荐编码：" . create_password(6);
@@ -690,7 +690,7 @@ class PageController extends HomebaseController{
 										$proxyid = "taotehui001";
 										if($proxyid == '001') $www = 'www';
 										else $www = $proxyid;
-										$www = "www.taotehui.co";
+										$www = "www.taotehui.com.cn";
 										$mm3 = "\n-------------------
 省钱网站：http://" . $www;
 										$mm4 = "推荐编码：" . create_password(6);
@@ -906,7 +906,7 @@ class PageController extends HomebaseController{
 							$proxyid = "taotehui001";
 							if($proxyid == '001') $www = 'www';
 							else $www = $proxyid;
-							$www = "www.taotehui.co";
+							$www = "www.taotehui.com.cn";
 							$mm3 = "\n-------------------
 省钱网站：http://" . $www;
 							$mm4 = "推荐编码：" . create_password(6);
@@ -973,7 +973,7 @@ class PageController extends HomebaseController{
 								$proxyid = "taotehui001";
 								if($proxyid == '001') $www = 'www';
 								else $www = $proxyid;
-								$www = "www.taotehui.co";
+								$www = "www.taotehui.com.cn";
 								$mm3 = "\n-------------------
 省钱网站：http://" . $www;
 								$mm4 = "推荐编码：" . create_password(6);

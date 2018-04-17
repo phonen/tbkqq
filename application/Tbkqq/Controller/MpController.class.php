@@ -13,7 +13,7 @@ class MpController extends HomebaseController{
 	    $openid = $_GET['openid'];
 		$proxy = M("TbkqqProxy")->where(array("openid"=>$openid))->find();
         if($proxy){
-            header("Location: http://cms.taotehui.co/index.php?r=index/wap&pid=" . $proxy['pid']);
+            header("Location: http://cms.taotehui.com.cn/index.php?r=index/wap&pid=" . $proxy['pid']);
         }
         else echo "openid:" . $openid;
 	}

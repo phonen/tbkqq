@@ -224,7 +224,7 @@ class WxAiController extends HomebaseController {
                                     }
 
                                     if($activityId == ""){
-                                        $quan_api = "http://taotehui.co/?g=Tbkqq&m=Page&a=find_quan&iid=$iid";
+                                        $quan_api = "http://taotehui.com.cn/?g=Tbkqq&m=Page&a=find_quan&iid=$iid";
                                         $activityId = file_get_contents($quan_api);
 
                                         if($activityId == ""){
@@ -1773,7 +1773,7 @@ class WxAiController extends HomebaseController {
 
 
 
-                                $quan_api = "http://taotehui.co/?g=Tbkqq&m=Page&a=find_quan&iid=$iid";
+                                $quan_api = "http://taotehui.com.cn/?g=Tbkqq&m=Page&a=find_quan&iid=$iid";
                                 $activityId = file_get_contents($quan_api);
 
                                 if($activityId == ""){
@@ -2021,7 +2021,7 @@ class WxAiController extends HomebaseController {
 
 
 
-                                $quan_api = "http://taotehui.co/?g=Tbkqq&m=Page&a=find_quan&iid=$iid";
+                                $quan_api = "http://taotehui.com.cn/?g=Tbkqq&m=Page&a=find_quan&iid=$iid";
                                 $activityId = file_get_contents($quan_api);
 
                                 if($activityId == ""){
