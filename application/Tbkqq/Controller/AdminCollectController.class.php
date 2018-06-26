@@ -815,31 +815,31 @@ if($str == "") exit();
 					case 'S':
 						$data['yongjin']=$cell;
 						break;
-					case 'T':
+					case 'U':
 						$data['btrate']=$cell;
 						break;
-					case 'U':
+					case 'V':
 						$data['butie']=$cell;
 						break;
-					case 'V':
+					case 'W':
 						$data['bttype']=$cell;
 						break;
-					case 'W':
+					case 'Y':
 						$data['third']=$cell;
 						break;
 					case 'X':
 						$data['pingtai']=$cell;
 						break;
-					case 'Y':
+					case 'Z':
 						$data['orderid']=$cell;
 						break;
-					case 'Z':
+					case 'AA':
 						$data['class']=$cell;
 						break;
-					case 'AA':
+					case 'AB':
 						$data['sourceid']=$cell;
 						break;
-					case 'AD':
+					case 'AE':
 						$data['adname']=$cell;
 						break;
 				}
